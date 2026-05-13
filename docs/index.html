@@ -3,26 +3,49 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Turnkey Services — One system. One promise.</title>
-  <meta name="description" content="The holding company behind Turnkey CFO, Turnkey WEB, and Turnkey AI. One operating system for the small businesses doing the work." />
-  <meta property="og:title" content="Turnkey Services — One system. One promise." />
-  <meta property="og:description" content="The holding company behind Turnkey CFO, Turnkey WEB, and Turnkey AI." />
+  <title>Turnkey Services — One system. Every solution.</title>
+  <meta name="description" content="Turnkey Services is a modern services firm delivering financial operations, websites, and AI automation to small businesses." />
+  <meta property="og:title" content="Turnkey Services — One system. Every solution." />
+  <meta property="og:description" content="Modern services firm. Financial operations, websites, and AI automation." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=3" />
+  <link rel="stylesheet" href="styles.css?v=4" />
 </head>
 <body>
 <div class="grain" aria-hidden="true"></div>
 
+<!-- Reusable TK monogram SVG (inline so it inherits color + scales) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="silverGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#F4F1E8"/>
+      <stop offset="30%"  stop-color="#C9C3B4"/>
+      <stop offset="60%"  stop-color="#7A766D"/>
+      <stop offset="100%" stop-color="#B5AFA2"/>
+    </linearGradient>
+    <symbol id="tk-mark" viewBox="0 0 200 130">
+      <rect x="10" y="6"  width="76"  height="14"  fill="#FFFFFF"/>
+      <rect x="41" y="6"  width="14"  height="118" fill="#FFFFFF"/>
+      <rect x="92" y="6"  width="14"  height="118" fill="#FFFFFF"/>
+      <polygon points="106,64 106,42 175,6   192,6   192,18"  fill="url(#silverGrad)"/>
+      <polygon points="106,66 106,86 175,124 192,124 192,112" fill="#FFFFFF"/>
+    </symbol>
+  </defs>
+</svg>
+
 <nav class="nav">
   <a class="brand" href="index.html" aria-label="Turnkey Services — home">
-    <img src="assets/tk-services-logo-dark.png" alt="Turnkey Services" class="brand-logo" />
+    <svg class="brand-mark" viewBox="0 0 200 130"><use href="#tk-mark"/></svg>
+    <span class="brand-text">
+      <span class="t1">TURNKEY</span>
+      <span class="t2">— Services —</span>
+    </span>
   </a>
   <ul class="nav-links">
     <li><a href="index.html" class="active">Home</a></li>
     <li><a href="about.html">About</a></li>
-    <li><a href="family.html">The Family</a></li>
+    <li><a href="services.html">Services</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
   <a class="nav-cta" href="contact.html"><span class="pulse"></span>Talk to Turnkey</a>
@@ -32,178 +55,274 @@
 <section class="hero">
   <div class="wrap">
     <div class="hero-top">
-      <div class="section-meta fade"><span class="meta-dot"></span>001 · Holding Company</div>
-      <div class="hero-top-meta fade d1">
+      <div class="kicker fade">Turnkey Services · Austin, Texas</div>
+      <div class="hero-meta-right fade d1">
+        <span>Modern Services Firm</span>
         <span>Est. 2024</span>
-        <span>Austin, Texas</span>
-        <span>Privately Held</span>
+        <span>U.S. delivery</span>
       </div>
     </div>
 
-    <h1 class="fade d2">
+    <div class="hero-mark fade d2" aria-hidden="true">
+      <svg viewBox="0 0 200 130"><use href="#tk-mark"/></svg>
+    </div>
+
+    <h1 class="fade d3">
       One <span class="italic">system.</span><br>
-      One <span class="silver">promise.</span>
+      Every <span class="silver-text">solution.</span>
     </h1>
 
-    <div class="hero-bottom">
-      <p class="hero-lede fade d3">
-        Turnkey Services is the operating parent behind <strong>Turnkey CFO</strong>, <strong>Turnkey WEB</strong>, and <strong>Turnkey AI</strong> — three brands that take the recurring, error-prone work small businesses can't afford to mess up, and put it on rails.
-      </p>
-      <div class="hero-stats fade d4">
-        <div class="stat-line"><span>Brands</span><span class="num">3</span></div>
-        <div class="stat-line"><span>Founder</span><span class="num">1</span></div>
-        <div class="stat-line"><span>U.S. Delivery</span><span class="num">100%</span></div>
-      </div>
-      <a href="#who" class="scroll-cta fade d5" aria-label="Scroll to story">
-        <span>Scroll</span>
-        <svg viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L6 6.5L11 1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <p class="hero-lede fade d4">
+      Turnkey Services is a modern services firm. We deliver <strong>financial operations</strong>, <strong>websites</strong>, and <strong>AI automation</strong> to small businesses that need their back office to actually run — on a calendar, not a hope.
+    </p>
+
+    <div class="hero-cta-row fade d5">
+      <a class="btn btn-primary" href="contact.html">
+        Start with a 15-min call
+        <svg class="arrow" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
+      <a class="btn btn-ghost" href="services.html">
+        See our services
+        <svg class="arrow" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+
+    <div class="hero-meta-strip fade d6">
+      <span class="pin">Integrated</span>
+      <span class="pin">Strategy</span>
+      <span class="pin">Automation</span>
+      <span class="pin">Analytics</span>
+      <span class="pin">Secure</span>
+      <span class="pin">Growth</span>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════ MARQUEE RIBBON ═══════════════════ -->
+<!-- ═══════════════════ MARQUEE ═══════════════════ -->
 <section class="ribbon-section" aria-hidden="true">
   <div class="marquee">
-    <span class="glyph">CFO <i class="dot"></i> WEB <i class="dot"></i> AI <i class="dot"></i> One <em>system.</em> One promise. <i class="dot"></i></span>
-    <span class="glyph">CFO <i class="dot"></i> WEB <i class="dot"></i> AI <i class="dot"></i> One <em>system.</em> One promise. <i class="dot"></i></span>
+    <span class="glyph">Financial <i class="dot"></i> Web <i class="dot"></i> AI <i class="dot"></i> One <em>system.</em> Every solution. <i class="dot"></i></span>
+    <span class="glyph">Financial <i class="dot"></i> Web <i class="dot"></i> AI <i class="dot"></i> One <em>system.</em> Every solution. <i class="dot"></i></span>
   </div>
 </section>
 
-<!-- ═══════════════════ WHO WE ARE ═══════════════════ -->
-<section class="who section" id="who">
+<!-- ═══════════════════ CAPABILITIES — 6 PILLARS ═══════════════════ -->
+<section class="section capabilities" id="capabilities">
   <div class="wrap">
-    <div class="who-grid">
-      <div class="who-label">
-        <div class="section-meta fade"><span class="meta-dot"></span>002 · Who we are</div>
-        <h2 class="fade d1">
-          A holding company<br>
-          for the work that<br>
-          <em>actually has to ship.</em>
-        </h2>
-      </div>
-      <div class="who-body fade d2">
-        <p>We don't sell software. We don't sell hours. We sell the outcome: <strong>books that close on time, a site that earns calls, and an operating layer that does the boring work in the background.</strong></p>
-        <p>Every brand under Turnkey ships against the same disciplines — clear scope, fixed cadence, transparent pricing, and an audit trail you can point at when the books are open. One founder is accountable for every engagement. No middle layer. No "let me check with the team."</p>
-        <p>The brands are priced as standalones, but they compound. CFO closes your month. WEB turns the inquiries into calls. AI runs the work between them.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════ THE BRANDS ═══════════════════ -->
-<section class="brands section">
-  <div class="wrap">
-    <div class="brands-header">
+    <div class="cap-head">
       <div>
-        <div class="section-meta fade"><span class="meta-dot"></span>003 · The Family</div>
-        <h2 class="fade d1">Three brands.<br>One <em>spine.</em></h2>
+        <div class="kicker fade">01 · Capabilities</div>
+        <h2 class="fade d1">Six pillars.<br>One <em>operating standard.</em></h2>
       </div>
-      <div class="brands-meta fade d2">
-        Three operating surfaces<br>
-        One operator on the hook
-      </div>
+      <p class="cap-lede fade d2">
+        Every engagement at Turnkey Services runs against the same six disciplines. They're how we keep the work consistent — and how the services we offer integrate cleanly when you take more than one.
+      </p>
     </div>
 
-    <article class="brand-row fade" data-brand="cfo">
-      <div class="br-num">— 01</div>
-      <div class="br-id">
-        <div class="br-chip"><span class="swatch"></span>Flagship · Operating</div>
-        <div class="br-name">Turnkey CFO<span class="sub">Financial clarity · Confident growth</span></div>
-      </div>
-      <div class="br-body">
-        <p>Monthly close, payroll, AP/AR, 1099s, board-ready reporting. The work most small businesses can't afford to mess up — run on a calendar, not a hope.</p>
-        <div class="br-services">
-          <span>Bookkeeping</span><span>Payroll · 1099</span><span>AP / AR</span><span>Reporting</span><span>Bill pay</span>
+    <div class="cap-grid">
+      <div class="cap-tile fade">
+        <div class="ic">
+          <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 6 L36 14 L22 22 L8 14 Z"/>
+            <path d="M8 22 L22 30 L36 22"/>
+            <path d="M8 30 L22 38 L36 30"/>
+          </svg>
         </div>
+        <div class="num">— 01</div>
+        <h3>Integrated</h3>
+        <p>Books, site, and automation all see the same data. No swivel-chair workflow, no copy-paste between tools you already pay for.</p>
       </div>
-      <a class="br-visit" href="https://turnkeycfo.com" target="_blank" rel="noopener" aria-label="Visit Turnkey CFO">
-        <svg viewBox="0 0 16 16" fill="none"><path d="M5 11L11 5M11 5H5M11 5V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-    </article>
 
-    <article class="brand-row fade d1" data-brand="web">
-      <div class="br-num">— 02</div>
-      <div class="br-id">
-        <div class="br-chip"><span class="swatch"></span>Operating · Growing</div>
-        <div class="br-name">Turnkey WEB<span class="sub">Modern websites · More traffic · More customers</span></div>
-      </div>
-      <div class="br-body">
-        <p>$250 to launch. $150–$500/mo to grow. Unlimited pages and unlimited updates on a single predictable line item — sites that earn the call instead of decorating it.</p>
-        <div class="br-services">
-          <span>Business websites</span><span>Landing pages</span><span>Site care</span><span>Heatmaps</span><span>Reports</span>
+      <div class="cap-tile fade d1">
+        <div class="ic">
+          <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="22" cy="22" r="14"/>
+            <circle cx="22" cy="22" r="8"/>
+            <circle cx="22" cy="22" r="2" fill="currentColor"/>
+            <path d="M22 4 L22 10 M22 34 L22 40 M4 22 L10 22 M34 22 L40 22"/>
+          </svg>
         </div>
+        <div class="num">— 02</div>
+        <h3>Strategy</h3>
+        <p>We size the problem before we build for it. Diagnose first — then scope the engagement to the friction that actually matters.</p>
       </div>
-      <a class="br-visit" href="https://turnkeyweb.org" target="_blank" rel="noopener" aria-label="Visit Turnkey WEB">
-        <svg viewBox="0 0 16 16" fill="none"><path d="M5 11L11 5M11 5H5M11 5V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-    </article>
 
-    <article class="brand-row fade d2" data-brand="ai">
-      <div class="br-num">— 03</div>
-      <div class="br-id">
-        <div class="br-chip"><span class="swatch"></span>New · Launching 2026</div>
-        <div class="br-name">Turnkey AI<span class="sub">Intelligence · Automated · Impact</span></div>
-      </div>
-      <div class="br-body">
-        <p>The operating layer behind the other two. Agents that close uncategorized transactions, chase missing receipts, follow up on quotes, and ship the weekly report — wired into the tools you already pay for.</p>
-        <div class="br-services">
-          <span>Bookkeeping agents</span><span>CRM agents</span><span>Reports</span><span>Workflow automation</span>
+      <div class="cap-tile fade d2">
+        <div class="ic">
+          <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="22" cy="22" r="6"/>
+            <path d="M22 4 L22 10 M22 34 L22 40 M4 22 L10 22 M34 22 L40 22 M9.5 9.5 L13.5 13.5 M30.5 30.5 L34.5 34.5 M9.5 34.5 L13.5 30.5 M30.5 13.5 L34.5 9.5"/>
+          </svg>
         </div>
+        <div class="num">— 03</div>
+        <h3>Automation</h3>
+        <p>The repetitive, error-prone work runs without a human pushing a button. Recurring tasks happen on cadence, every time.</p>
       </div>
-      <a class="br-visit" href="contact.html" aria-label="Inquire about Turnkey AI">
-        <svg viewBox="0 0 16 16" fill="none"><path d="M5 11L11 5M11 5H5M11 5V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-    </article>
 
+      <div class="cap-tile fade d3">
+        <div class="ic">
+          <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 38 L6 6"/>
+            <path d="M6 38 L38 38"/>
+            <rect x="12" y="22" width="6"  height="14"/>
+            <rect x="22" y="14" width="6"  height="22"/>
+            <rect x="32" y="8"  width="6"  height="28"/>
+          </svg>
+        </div>
+        <div class="num">— 04</div>
+        <h3>Analytics</h3>
+        <p>Dashboards that show you what's actually happening — on a cadence you can trust. Reporting ships itself; you read the result.</p>
+      </div>
+
+      <div class="cap-tile fade d4">
+        <div class="ic">
+          <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 4 L36 10 L36 22 C36 30 30 36 22 40 C14 36 8 30 8 22 L8 10 Z"/>
+            <path d="M15 22 L20 27 L30 17"/>
+          </svg>
+        </div>
+        <div class="num">— 05</div>
+        <h3>Secure</h3>
+        <p>Source-of-truth ownership. Audit trails by default. U.S.-based delivery on anything that touches your books, brand, or customers.</p>
+      </div>
+
+      <div class="cap-tile fade d5">
+        <div class="ic">
+          <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 32 L18 18 L26 26 L40 12"/>
+            <path d="M30 12 L40 12 L40 22"/>
+          </svg>
+        </div>
+        <div class="num">— 06</div>
+        <h3>Growth</h3>
+        <p>Operating leverage. Less time on admin means more time on the work that actually grows the business — and a back office that scales with it.</p>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- ═══════════════════ THE SYSTEM ═══════════════════ -->
-<section class="system-sec section">
+<!-- ═══════════════════ SERVICES ═══════════════════ -->
+<section class="section services-sec" id="services">
   <div class="wrap">
-    <div class="system-head">
+    <div class="svc-head">
       <div>
-        <div class="section-meta fade"><span class="meta-dot"></span>004 · The System</div>
-        <h2 class="fade d1">Why three brands<br>share <em>one spine.</em></h2>
+        <div class="kicker fade">02 · Services</div>
+        <h2 class="fade d1">Three service tracks.<br>Built to <em>integrate.</em></h2>
       </div>
-      <p class="system-lede fade d2">Every brand under Turnkey runs the same operating disciplines. That's what makes "one founder accountable" tractable at three surfaces instead of one — and what makes the brands compound when you take them together.</p>
+      <div class="svc-tag fade d2">
+        Bookkeeping · Web · AI<br>
+        One firm. Six pillars. Three services.
+      </div>
     </div>
 
-    <div class="principles-grid">
-      <div class="principle-cell fade">
-        <div class="p-num">— 01</div>
-        <h3>Outcome over <em>output</em></h3>
-        <p>Books that close. Sites that earn calls. Agents that finish the work. The result is what we charge for — not the hours.</p>
+    <div class="svc-grid">
+      <article class="svc-tile fade" data-service="financial">
+        <div class="svc-num">— Service 01</div>
+        <div class="svc-name">Financial Operations<span class="label">Financial clarity · Confident growth</span></div>
+        <p class="svc-body">Bookkeeping, payroll, AP/AR, monthly close, board-ready reporting. The work your business can't afford to mess up — run on a calendar, not a hope.</p>
+        <div class="svc-list">
+          <span>Full-service bookkeeping</span>
+          <span>Payroll &amp; 1099 filings</span>
+          <span>AP / AR &amp; bill pay</span>
+          <span>Monthly close cadence</span>
+          <span>Reporting &amp; dashboards</span>
+        </div>
+        <div class="svc-footer">
+          <span class="visit-link">turnkeycfo.com</span>
+          <a class="arrow-circle" href="https://turnkeycfo.com" target="_blank" rel="noopener" aria-label="Visit Turnkey CFO">
+            <svg viewBox="0 0 16 16" fill="none"><path d="M5 11L11 5M11 5H5M11 5V11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="svc-tile fade d1" data-service="web">
+        <div class="svc-num">— Service 02</div>
+        <div class="svc-name">Web<span class="label">Modern websites · More traffic · More customers</span></div>
+        <p class="svc-body">$250 to launch. $150–$500/mo to grow. Unlimited pages and unlimited updates on a single predictable line item — sites that earn the call.</p>
+        <div class="svc-list">
+          <span>Business website builds</span>
+          <span>Landing-page sprints</span>
+          <span>Website refresh</span>
+          <span>Site care plans</span>
+          <span>Heatmaps &amp; monthly reports</span>
+        </div>
+        <div class="svc-footer">
+          <span class="visit-link">turnkeyweb.org</span>
+          <a class="arrow-circle" href="https://turnkeyweb.org" target="_blank" rel="noopener" aria-label="Visit Turnkey WEB">
+            <svg viewBox="0 0 16 16" fill="none"><path d="M5 11L11 5M11 5H5M11 5V11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="svc-tile fade d2" data-service="ai">
+        <div class="svc-num">— Service 03 · New</div>
+        <div class="svc-name">AI Automation<span class="label">Intelligence · Automated · Impact</span></div>
+        <p class="svc-body">Custom agents wired into the tools you already pay for. Closes uncategorized transactions, chases receipts, follows up on quotes, ships the weekly report.</p>
+        <div class="svc-list">
+          <span>Bookkeeping agents</span>
+          <span>CRM &amp; outreach agents</span>
+          <span>Reporting &amp; dashboards</span>
+          <span>Workflow automation</span>
+          <span>Custom internal tools</span>
+        </div>
+        <div class="svc-footer">
+          <span class="visit-link">Launching 2026</span>
+          <a class="arrow-circle" href="contact.html" aria-label="Inquire about AI Automation">
+            <svg viewBox="0 0 16 16" fill="none"><path d="M5 11L11 5M11 5H5M11 5V11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ PROCESS ═══════════════════ -->
+<section class="section process">
+  <div class="wrap">
+    <div class="process-head">
+      <div>
+        <div class="kicker fade">03 · How we work</div>
+        <h2 class="fade d1">Four steps.<br>Every <em>engagement.</em></h2>
       </div>
-      <div class="principle-cell fade d1">
-        <div class="p-num">— 02</div>
-        <h3>One founder <em>on the hook</em></h3>
-        <p>No account managers. No "let me check with the team." Every engagement runs through Ricky, every time.</p>
+      <p class="fade d2">A repeatable operating cadence — not a custom proposal every time. The same process keeps small projects small and big projects from sprawling.</p>
+    </div>
+
+    <div class="process-grid">
+      <div class="proc-step fade">
+        <div class="step-num">01</div>
+        <h3>Diagnose</h3>
+        <p>Where's the friction? What's actually breaking? We size the problem before we build for it.</p>
       </div>
-      <div class="principle-cell fade d2">
-        <div class="p-num">— 03</div>
-        <h3>Audit trail by <em>default</em></h3>
-        <p>Every action across CFO, WEB, and AI writes to a single source-of-truth discipline. Point at what happened, when, why.</p>
+      <div class="proc-step fade d1">
+        <div class="step-num">02</div>
+        <h3>Scope</h3>
+        <p>Tight scope, fixed cadence, transparent pricing. You know what's shipping and when.</p>
       </div>
-      <div class="principle-cell fade d3">
-        <div class="p-num">— 04</div>
-        <h3>Boring on <em>purpose</em></h3>
-        <p>What breaks small businesses isn't glamorous — it's the recurring, repetitive work. We run toward it and systemize it.</p>
+      <div class="proc-step fade d2">
+        <div class="step-num">03</div>
+        <h3>Ship</h3>
+        <p>Build to the discipline, deliver against the cadence. No mystery hours, no scope creep.</p>
+      </div>
+      <div class="proc-step fade d3">
+        <div class="step-num">04</div>
+        <h3>Operate</h3>
+        <p>Run the system every month. Surface the data. Adjust. The result is what we charge for.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ═══════════════════ MANIFESTO ═══════════════════ -->
-<section class="section manifesto">
+<section class="manifesto">
   <div class="manifesto-inner">
-    <blockquote class="fade">
-      The promise has never changed.<br>
-      Take the boring, recurring, error-prone work — and make it <em>turnkey.</em><br>
-      Books. Sites. Agents. <span class="silver">Same standard. Same person on the hook.</span>
+    <div class="manifesto-mark fade">
+      <svg viewBox="0 0 200 130"><use href="#tk-mark"/></svg>
+    </div>
+    <blockquote class="fade d1">
+      Small businesses don't need another vendor.<br>
+      They need a services firm that can actually <em>integrate the work</em> — <span class="silver-text">and a system that runs the same way every month.</span>
     </blockquote>
-    <cite class="fade d1">— Ricky West, Founder</cite>
+    <span class="source fade d2">— Turnkey Services</span>
   </div>
 </section>
 
@@ -211,15 +330,15 @@
 <section class="cta section">
   <div class="wrap">
     <div class="cta-inner">
-      <h2 class="fade">Ready to put the boring work <em>on rails?</em></h2>
+      <h2 class="fade">Ready to put the back-office work <em>on rails?</em></h2>
       <div class="cta-actions fade d1">
-        <a class="btn btn-primary" href="contact.html">
+        <a class="btn-block primary" href="contact.html">
           Start with a 15-min call
-          <svg class="arrow" width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg class="arrow" width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
-        <a class="btn btn-ghost" href="family.html">
-          See the three brands
-          <svg class="arrow" width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <a class="btn-block ghost" href="services.html">
+          See the three services
+          <svg class="arrow" width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
       </div>
     </div>
@@ -232,20 +351,24 @@
     <div class="footer-top">
       <div class="footer-brand">
         <a class="brand" href="index.html" aria-label="Turnkey Services — home">
-          <img src="assets/tk-services-logo-dark.png" alt="Turnkey Services" class="brand-logo" style="filter:invert(1) brightness(1.06);height:52px;" />
+          <svg class="brand-mark" viewBox="0 0 200 130" style="width:48px;"><use href="#tk-mark"/></svg>
+          <span class="brand-text">
+            <span class="t1">TURNKEY</span>
+            <span class="t2">— Services —</span>
+          </span>
         </a>
-        <p>The holding company behind Turnkey CFO, Turnkey WEB, and Turnkey AI. Austin, Texas — built for the small businesses actually doing the work.</p>
+        <p>A modern services firm headquartered in Austin, Texas. Financial operations, websites, and AI automation — built for the small businesses actually doing the work.</p>
       </div>
       <div class="footer-col">
-        <h4>Brands</h4>
-        <a href="https://turnkeycfo.com" target="_blank" rel="noopener">Turnkey CFO ↗</a>
-        <a href="https://turnkeyweb.org" target="_blank" rel="noopener">Turnkey WEB ↗</a>
-        <a href="contact.html">Turnkey AI</a>
+        <h4>Services</h4>
+        <a href="https://turnkeycfo.com" target="_blank" rel="noopener">Financial Operations ↗</a>
+        <a href="https://turnkeyweb.org" target="_blank" rel="noopener">Web ↗</a>
+        <a href="contact.html">AI Automation</a>
       </div>
       <div class="footer-col">
         <h4>Company</h4>
         <a href="about.html">About</a>
-        <a href="family.html">The Family</a>
+        <a href="services.html">Services</a>
         <a href="contact.html">Contact</a>
       </div>
       <div class="footer-col">
@@ -257,11 +380,11 @@
     </div>
     <div class="footer-bottom">
       <span>© <span data-year>2026</span> Turnkey Services</span>
-      <span class="silver">One system · One promise</span>
+      <span class="silver-text">One system · Every solution</span>
     </div>
   </div>
 </footer>
 
-<script src="site.js?v=3"></script>
+<script src="site.js?v=4"></script>
 </body>
 </html>

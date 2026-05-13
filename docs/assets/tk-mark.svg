@@ -1,0 +1,19 @@
+<svg viewBox="0 0 200 130" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="TK">
+  <defs>
+    <linearGradient id="silver" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#F4F1E8"/>
+      <stop offset="30%"  stop-color="#C9C3B4"/>
+      <stop offset="60%"  stop-color="#7A766D"/>
+      <stop offset="100%" stop-color="#B5AFA2"/>
+    </linearGradient>
+  </defs>
+  <!-- T: top bar + center stem -->
+  <rect x="10" y="6" width="76" height="14" fill="#F4F2EC"/>
+  <rect x="41" y="6" width="14" height="118" fill="#F4F2EC"/>
+  <!-- K stem (touches T baseline) -->
+  <rect x="92" y="6" width="14" height="118" fill="#F4F2EC"/>
+  <!-- K upper arm — silver gradient -->
+  <polygon points="106,64 106,42 175,6 192,6 192,18" fill="url(#silver)"/>
+  <!-- K lower arm — solid white -->
+  <polygon points="106,66 106,86 175,124 192,124 192,112" fill="#F4F2EC"/>
+</svg>

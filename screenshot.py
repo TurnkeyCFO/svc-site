@@ -7,7 +7,7 @@ SHOTS = ROOT / "screenshots"
 SHOTS.mkdir(exist_ok=True)
 LABEL = sys.argv[1] if len(sys.argv) > 1 else "pass"
 
-PAGES = ["index.html", "about.html", "family.html", "contact.html"]
+PAGES = ["index.html", "about.html", "services.html", "contact.html"]
 PORT = 8765
 
 # Suppress logging
