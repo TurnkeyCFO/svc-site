@@ -12,8 +12,9 @@ function titleCase(slug) {
     .join(' ');
 }
 
-/* ---- generate the 60 industry rows (Web + AI share the slug set) ---- */
+/* ---- generate the industry / niche rows ---- */
 const INDUSTRY_SITES = [];
+/* Web + AI share one 30-slug set, served at /industries/<slug>/ */
 INDUSTRIES.forEach(slug => {
   INDUSTRY_SITES.push({
     brand: 'web', cat: 'industry', slug, name: titleCase(slug),
@@ -24,6 +25,14 @@ INDUSTRIES.forEach(slug => {
     brand: 'ai', cat: 'industry', slug, name: titleCase(slug),
     url: 'https://turnkeyai.org/industries/' + slug + '/',
     note: 'Turnkey AI industry page', status: 'live'
+  });
+});
+/* Turnkey CFO has its own niche set, served at /<slug>/ */
+CFO_INDUSTRIES.forEach(it => {
+  INDUSTRY_SITES.push({
+    brand: 'cfo', cat: 'industry', slug: it.slug, name: it.name,
+    url: 'https://turnkeycfo.com/' + it.slug + '/',
+    note: 'Turnkey CFO niche page', status: 'live'
   });
 });
 
@@ -156,10 +165,9 @@ function makeIndustryBlock(brandKey, items) {
   items.forEach(s => {
     const it = document.createElement('div');
     it.className = 'ind-item';
-    it.innerHTML =
-      '<div class="in"></div>' +
-      '<div class="iu">/industries/' + s.slug + '/</div>';
+    it.innerHTML = '<div class="in"></div><div class="iu"></div>';
     it.querySelector('.in').textContent = s.name;
+    it.querySelector('.iu').textContent = new URL(s.url).pathname;
     it.addEventListener('click', () => openSite(s.url));
     grid.appendChild(it);
   });

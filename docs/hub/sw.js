@@ -1,6 +1,6 @@
 /* Turnkey Services — Site Directory · service worker
    Bump CACHE on any file change to force-refresh installed copies. */
-const CACHE = 'turnkey-hub-v1.0.0';
+const CACHE = 'turnkey-hub-v1.1.0';
 
 const SHELL = [
   './',

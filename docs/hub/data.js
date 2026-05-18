@@ -7,12 +7,13 @@
    ============================================================ */
 
 const HUB = {
-  version: '1.0.0',
+  version: '1.1.0',
   updated: 'May 18, 2026'
 };
 
 /* The 30 service-business verticals.
-   Turnkey Web AND Turnkey AI both publish a page per slug. */
+   Turnkey Web AND Turnkey AI both publish a page per slug
+   at /industries/<slug>/. */
 const INDUSTRIES = [
   'appliance-repair', 'auto-repair', 'barber-shop', 'concrete', 'day-spa',
   'electrician', 'fencing', 'flooring', 'garage-door', 'general-contractor',
@@ -20,6 +21,32 @@ const INDUSTRIES = [
   'junk-removal', 'landscaping', 'locksmith', 'med-spa', 'moving',
   'nail-salon', 'painting', 'pest-control', 'pet-grooming', 'plumber',
   'pool-service', 'pressure-washing', 'roofing', 'tree-service', 'window-cleaning'
+];
+
+/* Turnkey CFO's own niche / vertical landing pages.
+   Different slug set + URL pattern from Web/AI — these live at
+   turnkeycfo.com/<slug>/ (top-level, not /industries/). */
+const CFO_INDUSTRIES = [
+  { slug: 'auto-repair',         name: 'Auto Repair' },
+  { slug: 'childcare',           name: 'Childcare' },
+  { slug: 'cleaning',            name: 'Cleaning' },
+  { slug: 'construction',        name: 'Construction' },
+  { slug: 'consultants',         name: 'Consultants' },
+  { slug: 'electricians',        name: 'Electricians' },
+  { slug: 'fitness',             name: 'Fitness' },
+  { slug: 'hairsalon',           name: 'Hair Salon' },
+  { slug: 'hvac',                name: 'HVAC' },
+  { slug: 'landscaping',         name: 'Landscaping' },
+  { slug: 'medical',             name: 'Medical' },
+  { slug: 'pestcontrol',         name: 'Pest Control' },
+  { slug: 'plumbers',            name: 'Plumbers' },
+  { slug: 'property-management', name: 'Property Management' },
+  { slug: 'real-estate',         name: 'Real Estate' },
+  { slug: 'restaurants',         name: 'Restaurants' },
+  { slug: 'roofing',             name: 'Roofing' },
+  { slug: 'treeservice',         name: 'Tree Service' },
+  { slug: 'trucking',            name: 'Trucking' },
+  { slug: 'veterinary',          name: 'Veterinary' }
 ];
 
 /* Brand definitions — color + tagline per the Turnkey brand style guide.
