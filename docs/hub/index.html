@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Turnkey Services — Site Directory</title>
+<meta name="description" content="Every Turnkey site, demo and niche page in one place." />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="theme-color" content="#0A0A0A" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="apple-mobile-web-app-title" content="Turnkey" />
+<link rel="manifest" href="manifest.webmanifest" />
+<link rel="apple-touch-icon" href="icons/icon-180.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="app.css" />
+</head>
+<body>
+
+<header class="hdr">
+  <div class="hdr-row">
+    <div class="mark" aria-hidden="true">
+      <svg viewBox="0 0 100 100" width="40" height="40">
+        <rect x="3" y="3" width="94" height="94" rx="22" fill="#fff"/>
+        <text x="50" y="50" text-anchor="middle" dominant-baseline="central"
+              font-family="'Exo 2',sans-serif" font-weight="800" font-size="44" fill="#0A0A0A">TK</text>
+      </svg>
+    </div>
+    <div class="hdr-txt">
+      <h1>Turnkey Services</h1>
+      <p>One system. Every solution.</p>
+    </div>
+    <button id="installBtn" class="install-btn" hidden>Install</button>
+  </div>
+  <div class="search-wrap">
+    <svg class="search-ico" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+      <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            d="M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14zm5 12 4 4"/>
+    </svg>
+    <input id="search" type="search" placeholder="Search sites, brands, niches…" autocomplete="off" />
+    <button id="clearSearch" class="clear-btn" hidden aria-label="Clear search">&times;</button>
+  </div>
+  <div id="chips" class="chips"></div>
+</header>
+
+<main id="results" class="results"></main>
+
+<div id="empty" class="empty" hidden>
+  <p>No sites match that search.</p>
+</div>
+
+<footer class="ftr">
+  <p id="footMeta"></p>
+  <p class="ftr-sub">Tap a card to open · tap <span class="kbd">⧉</span> to copy the link</p>
+</footer>
+
+<div id="iosHint" class="ios-hint" hidden>
+  <div class="ios-card">
+    <strong>Add to your Home Screen</strong>
+    <p>Tap the <b>Share</b> icon in Safari, then <b>Add to Home Screen</b> — it installs like an app.</p>
+    <button id="iosHintClose">Got it</button>
+  </div>
+</div>
+
+<div id="toast" class="toast" hidden></div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
