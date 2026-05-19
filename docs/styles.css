@@ -1056,14 +1056,21 @@ footer::before {
 /* ============================================================
    FADES
    ============================================================ */
-.fade { opacity: 0; transform: translateY(28px); transition: opacity 1s var(--ease), transform 1s var(--ease); }
+/* Content is visible by default. Only when JS is confirmed (html.js) does the
+   reveal animation gate it — so a JS failure can never leave the page blank.
+   Note: .in rule is scoped under html.js too, so it out-specifies the gate. */
 .fade.in { opacity: 1; transform: translateY(0); }
-.fade.d1 { transition-delay: 0.08s; }
-.fade.d2 { transition-delay: 0.16s; }
-.fade.d3 { transition-delay: 0.24s; }
-.fade.d4 { transition-delay: 0.32s; }
-.fade.d5 { transition-delay: 0.40s; }
-.fade.d6 { transition-delay: 0.48s; }
+html.js .fade {
+  opacity: 0; transform: translateY(20px);
+  transition: opacity .7s var(--ease), transform .7s var(--ease);
+}
+html.js .fade.in { opacity: 1; transform: translateY(0); }
+html.js .fade.d1 { transition-delay: 0.05s; }
+html.js .fade.d2 { transition-delay: 0.10s; }
+html.js .fade.d3 { transition-delay: 0.15s; }
+html.js .fade.d4 { transition-delay: 0.20s; }
+html.js .fade.d5 { transition-delay: 0.25s; }
+html.js .fade.d6 { transition-delay: 0.30s; }
 
 /* ════════════════════════════════════════════════════════════
    NEON LAYER — v5
@@ -1399,3 +1406,31 @@ footer::before {
   }
   .wave .w-spark { opacity: 0; }
 }
+
+/* ════════════════════════════════════════════════════════════
+   v5.1 POLISH — tighter rhythm, stronger contrast
+   ════════════════════════════════════════════════════════════ */
+
+/* hero — shorter, denser; mark sized down so the fold isn't empty */
+.hero { min-height: auto; padding-top: clamp(116px,12vw,150px);
+        padding-bottom: clamp(30px,3.6vw,48px); }
+.hero-mark { margin-top: clamp(16px,2.4vw,32px); }
+.hero-mark svg { width: clamp(132px,15vw,212px); }
+.hero h1 { font-size: clamp(42px,6.6vw,104px); margin-top: clamp(20px,2.8vw,34px); }
+.hero-lede { margin-top: clamp(20px,2.4vw,30px); }
+.hero-cta-row { margin-top: clamp(24px,2.8vw,36px); }
+.hero-meta-strip { margin-top: clamp(26px,3vw,42px); padding-top: clamp(22px,2.4vw,32px); }
+.hero-mark-halo { width: clamp(220px,22vw,330px); }
+
+/* sections — cut the dead navy bands */
+.section, .capabilities, .process { padding: clamp(58px,6.8vw,100px) 0; }
+.cap-head, .svc-head, .process-head { margin-bottom: clamp(38px,4.4vw,62px); }
+.launcher { padding: clamp(42px,5vw,74px) 0 clamp(62px,7vw,100px); }
+.manifesto { padding: clamp(76px,8.5vw,124px) 0; }
+.cta { padding: clamp(66px,7.6vw,112px) 0; }
+
+/* contrast — the italic accent words were too faint */
+.hero h1 .italic { color: rgba(255,255,255,0.72); }
+.cap-head h2 em, .svc-head h2 em, .process-head h2 em,
+.launch-head h2 em, .cta h2 em { color: rgba(255,255,255,0.62); }
+.manifesto blockquote em { color: rgba(255,255,255,0.6); }

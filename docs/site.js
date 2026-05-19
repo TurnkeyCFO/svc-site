@@ -2,6 +2,7 @@
 // Fades, nav state, pulse-wave parallax, twinkling particles, stat count-up.
 
 (function () {
+ try {
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   // ── nav scroll state ──
@@ -12,20 +13,25 @@
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
-  // ── intersection-observer fades ──
-  const fades = document.querySelectorAll(".fade");
-  if ("IntersectionObserver" in window) {
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) {
-          e.target.classList.add("in");
-          io.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
-    fades.forEach((f) => io.observe(f));
-  } else {
-    fades.forEach((f) => f.classList.add("in"));
+  // ── reveal-on-scroll — position based, so a fast scroll never skips one ──
+  let fades = Array.prototype.slice.call(document.querySelectorAll(".fade"));
+  const revealPass = () => {
+    const line = window.innerHeight * 0.92;
+    fades = fades.filter((el) => {
+      if (el.getBoundingClientRect().top < line) { el.classList.add("in"); return false; }
+      return true;
+    });
+  };
+  revealPass();
+  if (fades.length) {
+    let ticking = false;
+    const onMove = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => { revealPass(); ticking = false; });
+    };
+    window.addEventListener("scroll", onMove, { passive: true });
+    window.addEventListener("resize", onMove, { passive: true });
   }
 
   // ── twinkling spark particles ──
@@ -107,4 +113,9 @@
   document.querySelectorAll("[data-year]").forEach((el) => {
     el.textContent = new Date().getFullYear();
   });
+ } catch (err) {
+  // Never leave the page blank — reveal everything if anything above failed.
+  document.querySelectorAll(".fade").forEach(function (f) { f.classList.add("in"); });
+  if (window.console) console.warn("site.js recovered:", err);
+ }
 })();
