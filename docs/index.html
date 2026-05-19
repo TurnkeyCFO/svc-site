@@ -4,18 +4,19 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Turnkey Services — One system. Every solution.</title>
-  <meta name="description" content="Turnkey Services is a modern services firm delivering financial operations, websites, and AI automation to small businesses." />
+  <meta name="description" content="Turnkey Services is the operating system behind five specialist brands — bookkeeping, AI automation, web, SEO and design for small business. One firm. One standard." />
+  <meta name="theme-color" content="#08080F" />
   <meta property="og:title" content="Turnkey Services — One system. Every solution." />
-  <meta property="og:description" content="Modern services firm. Financial operations, websites, and AI automation." />
+  <meta property="og:description" content="The system behind five specialist brands: Turnkey CFO, Turnkey AI, Turnkey Web, Turnkey SEO and Turnkey Design." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=4" />
+  <link rel="stylesheet" href="styles.css?v=5" />
 </head>
 <body>
 <div class="grain" aria-hidden="true"></div>
 
-<!-- Reusable TK monogram SVG (inline so it inherits color + scales) -->
+<!-- ═══════════ SVG DEFS — TK marks + wave gradients ═══════════ -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
     <linearGradient id="silverGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -24,15 +25,78 @@
       <stop offset="60%"  stop-color="#7A766D"/>
       <stop offset="100%" stop-color="#B5AFA2"/>
     </linearGradient>
+    <linearGradient id="markGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#2E9BFF"/>
+      <stop offset="38%"  stop-color="#8B5CFF"/>
+      <stop offset="70%"  stop-color="#FF2D9C"/>
+      <stop offset="100%" stop-color="#FF8A1E"/>
+    </linearGradient>
+    <linearGradient id="gA" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#22D3EE"/><stop offset="1" stop-color="#8B5CFF"/>
+    </linearGradient>
+    <linearGradient id="gB" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#8B5CFF"/><stop offset="1" stop-color="#FF2D9C"/>
+    </linearGradient>
+    <linearGradient id="gC" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#FF2D9C"/><stop offset="1" stop-color="#FF8A1E"/>
+    </linearGradient>
+    <linearGradient id="gD" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2E9BFF"/><stop offset="1" stop-color="#00E676"/>
+    </linearGradient>
+    <!-- silver mark (parent brand) -->
     <symbol id="tk-mark" viewBox="0 0 200 130">
       <rect x="10" y="6"  width="76"  height="14"  fill="#FFFFFF"/>
       <rect x="41" y="6"  width="14"  height="118" fill="#FFFFFF"/>
       <rect x="92" y="6"  width="14"  height="118" fill="#FFFFFF"/>
-      <polygon points="106,64 106,42 175,6   192,6   192,18"  fill="url(#silverGrad)"/>
+      <polygon points="106,64 106,42 175,6   192,6   192,18"  fill="url(#markGrad)"/>
       <polygon points="106,66 106,86 175,124 192,124 192,112" fill="#FFFFFF"/>
+    </symbol>
+    <!-- mono mark — inherits currentColor, recoloured per service -->
+    <symbol id="tk-glyph" viewBox="0 0 200 130">
+      <rect x="10" y="6"  width="76"  height="14"  fill="currentColor"/>
+      <rect x="41" y="6"  width="14"  height="118" fill="currentColor"/>
+      <rect x="92" y="6"  width="14"  height="118" fill="currentColor"/>
+      <polygon points="106,64 106,42 175,6   192,6   192,18"  fill="currentColor"/>
+      <polygon points="106,66 106,86 175,124 192,124 192,112" fill="currentColor"/>
     </symbol>
   </defs>
 </svg>
+
+<!-- ═══════════ PULSE-WAVE FIELD ═══════════ -->
+<div class="pulse-field" aria-hidden="true">
+  <!-- aurora bloom layer -->
+  <div class="aurora" data-depth="14">
+    <span class="blob b1"></span>
+    <span class="blob b2"></span>
+    <span class="blob b3"></span>
+    <span class="blob b4"></span>
+  </div>
+  <!-- neon wave ribbons -->
+  <div class="waves" data-depth="34">
+    <svg class="wave wave-a" viewBox="0 0 1440 900" preserveAspectRatio="none">
+      <path class="w-glow"  stroke="url(#gA)" d="M-160 252 C 240 104 470 376 762 244 C 1054 116 1270 342 1640 192"/>
+      <path class="w-core"  stroke="url(#gA)" d="M-160 252 C 240 104 470 376 762 244 C 1054 116 1270 342 1640 192"/>
+      <path class="w-spark" stroke="url(#gA)" d="M-160 252 C 240 104 470 376 762 244 C 1054 116 1270 342 1640 192"/>
+    </svg>
+    <svg class="wave wave-b" viewBox="0 0 1440 900" preserveAspectRatio="none">
+      <path class="w-glow"  stroke="url(#gB)" d="M-160 708 C 268 556 520 824 824 660 C 1110 506 1322 778 1640 608"/>
+      <path class="w-core"  stroke="url(#gB)" d="M-160 708 C 268 556 520 824 824 660 C 1110 506 1322 778 1640 608"/>
+      <path class="w-spark" stroke="url(#gB)" d="M-160 708 C 268 556 520 824 824 660 C 1110 506 1322 778 1640 608"/>
+    </svg>
+    <svg class="wave wave-c" viewBox="0 0 1440 900" preserveAspectRatio="none">
+      <path class="w-glow"  stroke="url(#gC)" d="M-160 470 C 300 532 560 344 884 472 C 1146 574 1368 386 1640 504"/>
+      <path class="w-core"  stroke="url(#gC)" d="M-160 470 C 300 532 560 344 884 472 C 1146 574 1368 386 1640 504"/>
+      <path class="w-spark" stroke="url(#gC)" d="M-160 470 C 300 532 560 344 884 472 C 1146 574 1368 386 1640 504"/>
+    </svg>
+    <svg class="wave wave-d" viewBox="0 0 1440 900" preserveAspectRatio="none">
+      <path class="w-glow"  stroke="url(#gD)" d="M-160 116 C 326 24 626 230 944 106 C 1208 6 1384 192 1640 84"/>
+      <path class="w-core"  stroke="url(#gD)" d="M-160 116 C 326 24 626 230 944 106 C 1208 6 1384 192 1640 84"/>
+      <path class="w-spark" stroke="url(#gD)" d="M-160 116 C 326 24 626 230 944 106 C 1208 6 1384 192 1640 84"/>
+    </svg>
+  </div>
+  <!-- twinkling particle layer (filled by site.js) -->
+  <div class="sparks" data-depth="56"></div>
+</div>
 
 <nav class="nav">
   <a class="brand" href="index.html" aria-label="Turnkey Services — home">
@@ -44,6 +108,7 @@
   </a>
   <ul class="nav-links">
     <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="#launcher">Brands</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="services.html">Services</a></li>
     <li><a href="contact.html">Contact</a></li>
@@ -57,43 +122,161 @@
     <div class="hero-top">
       <div class="kicker fade">Turnkey Services · Austin, Texas</div>
       <div class="hero-meta-right fade d1">
-        <span>Modern Services Firm</span>
+        <span>One firm · Five brands</span>
         <span>Est. 2024</span>
         <span>U.S. delivery</span>
       </div>
     </div>
 
     <div class="hero-mark fade d2" aria-hidden="true">
+      <span class="hero-mark-halo"></span>
       <svg viewBox="0 0 200 130"><use href="#tk-mark"/></svg>
     </div>
 
     <h1 class="fade d3">
       One <span class="italic">system.</span><br>
-      Every <span class="silver-text">solution.</span>
+      Every <span class="spectrum-text">solution.</span>
     </h1>
 
     <p class="hero-lede fade d4">
-      Turnkey Services is a modern services firm. We deliver <strong>financial operations</strong>, <strong>websites</strong>, and <strong>AI automation</strong> to small businesses that need their back office to actually run — on a calendar, not a hope.
+      Turnkey Services is the operating system behind <strong>five specialist brands</strong> — bookkeeping, AI automation, web, SEO and design. One standard runs through all of it. <strong>Pick where you need to go.</strong>
     </p>
 
     <div class="hero-cta-row fade d5">
-      <a class="btn btn-primary" href="contact.html">
-        Start with a 15-min call
+      <a class="btn btn-primary" href="#launcher">
+        Jump to a brand
         <svg class="arrow" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
-      <a class="btn btn-ghost" href="services.html">
-        See our services
+      <a class="btn btn-ghost" href="contact.html">
+        Start with a 15-min call
         <svg class="arrow" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
     </div>
 
     <div class="hero-meta-strip fade d6">
+      <span class="pin">CFO</span>
+      <span class="pin">AI</span>
+      <span class="pin">Design</span>
+      <span class="pin">SEO</span>
+      <span class="pin">Web</span>
       <span class="pin">Integrated</span>
-      <span class="pin">Strategy</span>
-      <span class="pin">Automation</span>
-      <span class="pin">Analytics</span>
-      <span class="pin">Secure</span>
-      <span class="pin">Growth</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ BRAND LAUNCHER ═══════════════ -->
+<section class="launcher" id="launcher">
+  <div class="wrap">
+    <div class="launch-head">
+      <div class="kicker fade">01 · The brands</div>
+      <h2 class="fade d1">Every service.<br><em>One click</em> away.</h2>
+      <p class="launch-lede fade d2">
+        Five specialist brands, one shared operating standard. Tap a brand to head straight to its site.
+      </p>
+    </div>
+
+    <div class="launch-grid">
+
+      <!-- CFO -->
+      <a class="brand-card fade" style="--accent: var(--cfo)" href="https://turnkeycfo.com" target="_blank" rel="noopener" aria-label="Visit Turnkey CFO">
+        <span class="bc-sheen" aria-hidden="true"></span>
+        <span class="bc-top">
+          <svg class="bc-mark" viewBox="0 0 200 130"><use href="#tk-glyph"/></svg>
+          <span class="bc-status"><span class="dot"></span>Live</span>
+        </span>
+        <span class="bc-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 21h18"/><rect x="5" y="12" width="3.6" height="6.5"/><rect x="10.4" y="8" width="3.6" height="10.5"/><rect x="15.8" y="4" width="3.6" height="14.5"/>
+          </svg>
+        </span>
+        <span class="bc-name"><span>Turnkey</span>CFO</span>
+        <span class="bc-desc">Bookkeeping, payroll, AP/AR &amp; monthly close — books that run on a calendar.</span>
+        <span class="bc-go">
+          <span class="bc-domain">turnkeycfo.com</span>
+          <span class="bc-arrow"><svg viewBox="0 0 16 16" fill="none"><path d="M5 11L11 5M11 5H5M11 5V11" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </span>
+      </a>
+
+      <!-- AI -->
+      <a class="brand-card fade d1" style="--accent: var(--ai)" href="https://turnkeyai.org" target="_blank" rel="noopener" aria-label="Visit Turnkey AI">
+        <span class="bc-sheen" aria-hidden="true"></span>
+        <span class="bc-top">
+          <svg class="bc-mark" viewBox="0 0 200 130"><use href="#tk-glyph"/></svg>
+          <span class="bc-status"><span class="dot"></span>Live</span>
+        </span>
+        <span class="bc-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="5" y="8" width="14" height="11" rx="2.4"/><path d="M12 8V4.5M10.4 4.5h3.2"/><circle cx="9.6" cy="13" r="1.3"/><circle cx="14.4" cy="13" r="1.3"/><path d="M3 12.5v3M21 12.5v3"/>
+          </svg>
+        </span>
+        <span class="bc-name"><span>Turnkey</span>AI</span>
+        <span class="bc-desc">Custom AI agents wired into the tools you already pay for.</span>
+        <span class="bc-go">
+          <span class="bc-domain">turnkeyai.org</span>
+          <span class="bc-arrow"><svg viewBox="0 0 16 16" fill="none"><path d="M5 11L11 5M11 5H5M11 5V11" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </span>
+      </a>
+
+      <!-- WEB -->
+      <a class="brand-card fade d2" style="--accent: var(--web)" href="https://turnkeyweb.org" target="_blank" rel="noopener" aria-label="Visit Turnkey Web">
+        <span class="bc-sheen" aria-hidden="true"></span>
+        <span class="bc-top">
+          <svg class="bc-mark" viewBox="0 0 200 130"><use href="#tk-glyph"/></svg>
+          <span class="bc-status"><span class="dot"></span>Live</span>
+        </span>
+        <span class="bc-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/>
+          </svg>
+        </span>
+        <span class="bc-name"><span>Turnkey</span>Web</span>
+        <span class="bc-desc">Modern websites that load fast, rank, and earn the call.</span>
+        <span class="bc-go">
+          <span class="bc-domain">turnkeyweb.org</span>
+          <span class="bc-arrow"><svg viewBox="0 0 16 16" fill="none"><path d="M5 11L11 5M11 5H5M11 5V11" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </span>
+      </a>
+
+      <!-- SEO -->
+      <a class="brand-card soon fade d3" style="--accent: var(--seo)" href="contact.html" aria-label="Turnkey SEO — launching 2026">
+        <span class="bc-sheen" aria-hidden="true"></span>
+        <span class="bc-top">
+          <svg class="bc-mark" viewBox="0 0 200 130"><use href="#tk-glyph"/></svg>
+          <span class="bc-status"><span class="dot"></span>2026</span>
+        </span>
+        <span class="bc-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="6"/><path d="M20 20l-5.2-5.2"/><path d="M11 8.5v5M8.5 11h5"/>
+          </svg>
+        </span>
+        <span class="bc-name"><span>Turnkey</span>SEO</span>
+        <span class="bc-desc">Rank higher, grow faster — search visibility that compounds.</span>
+        <span class="bc-go">
+          <span class="bc-domain">Launching 2026</span>
+          <span class="bc-arrow"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </span>
+      </a>
+
+      <!-- DESIGN -->
+      <a class="brand-card soon fade d4" style="--accent: var(--design)" href="contact.html" aria-label="Turnkey Design — launching 2026">
+        <span class="bc-sheen" aria-hidden="true"></span>
+        <span class="bc-top">
+          <svg class="bc-mark" viewBox="0 0 200 130"><use href="#tk-glyph"/></svg>
+          <span class="bc-status"><span class="dot"></span>2026</span>
+        </span>
+        <span class="bc-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 20l4.2-1L19 8.2l-3.2-3.2L5 15.8 4 20z"/><path d="M14 6l4 4"/>
+          </svg>
+        </span>
+        <span class="bc-name"><span>Turnkey</span>Design</span>
+        <span class="bc-desc">Brand identity and UI/UX that connects — and converts.</span>
+        <span class="bc-go">
+          <span class="bc-domain">Launching 2026</span>
+          <span class="bc-arrow"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </span>
+      </a>
+
     </div>
   </div>
 </section>
@@ -101,21 +284,21 @@
 <!-- ═══════════════════ MARQUEE ═══════════════════ -->
 <section class="ribbon-section" aria-hidden="true">
   <div class="marquee">
-    <span class="glyph">Financial <i class="dot"></i> Web <i class="dot"></i> AI <i class="dot"></i> One <em>system.</em> Every solution. <i class="dot"></i></span>
-    <span class="glyph">Financial <i class="dot"></i> Web <i class="dot"></i> AI <i class="dot"></i> One <em>system.</em> Every solution. <i class="dot"></i></span>
+    <span class="glyph">Turnkey CFO <i class="dot"></i> Turnkey AI <i class="dot"></i> Turnkey Web <i class="dot"></i> Turnkey SEO <i class="dot"></i> Turnkey Design <i class="dot"></i></span>
+    <span class="glyph">Turnkey CFO <i class="dot"></i> Turnkey AI <i class="dot"></i> Turnkey Web <i class="dot"></i> Turnkey SEO <i class="dot"></i> Turnkey Design <i class="dot"></i></span>
   </div>
 </section>
 
-<!-- ═══════════════════ CAPABILITIES — 6 PILLARS ═══════════════════ -->
+<!-- ═══════════ CAPABILITIES — 6 PILLARS ═══════════ -->
 <section class="section capabilities" id="capabilities">
   <div class="wrap">
     <div class="cap-head">
       <div>
-        <div class="kicker fade">01 · Capabilities</div>
+        <div class="kicker fade">02 · Capabilities</div>
         <h2 class="fade d1">Six pillars.<br>One <em>operating standard.</em></h2>
       </div>
       <p class="cap-lede fade d2">
-        Every engagement at Turnkey Services runs against the same six disciplines. They're how we keep the work consistent — and how the services we offer integrate cleanly when you take more than one.
+        Every brand at Turnkey Services runs against the same six disciplines. They're how we keep the work consistent — and how the services integrate cleanly when you take more than one.
       </p>
     </div>
 
@@ -201,81 +384,6 @@
   </div>
 </section>
 
-<!-- ═══════════════════ SERVICES ═══════════════════ -->
-<section class="section services-sec" id="services">
-  <div class="wrap">
-    <div class="svc-head">
-      <div>
-        <div class="kicker fade">02 · Services</div>
-        <h2 class="fade d1">Three service tracks.<br>Built to <em>integrate.</em></h2>
-      </div>
-      <div class="svc-tag fade d2">
-        Bookkeeping · Web · AI<br>
-        One firm. Six pillars. Three services.
-      </div>
-    </div>
-
-    <div class="svc-grid">
-      <article class="svc-tile fade" data-service="financial">
-        <div class="svc-num">— Service 01</div>
-        <div class="svc-name">Financial Operations<span class="label">Financial clarity · Confident growth</span></div>
-        <p class="svc-body">Bookkeeping, payroll, AP/AR, monthly close, board-ready reporting. The work your business can't afford to mess up — run on a calendar, not a hope.</p>
-        <div class="svc-list">
-          <span>Full-service bookkeeping</span>
-          <span>Payroll &amp; 1099 filings</span>
-          <span>AP / AR &amp; bill pay</span>
-          <span>Monthly close cadence</span>
-          <span>Reporting &amp; dashboards</span>
-        </div>
-        <div class="svc-footer">
-          <span class="visit-link">turnkeycfo.com</span>
-          <a class="arrow-circle" href="https://turnkeycfo.com" target="_blank" rel="noopener" aria-label="Visit Turnkey CFO">
-            <svg viewBox="0 0 16 16" fill="none"><path d="M5 11L11 5M11 5H5M11 5V11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-        </div>
-      </article>
-
-      <article class="svc-tile fade d1" data-service="web">
-        <div class="svc-num">— Service 02</div>
-        <div class="svc-name">Web<span class="label">Modern websites · More traffic · More customers</span></div>
-        <p class="svc-body">$250 to launch. $150–$500/mo to grow. Unlimited pages and unlimited updates on a single predictable line item — sites that earn the call.</p>
-        <div class="svc-list">
-          <span>Business website builds</span>
-          <span>Landing-page sprints</span>
-          <span>Website refresh</span>
-          <span>Site care plans</span>
-          <span>Heatmaps &amp; monthly reports</span>
-        </div>
-        <div class="svc-footer">
-          <span class="visit-link">turnkeyweb.org</span>
-          <a class="arrow-circle" href="https://turnkeyweb.org" target="_blank" rel="noopener" aria-label="Visit Turnkey WEB">
-            <svg viewBox="0 0 16 16" fill="none"><path d="M5 11L11 5M11 5H5M11 5V11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-        </div>
-      </article>
-
-      <article class="svc-tile fade d2" data-service="ai">
-        <div class="svc-num">— Service 03 · New</div>
-        <div class="svc-name">AI Automation<span class="label">Intelligence · Automated · Impact</span></div>
-        <p class="svc-body">Custom agents wired into the tools you already pay for. Closes uncategorized transactions, chases receipts, follows up on quotes, ships the weekly report.</p>
-        <div class="svc-list">
-          <span>Bookkeeping agents</span>
-          <span>CRM &amp; outreach agents</span>
-          <span>Reporting &amp; dashboards</span>
-          <span>Workflow automation</span>
-          <span>Custom internal tools</span>
-        </div>
-        <div class="svc-footer">
-          <span class="visit-link">Launching 2026</span>
-          <a class="arrow-circle" href="contact.html" aria-label="Inquire about AI Automation">
-            <svg viewBox="0 0 16 16" fill="none"><path d="M5 11L11 5M11 5H5M11 5V11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
 <!-- ═══════════════════ PROCESS ═══════════════════ -->
 <section class="section process">
   <div class="wrap">
@@ -336,8 +444,8 @@
           Start with a 15-min call
           <svg class="arrow" width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
-        <a class="btn-block ghost" href="services.html">
-          See the three services
+        <a class="btn-block ghost" href="#launcher">
+          Browse the five brands
           <svg class="arrow" width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
       </div>
@@ -357,13 +465,15 @@
             <span class="t2">— Services —</span>
           </span>
         </a>
-        <p>A modern services firm headquartered in Austin, Texas. Financial operations, websites, and AI automation — built for the small businesses actually doing the work.</p>
+        <p>A modern services firm headquartered in Austin, Texas. One operating system behind five specialist brands — built for the small businesses actually doing the work.</p>
       </div>
-      <div class="footer-col">
-        <h4>Services</h4>
-        <a href="https://turnkeycfo.com" target="_blank" rel="noopener">Financial Operations ↗</a>
-        <a href="https://turnkeyweb.org" target="_blank" rel="noopener">Web ↗</a>
-        <a href="contact.html">AI Automation</a>
+      <div class="footer-col brands">
+        <h4>Brands</h4>
+        <a style="--d-accent: var(--cfo)"    href="https://turnkeycfo.com" target="_blank" rel="noopener">Turnkey CFO ↗</a>
+        <a style="--d-accent: var(--ai)"     href="https://turnkeyai.org"  target="_blank" rel="noopener">Turnkey AI ↗</a>
+        <a style="--d-accent: var(--web)"    href="https://turnkeyweb.org" target="_blank" rel="noopener">Turnkey Web ↗</a>
+        <a style="--d-accent: var(--seo)"    href="contact.html">Turnkey SEO</a>
+        <a style="--d-accent: var(--design)" href="contact.html">Turnkey Design</a>
       </div>
       <div class="footer-col">
         <h4>Company</h4>
@@ -385,6 +495,6 @@
   </div>
 </footer>
 
-<script src="site.js?v=4"></script>
+<script src="site.js?v=5"></script>
 </body>
 </html>
