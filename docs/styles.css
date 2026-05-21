@@ -492,10 +492,11 @@ ul { padding: 0; list-style: none; }
 .cta-inner { text-align: center; max-width: 720px; margin: 0 auto; }
 .cta-band h2 {
   font-size: clamp(2rem, 3.6vw, 2.75rem);
-  line-height: 1.12;
+  line-height: 1.2;
   letter-spacing: -0.025em;
   font-weight: 800;
   margin-bottom: 14px;
+  padding-bottom: 0.08em;
 }
 .cta-band p {
   color: var(--on-dark-2);
@@ -1468,6 +1469,10 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
   -webkit-background-clip: text; background-clip: text;
   -webkit-text-fill-color: transparent; color: transparent;
   animation: tk-hero-shimmer 11s linear infinite;
+  /* Clear room for descenders ("g" in "scaling") — gradient-clipped
+     text gets cropped tight to glyph bounds otherwise. */
+  line-height: 1.18;
+  padding-bottom: 0.12em;
 }
 .hero-line-1, .hero-line-2 {
   display: block;
@@ -1485,7 +1490,9 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
   position: relative;
   width: min(560px, 90%);
   height: 56px;
-  margin: 18px 0 26px;
+  /* More top margin so descenders ("g" in "scaling") aren't clipped
+     by the spectrum bar + sparkle band beneath the H1. */
+  margin: 36px 0 26px;
 }
 .hero-sparkles {
   position: absolute; inset: 0 0 28px 0;
@@ -1733,10 +1740,13 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
 }
 .svc-panel-logo {
   position: absolute;
-  left: 50%; top: 50%;
+  /* Anchored toward the upper third of the active card so the brand
+     mark sits clear of the pitch text + "Learn more" pill below.
+     Same offset across all five cards — consistent placement. */
+  left: 50%; top: 32%;
   transform: translate(-50%, -50%);
-  width: 78%;
-  max-width: 320px;
+  width: 64%;
+  max-width: 260px;
   height: auto;
   z-index: 3;
   opacity: 0;
@@ -2008,6 +2018,9 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
   background-size: 240% 100%;
   -webkit-background-clip: text; background-clip: text;
   -webkit-text-fill-color: transparent; color: transparent;
+  /* Room for descenders ("g" in "scaling", "starting") */
+  line-height: 1.18;
+  padding-bottom: 0.12em;
 }
 
 /* Trust strip — each strong gets its own brand color */
