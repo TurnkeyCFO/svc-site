@@ -1496,40 +1496,65 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
   margin: 36px 0 36px;
 }
 
-/* Vertical bookend words — "starting" reads bottom-up on the left,
-   "scaling" reads bottom-up on the right. The spectrum bar between
-   them literally renders the bridge. */
+/* Vertical bookend words — "starting" and "scaling" both read
+   bottom-up at the same height, centered on the spectrum bar. The
+   colored bar between them is the bridge from one to the other. */
 .hero-spectrum-word {
   position: absolute;
-  bottom: 0;
+  /* Both words anchored to the same bottom + bar inset → identical
+     vertical baseline. They grow upward thanks to writing-mode. */
+  bottom: 14px;
   font-size: 0.78rem;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.22em;
-  white-space: nowrap;
   color: #0A0A0A;
   pointer-events: none;
   z-index: 3;
+  /* writing-mode: sideways-lr renders Latin text as a vertical column
+     reading bottom→top, with glyphs upright. Cleaner than rotate +
+     translate gymnastics; both words automatically share the same
+     vertical baseline. */
+  writing-mode: sideways-lr;
 }
-.hero-spectrum-word-start {
-  left: 6px;
-  bottom: 6px;
-  /* Rotate -90deg → original L→R text becomes bottom→top.
-     transform-origin bottom-left so the rotated text "grows up" from
-     the corner instead of pivoting out of the box. */
-  transform: rotate(-90deg);
-  transform-origin: left bottom;
-  white-space: nowrap;
+.hero-spectrum-word-start { left: 0; }
+.hero-spectrum-word-end   { right: 0; }
+/* Fallback for browsers without sideways-lr (Safari <17) */
+@supports not (writing-mode: sideways-lr) {
+  .hero-spectrum-word {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    transform-origin: center;
+  }
 }
-.hero-spectrum-word-end {
-  right: 6px;
-  bottom: 6px;
-  transform: rotate(-90deg);
-  transform-origin: right bottom;
-  /* push it down + right of its corner so the rotated word ends flush
-     with the bar's right edge */
-  translate: 0 0;
+
+/* "TURNKEY SERVICES" middle label — the firm IS the bridge between
+   starting and scaling. Sits centered just below the spectrum bar,
+   tying the visual metaphor together. */
+.hero-spectrum-middle {
+  position: absolute;
+  left: 50%;
+  bottom: -4px;
+  transform: translateX(-50%);
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
   white-space: nowrap;
+  pointer-events: none;
+  z-index: 3;
+  /* Brand-rainbow gradient text — same family as kicker / H1 shimmer */
+  background: linear-gradient(90deg,
+    var(--tk-cfo, #00E676) 0%,
+    var(--tk-web, #6600CC) 22%,
+    var(--tk-ai,  #0055FF) 44%,
+    var(--tk-seo, #FF7A00) 66%,
+    var(--tk-design, #BD22A7) 84%,
+    var(--tk-gold, #E0B90B) 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+  animation: tk-kicker-pan 14s linear infinite;
 }
 .hero-sparkles {
   position: absolute; inset: 0 0 28px 0;
@@ -2163,14 +2188,62 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
   color: color-mix(in srgb, var(--brand) 55%, #000);
 }
 
-/* Step numbers — brand color + glow per step */
-.step:nth-child(1) .step-num { background: var(--tk-cfo); color: #0A2B14; box-shadow: 0 8px 22px -10px color-mix(in srgb, var(--tk-cfo) 70%, transparent); }
-.step:nth-child(2) .step-num { background: var(--tk-web); color: #fff;    box-shadow: 0 8px 22px -10px color-mix(in srgb, var(--tk-web) 70%, transparent); }
-.step:nth-child(3) .step-num { background: var(--tk-ai);  color: #fff;    box-shadow: 0 8px 22px -10px color-mix(in srgb, var(--tk-ai)  70%, transparent); }
+/* Step numbers — brand gradient + glow per step. Mirrors the hero-card
+   flow: dark deep stop → brand → darker brand-mix → deep stop, so the
+   bubbles read as gradients (not flat fills) consistent with the rest
+   of the site. Order matches the hero accordion: AI → Web → CFO. */
+.step .step-num {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.35);
+}
+.step .step-num::after {
+  content: "";
+  position: absolute; inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(120% 100% at 50% 50%, transparent 45%, rgba(0,0,0,0.45) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+.step .step-num > * { position: relative; z-index: 2; }
+
+.step:nth-child(1) .step-num {
+  background: linear-gradient(135deg,
+    #000 0%,
+    #082973 22%,
+    color-mix(in srgb, #082973 55%, var(--tk-ai)) 45%,
+    color-mix(in srgb, var(--tk-ai) 80%, #000) 65%,
+    #082973 88%,
+    #000 100%);
+  box-shadow: 0 8px 22px -10px color-mix(in srgb, var(--tk-ai) 70%, transparent);
+}
+.step:nth-child(2) .step-num {
+  background: linear-gradient(135deg,
+    #000 0%,
+    #2E0E5C 22%,
+    color-mix(in srgb, #2E0E5C 55%, var(--tk-web)) 45%,
+    color-mix(in srgb, var(--tk-web) 80%, #000) 65%,
+    #2E0E5C 88%,
+    #000 100%);
+  box-shadow: 0 8px 22px -10px color-mix(in srgb, var(--tk-web) 70%, transparent);
+}
+.step:nth-child(3) .step-num {
+  background: linear-gradient(135deg,
+    #000 0%,
+    #006B2F 22%,
+    color-mix(in srgb, #006B2F 55%, var(--tk-cfo)) 45%,
+    color-mix(in srgb, var(--tk-cfo) 80%, #000) 65%,
+    #006B2F 88%,
+    #000 100%);
+  box-shadow: 0 8px 22px -10px color-mix(in srgb, var(--tk-cfo) 70%, transparent);
+}
+
 .step { border-top: 2px solid transparent; transition: border-color 220ms ease; }
-.step:nth-child(1) { border-top-color: color-mix(in srgb, var(--tk-cfo) 50%, transparent); }
+.step:nth-child(1) { border-top-color: color-mix(in srgb, var(--tk-ai)  50%, transparent); }
 .step:nth-child(2) { border-top-color: color-mix(in srgb, var(--tk-web) 50%, transparent); }
-.step:nth-child(3) { border-top-color: color-mix(in srgb, var(--tk-ai)  50%, transparent); }
+.step:nth-child(3) { border-top-color: color-mix(in srgb, var(--tk-cfo) 50%, transparent); }
 
 /* CTA band — brand-glow radials in corners */
 .cta-band {
