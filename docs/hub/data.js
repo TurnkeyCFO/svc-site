@@ -57,7 +57,7 @@ const BRANDS = {
   ai:       { name: 'Turnkey AI',       tagline: 'Intelligence. Automated. Impact.',              color: '#0098C7', ink: '#fff' },
   services: { name: 'Turnkey Services', tagline: 'The bridge between starting and scaling.',     color: '#0A0A0A', ink: '#fff' },
   design:   { name: 'Turnkey Design',   tagline: 'Design that connects. Creativity that converts.',color: '#BD22A7', ink: '#fff' },
-  seo:      { name: 'Turnkey SEO',      tagline: 'Rank higher. Grow faster.',                     color: '#FF1564', ink: '#fff' },
+  seo:      { name: 'Turnkey SEO',      tagline: 'Rank higher. Grow faster.',                     color: '#FF7A00', ink: '#fff' },
   partners: { name: 'Turnkey Partners', tagline: 'Stronger together. Built for lasting impact.',  color: '#B8920A', ink: '#fff' },
   product:  { name: 'Demos & Products', tagline: 'Live products, demos & internal tools.',        color: '#3D3D3D', ink: '#fff' },
   client:   { name: 'Client Showcase Sites', tagline: 'Built-for-prospect demo sites.',           color: '#6600CC', ink: '#fff' }

@@ -1527,21 +1527,52 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
   100% { background-position: 140% 50%; }
 }
 
-/* Uniform brand logos — every card plate identical, logo dead-centered */
-.brand-card-logo { height: 168px !important; padding: 24px 24px !important; }
+/* Uniform brand logos — DESKTOP: shrunk + lifted so the logo block
+   doesn't crowd the headline/body text below it. */
+.brand-card-logo {
+  height: 110px !important;
+  padding: 14px 24px 4px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .brand-card-logo img {
-  width: 100% !important;
+  width: auto !important;
   height: 100% !important;
-  max-width: 100% !important;
-  max-height: 100% !important;
+  max-width: 88% !important;
+  max-height: 92px !important;
   object-fit: contain !important;
   object-position: center !important;
   display: block !important;
 }
 
-/* Mobile sizing for uniform logos */
+/* MOBILE: pin the logo small to the bottom-right corner of the card
+   so the body copy gets the full width, no overlap on any card. */
 @media (max-width: 720px) {
-  .brand-card-logo { height: 132px !important; padding: 18px 18px !important; }
+  .brand-card { position: relative; }
+  .brand-card-logo {
+    position: absolute !important;
+    right: 14px;
+    bottom: 14px;
+    width: 88px;
+    height: 40px !important;
+    padding: 0 !important;
+    opacity: 0.85;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .brand-card-logo img {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+  }
+  /* Body now owns the whole card and reserves room for the corner logo */
+  .brand-card-body {
+    padding: 22px 22px 60px !important;
+    position: relative;
+    z-index: 2;
+  }
 }
 
 /* Beams: lighten on small screens (less GPU) */
@@ -1896,7 +1927,7 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
   --tk-cfo:   #00E676;
   --tk-web:   #6600CC;
   --tk-ai:    #0055FF;
-  --tk-seo:   #FF1564;
+  --tk-seo:   #FF7A00;
   --tk-design:#BD22A7;
   --tk-gold:  #E0B90B;
 }
