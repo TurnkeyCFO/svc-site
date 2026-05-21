@@ -1092,7 +1092,8 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
 .faq-item summary:hover { color: var(--text-2); }
 
 /* ── HERO ENHANCED — give the copy more presence ── */
-.hero-copy h1 { text-shadow: 0 1px 0 rgba(255,255,255,0.6); }
+/* (text-shadow removed — it was painting white pixels behind the
+   transparent gradient-clipped text fill, making the H1 look gray) */
 
 /* ── RESPONSIVE for the glow card ── */
 @media (max-width: 980px) {
@@ -1451,26 +1452,32 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
 
 /* Hero H1 two-line split, with subtle living motion on the accent line */
 .hero-line-1 { display: block; }
-.hero-line-2 {
-  display: block;
-  /* Brand-rainbow shimmer band sweeping through dark text — same
-     family as the kicker + section H2 treatment. */
+/* HERO H1 — entire headline reads as solid black with a narrow
+   brand-rainbow shimmer band that sweeps left→right through both
+   lines as one continuous pass. */
+.hero-headline {
   background: linear-gradient(90deg,
-    #0A0A0A 0%, #0A0A0A 30%,
-    var(--tk-cfo, #00E676) 40%,
-    var(--tk-web, #6600CC) 47%,
+    #000 0%, #000 38%,
+    var(--tk-cfo, #00E676) 44%,
+    var(--tk-web, #6600CC) 49%,
     var(--tk-ai,  #0055FF) 54%,
-    var(--tk-seo, #FF7A00) 61%,
-    var(--tk-design, #BD22A7) 68%,
-    #0A0A0A 78%, #0A0A0A 100%);
-  background-size: 240% 100%;
+    var(--tk-seo, #FF7A00) 59%,
+    var(--tk-design, #BD22A7) 64%,
+    #000 72%, #000 100%);
+  background-size: 260% 100%;
   -webkit-background-clip: text; background-clip: text;
   -webkit-text-fill-color: transparent; color: transparent;
   animation: tk-hero-shimmer 11s linear infinite;
 }
+.hero-line-1, .hero-line-2 {
+  display: block;
+  background: none;
+  -webkit-text-fill-color: inherit; color: inherit;
+  animation: none;
+}
 @keyframes tk-hero-shimmer {
   0%   { background-position:   0% 50%; }
-  100% { background-position: 240% 50%; }
+  100% { background-position: 260% 50%; }
 }
 
 /* Gradient spectrum bar under H1 (sparkle canvas mounts above) */
