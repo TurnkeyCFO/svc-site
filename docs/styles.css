@@ -559,7 +559,14 @@ ul { padding: 0; list-style: none; }
   padding-bottom: 48px;
   border-bottom: 1px solid var(--on-dark-3);
 }
-.footer-logo { height: 50px; width: auto; margin-bottom: 18px; }
+.footer-logo {
+  height: 50px;
+  width: auto;
+  margin-bottom: 18px;
+  /* Invert the black-on-transparent brand mark to white so it reads
+     on the dark footer. */
+  filter: brightness(0) invert(1);
+}
 .footer-tagline { color: var(--on-dark); font-weight: 700; font-size: 1rem; margin-bottom: 10px; }
 .footer-meta { color: var(--on-dark-2); font-size: 0.94rem; line-height: 1.6; }
 .footer-meta a { color: var(--on-dark-2); }
@@ -1879,4 +1886,166 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
   .svc-panel, .svc-panel-logo, .svc-panel-label, .svc-panel-cta { transition: none !important; }
   .cursor-glow { display: none !important; }
   .brand-card { transition: none !important; }
+}
+
+/* ============================================================
+   v19 — brand color throughout the rest of the site
+   ============================================================ */
+
+:root {
+  --tk-cfo:   #00E676;
+  --tk-web:   #6600CC;
+  --tk-ai:    #0055FF;
+  --tk-seo:   #FF1564;
+  --tk-design:#BD22A7;
+  --tk-gold:  #E0B90B;
+}
+
+/* Kickers — brand-rainbow gradient pan */
+.kicker {
+  background: linear-gradient(90deg,
+    var(--tk-cfo) 0%, var(--tk-web) 22%, var(--tk-ai) 44%,
+    var(--tk-seo) 66%, var(--tk-design) 84%, var(--tk-gold) 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+  animation: tk-kicker-pan 14s linear infinite;
+}
+@keyframes tk-kicker-pan {
+  0%   { background-position:   0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* Section H2 shimmer — widen to full 5-brand rainbow.
+   Must redeclare background-clip + text-fill since the shorthand
+   `background:` resets background-clip to its initial border-box. */
+.section-head h2 {
+  background: linear-gradient(90deg,
+    #0A0A0A 0%, #0A0A0A 32%,
+    var(--tk-cfo) 40%, var(--tk-web) 48%,
+    var(--tk-ai) 54%, var(--tk-seo) 60%,
+    var(--tk-design) 66%,
+    #0A0A0A 74%, #0A0A0A 100%);
+  background-size: 240% 100%;
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+}
+
+/* Trust strip — each strong gets its own brand color */
+.trust-row > div:nth-child(1) strong { color: var(--tk-cfo); }
+.trust-row > div:nth-child(2) strong { color: var(--tk-web); }
+.trust-row > div:nth-child(3) strong { color: var(--tk-ai); }
+.trust-row > div:nth-child(4) strong { color: var(--tk-seo); }
+.trust-row > div:nth-child(5) strong { color: var(--tk-design); }
+.trust-strip::after {
+  background: linear-gradient(90deg,
+    transparent,
+    color-mix(in srgb, var(--tk-cfo) 70%, transparent),
+    color-mix(in srgb, var(--tk-web) 70%, transparent),
+    color-mix(in srgb, var(--tk-ai) 70%, transparent),
+    color-mix(in srgb, var(--tk-seo) 70%, transparent),
+    color-mix(in srgb, var(--tk-design) 70%, transparent),
+    transparent) !important;
+}
+
+/* Benefits list — brand-cycling colored markers + hover accents */
+.benefits-list li {
+  position: relative;
+  padding-left: 34px;
+  border-left: 3px solid transparent;
+  transition: border-color 200ms ease, background 200ms ease;
+}
+.benefits-list li::before {
+  content: "\25B8";
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.1rem;
+  font-weight: 800;
+  line-height: 1;
+}
+.benefits-list li:nth-child(6n+1) { --row-brand: var(--tk-cfo); }
+.benefits-list li:nth-child(6n+2) { --row-brand: var(--tk-web); }
+.benefits-list li:nth-child(6n+3) { --row-brand: var(--tk-ai); }
+.benefits-list li:nth-child(6n+4) { --row-brand: var(--tk-seo); }
+.benefits-list li:nth-child(6n+5) { --row-brand: var(--tk-design); }
+.benefits-list li:nth-child(6n+6) { --row-brand: var(--tk-gold); }
+.benefits-list li::before { color: var(--row-brand, var(--tk-cfo)); }
+.benefits-list li:hover {
+  border-left-color: var(--row-brand, var(--tk-cfo));
+  background: color-mix(in srgb, var(--row-brand, var(--tk-cfo)) 5%, var(--bg));
+}
+
+/* Brand cards — pain block gets a soft neutral tint */
+.brand-card-body .brand-pain {
+  padding: 12px 14px;
+  margin-top: 8px;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--brand) 4%, #f6f6f8);
+  border-left: 3px solid color-mix(in srgb, var(--brand) 35%, #bdbdc4);
+}
+.brand-card-body .brand-pain strong {
+  color: color-mix(in srgb, var(--brand) 55%, #000);
+}
+
+/* Step numbers — brand color + glow per step */
+.step:nth-child(1) .step-num { background: var(--tk-cfo); color: #0A2B14; box-shadow: 0 8px 22px -10px color-mix(in srgb, var(--tk-cfo) 70%, transparent); }
+.step:nth-child(2) .step-num { background: var(--tk-web); color: #fff;    box-shadow: 0 8px 22px -10px color-mix(in srgb, var(--tk-web) 70%, transparent); }
+.step:nth-child(3) .step-num { background: var(--tk-ai);  color: #fff;    box-shadow: 0 8px 22px -10px color-mix(in srgb, var(--tk-ai)  70%, transparent); }
+.step { border-top: 2px solid transparent; transition: border-color 220ms ease; }
+.step:nth-child(1) { border-top-color: color-mix(in srgb, var(--tk-cfo) 50%, transparent); }
+.step:nth-child(2) { border-top-color: color-mix(in srgb, var(--tk-web) 50%, transparent); }
+.step:nth-child(3) { border-top-color: color-mix(in srgb, var(--tk-ai)  50%, transparent); }
+
+/* CTA band — brand-glow radials in corners */
+.cta-band {
+  background:
+    radial-gradient(60% 80% at 0% 100%, color-mix(in srgb, var(--tk-cfo) 28%, transparent) 0%, transparent 60%),
+    radial-gradient(55% 80% at 100% 0%, color-mix(in srgb, var(--tk-web) 28%, transparent) 0%, transparent 60%),
+    radial-gradient(40% 60% at 50% 50%, color-mix(in srgb, var(--tk-ai) 14%, transparent) 0%, transparent 70%),
+    var(--dark);
+}
+
+/* FAQ items — rotating brand-color left border + accent */
+.faq-item { border-left: 3px solid transparent; padding-left: 14px; margin-left: -14px; transition: border-color 200ms ease, background 200ms ease; }
+.faq-item:nth-child(6n+1) { --row-brand: var(--tk-cfo); }
+.faq-item:nth-child(6n+2) { --row-brand: var(--tk-web); }
+.faq-item:nth-child(6n+3) { --row-brand: var(--tk-ai); }
+.faq-item:nth-child(6n+4) { --row-brand: var(--tk-seo); }
+.faq-item:nth-child(6n+5) { --row-brand: var(--tk-design); }
+.faq-item:nth-child(6n+6) { --row-brand: var(--tk-gold); }
+.faq-item:hover,
+.faq-item[open] {
+  border-left-color: var(--row-brand, var(--tk-cfo));
+  background: color-mix(in srgb, var(--row-brand, var(--tk-cfo)) 4%, transparent);
+}
+.faq-item summary::after { transition: transform 220ms ease, color 220ms ease; }
+.faq-item:hover summary::after,
+.faq-item[open] summary::after { color: var(--row-brand, var(--tk-cfo)); }
+.faq-item:hover summary,
+.faq-item[open] summary { color: color-mix(in srgb, var(--row-brand, var(--tk-cfo)) 80%, #000); }
+
+/* Footer — rainbow divider on top + brand-color column headings */
+.site-footer { position: relative; }
+.site-footer::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg,
+    var(--tk-cfo) 0%, var(--tk-web) 25%, var(--tk-ai) 50%,
+    var(--tk-seo) 70%, var(--tk-design) 88%, var(--tk-gold) 100%);
+  background-size: 200% 100%;
+  animation: tk-kicker-pan 18s linear infinite;
+}
+.footer-col:nth-child(2) h4 { color: var(--tk-cfo); }
+.footer-col:nth-child(3) h4 { color: var(--tk-web); }
+.footer-col:nth-child(4) h4 { color: var(--tk-ai); }
+.footer-col:nth-child(2) a:hover { color: var(--tk-cfo); }
+.footer-col:nth-child(3) a:hover { color: var(--tk-web); }
+.footer-col:nth-child(4) a:hover { color: var(--tk-ai); }
+
+@media (prefers-reduced-motion: reduce) {
+  .kicker, .site-footer::before { animation: none !important; }
 }
