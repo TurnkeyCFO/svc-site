@@ -197,7 +197,7 @@ ul { padding: 0; list-style: none; }
   color: var(--text);
   margin-bottom: 22px;
 }
-.hero-em { color: #000; }
+.hero-em { /* color owned by .hero-line-2 brand-shimmer gradient */ }
 .lede {
   font-size: 1.18rem;
   line-height: 1.65;
@@ -950,14 +950,8 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
   100% { --hue: 150; }   /* loop back to CFO emerald */
 }
 
-/* Headline em — solid black, no shimmer. */
-.hero-em {
-  background: none;
-  -webkit-background-clip: initial; background-clip: initial;
-  -webkit-text-fill-color: currentColor;
-  color: #000;
-  animation: none;
-}
+/* Headline em — defer to .hero-line-2 for the brand shimmer treatment. */
+.hero-em { /* no overrides — .hero-line-2 owns the gradient */ }
 
 /* ── TRUST STRIP — softer + animated hairline ── */
 .trust-strip { position: relative; }
@@ -1459,12 +1453,24 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
 .hero-line-1 { display: block; }
 .hero-line-2 {
   display: block;
-  /* Solid black — no gradient, no shimmer, no animation. */
-  color: #000;
-  background: none;
-  -webkit-background-clip: initial; background-clip: initial;
-  -webkit-text-fill-color: currentColor;
-  animation: none;
+  /* Brand-rainbow shimmer band sweeping through dark text — same
+     family as the kicker + section H2 treatment. */
+  background: linear-gradient(90deg,
+    #0A0A0A 0%, #0A0A0A 30%,
+    var(--tk-cfo, #00E676) 40%,
+    var(--tk-web, #6600CC) 47%,
+    var(--tk-ai,  #0055FF) 54%,
+    var(--tk-seo, #FF7A00) 61%,
+    var(--tk-design, #BD22A7) 68%,
+    #0A0A0A 78%, #0A0A0A 100%);
+  background-size: 240% 100%;
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+  animation: tk-hero-shimmer 11s linear infinite;
+}
+@keyframes tk-hero-shimmer {
+  0%   { background-position:   0% 50%; }
+  100% { background-position: 240% 50%; }
 }
 
 /* Gradient spectrum bar under H1 (sparkle canvas mounts above) */
