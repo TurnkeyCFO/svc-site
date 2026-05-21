@@ -55,7 +55,7 @@ const BRANDS = {
   cfo:      { name: 'Turnkey CFO',      tagline: 'Financial clarity. Confident growth.',          color: '#00B050', ink: '#fff' },
   web:      { name: 'Turnkey Web',      tagline: 'Modern website. More traffic.',                 color: '#0055FF', ink: '#fff' },
   ai:       { name: 'Turnkey AI',       tagline: 'Intelligence. Automated. Impact.',              color: '#0098C7', ink: '#fff' },
-  services: { name: 'Turnkey Services', tagline: 'One system. Every solution.',                   color: '#0A0A0A', ink: '#fff' },
+  services: { name: 'Turnkey Services', tagline: 'The bridge between starting and scaling.',     color: '#0A0A0A', ink: '#fff' },
   design:   { name: 'Turnkey Design',   tagline: 'Design that connects. Creativity that converts.',color: '#BD22A7', ink: '#fff' },
   seo:      { name: 'Turnkey SEO',      tagline: 'Rank higher. Grow faster.',                     color: '#FF1564', ink: '#fff' },
   partners: { name: 'Turnkey Partners', tagline: 'Stronger together. Built for lasting impact.',  color: '#B8920A', ink: '#fff' },
