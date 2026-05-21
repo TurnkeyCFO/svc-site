@@ -1703,6 +1703,45 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
   100% { background-position:   0%   0%; }
 }
 
+/* TKSEO panel — fire-palette gradient that matches the TURNKEY SEO
+   brand mark itself (yellow → orange → magenta running diagonally).
+   Overrides the single-brand gradient that every other panel uses. */
+.svc-panel[data-svc="seo"] .svc-panel-bg {
+  background: linear-gradient(135deg,
+    #000      0%,
+    #5C2C00  14%,
+    #FFD100  30%,   /* Solar Yellow */
+    #FF7A00  50%,   /* Flame Orange */
+    #FF1564  72%,   /* Hot Magenta */
+    #4F0F22  90%,
+    #000     100%);
+}
+.svc-panel[data-svc="seo"] .svc-panel-tint {
+  background:
+    radial-gradient(60% 50% at 30% 30%, color-mix(in srgb, #FFD100 35%, transparent) 0%, transparent 70%),
+    radial-gradient(50% 40% at 75% 80%, color-mix(in srgb, #FF1564 30%, transparent) 0%, transparent 70%);
+}
+
+/* TKDESIGN panel — cool-palette gradient that matches the TURNKEY
+   DESIGN brand mark itself (cyan → blue → purple → magenta running
+   diagonally). Same override pattern as TKSEO. */
+.svc-panel[data-svc="design"] .svc-panel-bg {
+  background: linear-gradient(135deg,
+    #000      0%,
+    #002338  14%,
+    #00C8FF  30%,   /* Cyan */
+    #0055FF  48%,   /* Turnkey AI blue */
+    #6600CC  66%,   /* Turnkey Web purple */
+    #BD22A7  82%,   /* Turnkey Design magenta */
+    #2E0532  92%,
+    #000     100%);
+}
+.svc-panel[data-svc="design"] .svc-panel-tint {
+  background:
+    radial-gradient(60% 50% at 30% 30%, color-mix(in srgb, #00C8FF 32%, transparent) 0%, transparent 70%),
+    radial-gradient(50% 40% at 75% 80%, color-mix(in srgb, #BD22A7 32%, transparent) 0%, transparent 70%);
+}
+
 .svc-panel-tint {
   position: absolute; inset: 0; z-index: 1;
   /* A second slow-moving radial pass for depth — subtle brand glow that
