@@ -1614,28 +1614,71 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
 
 .svc-panel-bg {
   position: absolute; inset: 0; z-index: 0;
-  /* Diagonal dark→light: brand-DEEP top-left → light brand bottom-right.
-     The middle band stays in brand-tone so text reads on either end. */
+  /* Darker brand gradient that flows continuously within the card.
+     Stops are black → brand-deep → brand-deep mixed with brand → brand
+     → back to brand-deep, so the loop seams without a jump. The 220%
+     background-size + animated background-position is what creates the
+     drifting flow inside the panel. */
   background: linear-gradient(135deg,
-    var(--brand-deep, #0A0A0A) 0%,
-    color-mix(in srgb, var(--brand) 85%, #000) 25%,
-    var(--brand) 50%,
-    color-mix(in srgb, var(--brand) 50%, #ffffff) 75%,
-    color-mix(in srgb, var(--brand) 15%, #ffffff) 100%);
+    #000 0%,
+    var(--brand-deep, #0A0A0A) 22%,
+    color-mix(in srgb, var(--brand-deep, #0A0A0A) 55%, var(--brand)) 45%,
+    color-mix(in srgb, var(--brand) 80%, #000) 65%,
+    var(--brand-deep, #0A0A0A) 88%,
+    #000 100%);
+  background-size: 220% 220%;
+  background-position: 0% 0%;
+  animation: tk-panel-flow 14s ease-in-out infinite;
+  will-change: background-position;
 }
+/* Per-panel phase offset so the cards don't all pulse in lockstep —
+   each card flows continuously *within itself* but at a different point
+   in the loop, so the row reads as five independent drifts. */
+.svc-accordion > .svc-panel:nth-child(2) .svc-panel-bg { animation-delay: -2.8s; }
+.svc-accordion > .svc-panel:nth-child(3) .svc-panel-bg { animation-delay: -5.6s; }
+.svc-accordion > .svc-panel:nth-child(4) .svc-panel-bg { animation-delay: -8.4s; }
+.svc-accordion > .svc-panel:nth-child(5) .svc-panel-bg { animation-delay: -11.2s; }
+
+@keyframes tk-panel-flow {
+  0%   { background-position:   0%   0%; }
+  50%  { background-position: 100% 100%; }
+  100% { background-position:   0%   0%; }
+}
+
 .svc-panel-tint {
   position: absolute; inset: 0; z-index: 1;
-  /* Subtle brand glow biased toward the light bottom-right corner. */
+  /* A second slow-moving radial pass for depth — subtle brand glow that
+     drifts in the opposite direction so the surface always feels alive. */
   background:
-    radial-gradient(circle at 78% 88%, color-mix(in srgb, var(--brand) 30%, transparent) 0%, transparent 55%);
+    radial-gradient(60% 50% at 30% 30%, color-mix(in srgb, var(--brand) 35%, transparent) 0%, transparent 70%);
+  background-size: 180% 180%;
+  background-position: 100% 100%;
   mix-blend-mode: screen;
-  opacity: 0.45;
+  opacity: 0.5;
+  animation: tk-panel-tint-drift 18s ease-in-out infinite;
+  will-change: background-position;
 }
+.svc-accordion > .svc-panel:nth-child(2) .svc-panel-tint { animation-delay: -3.6s; }
+.svc-accordion > .svc-panel:nth-child(3) .svc-panel-tint { animation-delay: -7.2s; }
+.svc-accordion > .svc-panel:nth-child(4) .svc-panel-tint { animation-delay: -10.8s; }
+.svc-accordion > .svc-panel:nth-child(5) .svc-panel-tint { animation-delay: -14.4s; }
+
+@keyframes tk-panel-tint-drift {
+  0%   { background-position: 100% 100%; }
+  50%  { background-position:   0%   0%; }
+  100% { background-position: 100% 100%; }
+}
+
 .svc-panel-overlay {
   position: absolute; inset: 0; z-index: 2;
-  /* Light veil at the bottom-right so the "Learn more" pill + pitch always
-     have a legible band beneath them, regardless of the brand. */
-  background: linear-gradient(135deg, rgba(0,0,0,0) 50%, rgba(255,255,255,0.22) 100%);
+  /* Very faint dark-to-darker veil — keeps the cards reading as DARK
+     regardless of where the flow is in its loop. */
+  background: linear-gradient(160deg, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.22) 100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .svc-panel-bg,
+  .svc-panel-tint { animation: none !important; }
 }
 .svc-panel-logo {
   position: absolute;
@@ -1646,7 +1689,9 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
   height: auto;
   z-index: 3;
   opacity: 0;
-  /* NO inversion — colored brand mark reads on the light gradient. */
+  /* Invert to pure white — cards are dark now, so a white brand mark
+     reads cleanly regardless of the brand's own logo color. */
+  filter: brightness(0) invert(1);
   transition: opacity 0.45s ease 0.18s;
   pointer-events: none;
 }
