@@ -197,7 +197,7 @@ ul { padding: 0; list-style: none; }
   color: var(--text);
   margin-bottom: 22px;
 }
-.hero-em { color: var(--text-2); }
+.hero-em { color: #000; }
 .lede {
   font-size: 1.18rem;
   line-height: 1.65;
@@ -943,17 +943,13 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
   100% { --hue: 150; }   /* loop back to CFO emerald */
 }
 
-/* ── HEADLINE shimmer accent on the "Every solution." em ── */
+/* Headline em — solid black, no shimmer. */
 .hero-em {
-  background: linear-gradient(90deg, #3D3D3D 0%, #0A0A0A 50%, #3D3D3D 100%);
-  background-size: 200% 100%;
-  -webkit-background-clip: text; background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: tk-shimmer 7s linear infinite;
-}
-@keyframes tk-shimmer {
-  0%   { background-position: 100% 0; }
-  100% { background-position: -100% 0; }
+  background: none;
+  -webkit-background-clip: initial; background-clip: initial;
+  -webkit-text-fill-color: currentColor;
+  color: #000;
+  animation: none;
 }
 
 /* ── TRUST STRIP — softer + animated hairline ── */
@@ -1456,25 +1452,12 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
 .hero-line-1 { display: block; }
 .hero-line-2 {
   display: block;
-  /* BLACK text — with a slim brand-color gradient band that sweeps across,
-     reading like a glossy highlight pass over solid black type. Base stops
-     are pure black; only the narrow colored band reveals brand color. */
-  background: linear-gradient(90deg,
-    #000 0%, #000 38%,
-    #00B85F 44%,   /* medium emerald */
-    #5A1FB8 49%,   /* medium purple */
-    #2A56C7 54%,   /* medium blue */
-    #D8326A 59%,   /* medium pink */
-    #962F8E 64%,   /* medium magenta */
-    #000 70%, #000 100%);
-  background-size: 240% 100%;
-  -webkit-background-clip: text; background-clip: text;
-  -webkit-text-fill-color: transparent; color: transparent;
-  animation: tk-hue-pan 9s linear infinite;
-}
-@keyframes tk-hue-pan {
-  0%   { background-position: 0% 50%; }
-  100% { background-position: 240% 50%; }
+  /* Solid black — no gradient, no shimmer, no animation. */
+  color: #000;
+  background: none;
+  -webkit-background-clip: initial; background-clip: initial;
+  -webkit-text-fill-color: currentColor;
+  animation: none;
 }
 
 /* Gradient spectrum bar under H1 (sparkle canvas mounts above) */
