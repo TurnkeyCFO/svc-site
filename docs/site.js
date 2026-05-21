@@ -1,121 +1,110 @@
-// Turnkey Services — site.js  v5
-// Fades, nav state, pulse-wave parallax, twinkling particles, stat count-up.
-
+// Turnkey Services — site.js v2
+// Mobile nav + IntersectionObserver reveals + count-up + cursor spotlight.
 (function () {
- try {
-  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  'use strict';
 
-  // ── nav scroll state ──
-  const nav = document.querySelector(".nav");
-  const onScroll = () => {
-    if (nav) nav.classList.toggle("scrolled", window.scrollY > 12);
-  };
-  window.addEventListener("scroll", onScroll, { passive: true });
-  onScroll();
+  var prefersReduced =
+    window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // ── reveal-on-scroll — position based, so a fast scroll never skips one ──
-  let fades = Array.prototype.slice.call(document.querySelectorAll(".fade"));
-  const revealPass = () => {
-    const line = window.innerHeight * 0.92;
-    fades = fades.filter((el) => {
-      if (el.getBoundingClientRect().top < line) { el.classList.add("in"); return false; }
-      return true;
-    });
-  };
-  revealPass();
-  if (fades.length) {
-    let ticking = false;
-    const onMove = () => {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(() => { revealPass(); ticking = false; });
-    };
-    window.addEventListener("scroll", onMove, { passive: true });
-    window.addEventListener("resize", onMove, { passive: true });
-  }
-
-  // ── twinkling spark particles ──
-  const sparkLayer = document.querySelector(".sparks");
-  if (sparkLayer && !reduce) {
-    const tints = ["#22D3EE", "#2E9BFF", "#8B5CFF", "#FF2D9C", "#FF8A1E", "#00E676", "#FFFFFF"];
-    const count = window.innerWidth < 680 ? 16 : 30;
-    let html = "";
-    for (let i = 0; i < count; i++) {
-      const c = tints[(Math.random() * tints.length) | 0];
-      const size = (Math.random() * 2 + 1.4).toFixed(1);
-      html +=
-        '<span class="spark" style="' +
-        "left:" + (Math.random() * 100).toFixed(2) + "%;" +
-        "top:" + (Math.random() * 100).toFixed(2) + "%;" +
-        "color:" + c + ";background:" + c + ";" +
-        "width:" + size + "px;height:" + size + "px;" +
-        "animation-duration:" + (Math.random() * 5 + 4).toFixed(1) + "s;" +
-        "animation-delay:" + (-Math.random() * 8).toFixed(1) + 's">' +
-        "</span>";
+  // ── Mobile nav ─────────────────────────────────────────────
+  var toggle = document.getElementById('nav-toggle');
+  var nav = document.getElementById('desktop-nav');
+  if (toggle && nav) {
+    function closeNav() {
+      nav.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
     }
-    sparkLayer.innerHTML = html;
+    toggle.addEventListener('click', function () {
+      var open = nav.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    nav.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        if (window.innerWidth <= 980) closeNav();
+      });
+    });
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 980) closeNav();
+    });
   }
 
-  // ── depth parallax — pointer + scroll move the pulse-field layers ──
-  const layers = Array.prototype.map.call(
-    document.querySelectorAll(".pulse-field [data-depth]"),
-    (el) => ({ el, depth: parseFloat(el.dataset.depth) || 0 })
-  );
-  if (layers.length && !reduce) {
-    let tx = 0, ty = 0, cx = 0, cy = 0;
-    window.addEventListener("pointermove", (e) => {
-      tx = e.clientX / window.innerWidth - 0.5;
-      ty = e.clientY / window.innerHeight - 0.5;
-    }, { passive: true });
-    const tick = () => {
-      cx += (tx - cx) * 0.06;
-      cy += (ty - cy) * 0.06;
-      const sy = window.scrollY;
-      for (let i = 0; i < layers.length; i++) {
-        const d = layers[i].depth;
-        const px = -cx * d;
-        const py = -cy * d - sy * (d / 900);
-        layers[i].el.style.transform =
-          "translate3d(" + px.toFixed(2) + "px," + py.toFixed(2) + "px,0)";
-      }
-      requestAnimationFrame(tick);
-    };
-    requestAnimationFrame(tick);
+  // ── Sticky header height as CSS var (used for scroll-margin) ──
+  function setHeaderH() {
+    var header = document.querySelector('.topbar');
+    if (!header) return;
+    var h = header.offsetHeight;
+    document.documentElement.style.setProperty('--header-h', h + 'px');
+  }
+  setHeaderH();
+  window.addEventListener('resize', setHeaderH);
+
+  // ── Reveal on scroll ──────────────────────────────────────
+  var reveals = document.querySelectorAll('.reveal');
+  if (reveals.length) {
+    if (prefersReduced || !('IntersectionObserver' in window)) {
+      reveals.forEach(function (el) { el.classList.add('is-visible'); });
+    } else {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      reveals.forEach(function (el) { io.observe(el); });
+    }
   }
 
-  // ── stat count-up ──
-  const stats = document.querySelectorAll("[data-count]");
-  if (stats.length && "IntersectionObserver" in window) {
-    const cio = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (!e.isIntersecting) return;
-        const el = e.target;
-        const target = parseFloat(el.dataset.count);
-        const suffix = el.dataset.suffix || "";
-        const decimals = parseInt(el.dataset.decimals || "0", 10);
-        const dur = 1400;
-        const start = performance.now();
-        function step(now) {
-          const t = Math.min(1, (now - start) / dur);
-          const eased = 1 - Math.pow(1 - t, 3);
-          el.textContent = (target * eased).toFixed(decimals) + suffix;
-          if (t < 1) requestAnimationFrame(step);
-          else el.textContent = target.toFixed(decimals) + suffix;
+  // ── Count-up on first view ─────────────────────────────────
+  var counters = document.querySelectorAll('[data-count]');
+  if (counters.length && 'IntersectionObserver' in window && !prefersReduced) {
+    var cio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var el = entry.target;
+        var target = parseInt(el.getAttribute('data-count'), 10) || 0;
+        var suffix = el.getAttribute('data-suffix') || '';
+        var duration = 1300;
+        var start = performance.now();
+        function frame(t) {
+          var p = Math.min(1, (t - start) / duration);
+          // ease-out cubic
+          var eased = 1 - Math.pow(1 - p, 3);
+          var val = Math.round(target * eased);
+          el.textContent = val + suffix;
+          if (p < 1) requestAnimationFrame(frame);
+          else el.textContent = target + suffix;
         }
-        requestAnimationFrame(step);
+        requestAnimationFrame(frame);
         cio.unobserve(el);
       });
     }, { threshold: 0.5 });
-    stats.forEach((s) => cio.observe(s));
+    counters.forEach(function (el) { cio.observe(el); });
   }
 
-  // ── marker year ──
-  document.querySelectorAll("[data-year]").forEach((el) => {
-    el.textContent = new Date().getFullYear();
-  });
- } catch (err) {
-  // Never leave the page blank — reveal everything if anything above failed.
-  document.querySelectorAll(".fade").forEach(function (f) { f.classList.add("in"); });
-  if (window.console) console.warn("site.js recovered:", err);
- }
+  // ── Cursor spotlight on brand grid (desktop only) ──────────
+  var grid = document.getElementById('brandGrid');
+  if (grid && !prefersReduced && window.matchMedia('(hover: hover)').matches) {
+    var rafId = null;
+    var pendingX = 50, pendingY = 50;
+    function flush() {
+      grid.style.setProperty('--mx', pendingX + '%');
+      grid.style.setProperty('--my', pendingY + '%');
+      rafId = null;
+    }
+    grid.addEventListener('mouseenter', function () {
+      grid.classList.add('is-tracking');
+    });
+    grid.addEventListener('mouseleave', function () {
+      grid.classList.remove('is-tracking');
+    });
+    grid.addEventListener('mousemove', function (e) {
+      var rect = grid.getBoundingClientRect();
+      pendingX = ((e.clientX - rect.left) / rect.width) * 100;
+      pendingY = ((e.clientY - rect.top) / rect.height) * 100;
+      if (rafId === null) rafId = requestAnimationFrame(flush);
+    });
+  }
 })();

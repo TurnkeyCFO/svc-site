@@ -1,501 +1,701 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <script>document.documentElement.classList.add('js');</script>
-  <title>Turnkey Services — One system. Every solution.</title>
-  <meta name="description" content="Turnkey Services is the operating system behind five specialist brands — bookkeeping, AI automation, web, SEO and design for small business. One firm. One standard." />
-  <meta name="theme-color" content="#08080F" />
-  <meta property="og:title" content="Turnkey Services — One system. Every solution." />
-  <meta property="og:description" content="The system behind five specialist brands: Turnkey CFO, Turnkey AI, Turnkey Web, Turnkey SEO and Turnkey Design." />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Turnkey Services — One System. Every Solution.</title>
+  <meta name="description" content="Turnkey Services is a full-service firm built to move small businesses forward — bookkeeping, websites, AI, SEO, and design under one roof. Austin, TX. Serving clients nationwide.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Turnkey Services">
+  <link rel="canonical" href="https://turnkey-services.org/">
+  <link rel="icon" type="image/png" href="./assets/tks-mark.png">
+  <meta name="theme-color" content="#0A0A0A">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Turnkey Services — One System. Every Solution.">
+  <meta property="og:description" content="A full-service firm delivering bookkeeping, websites, AI, SEO, and design under one roof. Austin, TX — serving clients nationwide.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://turnkey-services.org/">
+  <meta property="og:site_name" content="Turnkey Services">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://turnkey-services.org/assets/tks-logo.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Turnkey Services — One System. Every Solution.">
+  <meta name="twitter:description" content="A full-service firm — bookkeeping, websites, AI, SEO, design. Austin, TX.">
+  <meta name="twitter:image" content="https://turnkey-services.org/assets/tks-logo.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=6" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css?v=2026-05-21-v15">
+
+  <!-- Organization + WebSite schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://turnkey-services.org/#organization",
+        "name": "Turnkey Services",
+        "url": "https://turnkey-services.org/",
+        "logo": "https://turnkey-services.org/assets/tks-logo.png",
+        "email": "hello@turnkeyservices.com",
+        "telephone": "+1-682-433-1852",
+        "slogan": "One system. Every solution.",
+        "description": "Austin-based services firm delivering bookkeeping, websites, AI, SEO, and design for small businesses, nonprofits, and service teams nationwide.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Austin",
+          "addressRegion": "TX",
+          "addressCountry": "US"
+        },
+        "subOrganization": [
+          { "@type": "Organization", "name": "Turnkey CFO", "url": "https://turnkeycfo.com" },
+          { "@type": "Organization", "name": "Turnkey Web", "url": "https://turnkeyweb.org" },
+          { "@type": "Organization", "name": "Turnkey AI", "url": "https://turnkeyai.org" }
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://turnkey-services.org/#website",
+        "url": "https://turnkey-services.org/",
+        "name": "Turnkey Services",
+        "description": "One system. Every solution.",
+        "publisher": { "@id": "https://turnkey-services.org/#organization" }
+      }
+    ]
+  }
+  </script>
+
+  <!-- FAQPage schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What does Turnkey Services do?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Turnkey Services delivers the operating-layer services small businesses need to grow — bookkeeping (Turnkey CFO), websites (Turnkey Web), AI workflows (Turnkey AI), with SEO and Design service lines launching soon. One firm, multiple service lines, one accountable team." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I engage more than one service line?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes — most clients do. Start with books and add a website, or start with a site and bring books in later. One intake covers every active service line; you choose what you need." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is everything billed under one company?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every service line invoices through Turnkey Services. One statement, one point of contact, one accountable team — regardless of how many service lines you engage." }
+      },
+      {
+        "@type": "Question",
+        "name": "Where is Turnkey Services based?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Austin, Texas. Headquartered locally, but every service line is delivered fully virtually across the United States." }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you take on clients outside Austin?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. The majority of our clients are outside Austin. Everything we deliver — books, websites, AI workflows — is built and delivered remotely. Same quality bar, same response time, nationwide." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I get started?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Book a 15-minute intro call. We'll talk through what you need, recommend which service line (or lines) fit, and scope a clear quote. Most engagements are onboarded in one to two weeks." }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
-<div class="grain" aria-hidden="true"></div>
 
-<!-- ═══════════ SVG DEFS — TK marks + wave gradients ═══════════ -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <linearGradient id="silverGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%"   stop-color="#F4F1E8"/>
-      <stop offset="30%"  stop-color="#C9C3B4"/>
-      <stop offset="60%"  stop-color="#7A766D"/>
-      <stop offset="100%" stop-color="#B5AFA2"/>
-    </linearGradient>
-    <linearGradient id="markGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%"   stop-color="#2E9BFF"/>
-      <stop offset="38%"  stop-color="#8B5CFF"/>
-      <stop offset="70%"  stop-color="#FF2D9C"/>
-      <stop offset="100%" stop-color="#FF8A1E"/>
-    </linearGradient>
-    <linearGradient id="gA" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#22D3EE"/><stop offset="1" stop-color="#8B5CFF"/>
-    </linearGradient>
-    <linearGradient id="gB" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#8B5CFF"/><stop offset="1" stop-color="#FF2D9C"/>
-    </linearGradient>
-    <linearGradient id="gC" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#FF2D9C"/><stop offset="1" stop-color="#FF8A1E"/>
-    </linearGradient>
-    <linearGradient id="gD" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#2E9BFF"/><stop offset="1" stop-color="#00E676"/>
-    </linearGradient>
-    <!-- silver mark (parent brand) -->
-    <symbol id="tk-mark" viewBox="0 0 200 130">
-      <rect x="10" y="6"  width="76"  height="14"  fill="#FFFFFF"/>
-      <rect x="41" y="6"  width="14"  height="118" fill="#FFFFFF"/>
-      <rect x="92" y="6"  width="14"  height="118" fill="#FFFFFF"/>
-      <polygon points="106,64 106,42 175,6   192,6   192,18"  fill="url(#markGrad)"/>
-      <polygon points="106,66 106,86 175,124 192,124 192,112" fill="#FFFFFF"/>
-    </symbol>
-    <!-- mono mark — inherits currentColor, recoloured per service -->
-    <symbol id="tk-glyph" viewBox="0 0 200 130">
-      <rect x="10" y="6"  width="76"  height="14"  fill="currentColor"/>
-      <rect x="41" y="6"  width="14"  height="118" fill="currentColor"/>
-      <rect x="92" y="6"  width="14"  height="118" fill="currentColor"/>
-      <polygon points="106,64 106,42 175,6   192,6   192,18"  fill="currentColor"/>
-      <polygon points="106,66 106,86 175,124 192,124 192,112" fill="currentColor"/>
-    </symbol>
-  </defs>
-</svg>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand-lockup" href="./index.html" aria-label="Turnkey Services home">
+        <img src="./assets/tks-logo.png" alt="Turnkey Services" class="brand-logo" decoding="async">
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="desktop-nav" id="desktop-nav" aria-label="Primary">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="https://calendly.com/ricky-turnkeycfo/15min-intro-call" class="button button-primary" target="_blank" rel="noreferrer">Book a call</a>
+      </nav>
+    </div>
+  </header>
 
-<!-- ═══════════ PULSE-WAVE FIELD ═══════════ -->
-<div class="pulse-field" aria-hidden="true">
-  <!-- aurora bloom layer -->
-  <div class="aurora" data-depth="14">
-    <span class="blob b1"></span>
-    <span class="blob b2"></span>
-    <span class="blob b3"></span>
-    <span class="blob b4"></span>
-  </div>
-  <!-- neon wave ribbons -->
-  <div class="waves" data-depth="34">
-    <svg class="wave wave-a" viewBox="0 0 1440 900" preserveAspectRatio="none">
-      <path class="w-glow"  stroke="url(#gA)" d="M-160 252 C 240 104 470 376 762 244 C 1054 116 1270 342 1640 192"/>
-      <path class="w-core"  stroke="url(#gA)" d="M-160 252 C 240 104 470 376 762 244 C 1054 116 1270 342 1640 192"/>
-      <path class="w-spark" stroke="url(#gA)" d="M-160 252 C 240 104 470 376 762 244 C 1054 116 1270 342 1640 192"/>
-    </svg>
-    <svg class="wave wave-b" viewBox="0 0 1440 900" preserveAspectRatio="none">
-      <path class="w-glow"  stroke="url(#gB)" d="M-160 708 C 268 556 520 824 824 660 C 1110 506 1322 778 1640 608"/>
-      <path class="w-core"  stroke="url(#gB)" d="M-160 708 C 268 556 520 824 824 660 C 1110 506 1322 778 1640 608"/>
-      <path class="w-spark" stroke="url(#gB)" d="M-160 708 C 268 556 520 824 824 660 C 1110 506 1322 778 1640 608"/>
-    </svg>
-    <svg class="wave wave-c" viewBox="0 0 1440 900" preserveAspectRatio="none">
-      <path class="w-glow"  stroke="url(#gC)" d="M-160 470 C 300 532 560 344 884 472 C 1146 574 1368 386 1640 504"/>
-      <path class="w-core"  stroke="url(#gC)" d="M-160 470 C 300 532 560 344 884 472 C 1146 574 1368 386 1640 504"/>
-      <path class="w-spark" stroke="url(#gC)" d="M-160 470 C 300 532 560 344 884 472 C 1146 574 1368 386 1640 504"/>
-    </svg>
-    <svg class="wave wave-d" viewBox="0 0 1440 900" preserveAspectRatio="none">
-      <path class="w-glow"  stroke="url(#gD)" d="M-160 116 C 326 24 626 230 944 106 C 1208 6 1384 192 1640 84"/>
-      <path class="w-core"  stroke="url(#gD)" d="M-160 116 C 326 24 626 230 944 106 C 1208 6 1384 192 1640 84"/>
-      <path class="w-spark" stroke="url(#gD)" d="M-160 116 C 326 24 626 230 944 106 C 1208 6 1384 192 1640 84"/>
-    </svg>
-  </div>
-  <!-- twinkling particle layer (filled by site.js) -->
-  <div class="sparks" data-depth="56"></div>
-</div>
-
-<nav class="nav">
-  <a class="brand" href="index.html" aria-label="Turnkey Services — home">
-    <svg class="brand-mark" viewBox="0 0 200 130"><use href="#tk-mark"/></svg>
-    <span class="brand-text">
-      <span class="t1">TURNKEY</span>
-      <span class="t2">— Services —</span>
-    </span>
-  </a>
-  <ul class="nav-links">
-    <li><a href="index.html" class="active">Home</a></li>
-    <li><a href="#launcher">Brands</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="services.html">Services</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-  <a class="nav-cta" href="contact.html"><span class="pulse"></span>Talk to Turnkey</a>
-</nav>
-
-<!-- ═══════════════════ HERO ═══════════════════ -->
-<section class="hero">
-  <div class="wrap">
-    <div class="hero-top">
-      <div class="kicker fade">Turnkey Services · Austin, Texas</div>
-      <div class="hero-meta-right fade d1">
-        <span>One firm · Five brands</span>
-        <span>Est. 2024</span>
-        <span>U.S. delivery</span>
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-backdrop" aria-hidden="true">
+        <canvas id="hero-beams" class="hero-beams"></canvas>
+        <div class="hero-mesh hero-mesh-animated"></div>
+        <div class="hero-shimmer"></div>
+        <div class="hero-grain"></div>
       </div>
-    </div>
+      <div class="container hero-layout">
+        <div class="hero-copy reveal">
+          <p class="kicker">A Turnkey Services firm · Austin, TX</p>
+          <h1>
+            <span class="hero-line-1">Every service</span>
+            <span class="hero-em hero-line-2">your business needs to run.</span>
+          </h1>
 
-    <div class="hero-mark fade d2" aria-hidden="true">
-      <span class="hero-mark-halo"></span>
-      <svg viewBox="0 0 200 130"><use href="#tk-mark"/></svg>
-    </div>
+          <div class="hero-spectrum" aria-hidden="true">
+            <canvas id="hero-sparkles" class="hero-sparkles"></canvas>
+            <div class="hero-spectrum-bar">
+              <span class="hero-spectrum-blur"></span>
+              <span class="hero-spectrum-line"></span>
+            </div>
+          </div>
 
-    <h1 class="fade d3">
-      One <span class="italic">system.</span><br>
-      Every <span class="spectrum-text">solution.</span>
-    </h1>
+          <p class="lede">Turnkey Services is a full-service firm — bookkeeping, websites, AI, SEO, and design — delivered by one team, on one operating system, accountable end-to-end. Services that ship. Systems that scale. One firm to call.</p>
 
-    <p class="hero-lede fade d4">
-      Turnkey Services is the operating system behind <strong>five specialist brands</strong> — bookkeeping, AI automation, web, SEO and design. One standard runs through all of it. <strong>Pick where you need to go.</strong>
-    </p>
-
-    <div class="hero-cta-row fade d5">
-      <a class="btn btn-primary" href="#launcher">
-        Jump to a brand
-        <svg class="arrow" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-      <a class="btn btn-ghost" href="contact.html">
-        Start with a 15-min call
-        <svg class="arrow" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-    </div>
-
-    <div class="hero-meta-strip fade d6">
-      <span class="pin">CFO</span>
-      <span class="pin">AI</span>
-      <span class="pin">Design</span>
-      <span class="pin">SEO</span>
-      <span class="pin">Web</span>
-      <span class="pin">Integrated</span>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════ BRAND LAUNCHER ═══════════════ -->
-<section class="launcher" id="launcher">
-  <div class="wrap">
-    <div class="launch-head">
-      <div class="kicker fade">01 · The brands</div>
-      <h2 class="fade d1">Every service.<br><em>One click</em> away.</h2>
-      <p class="launch-lede fade d2">
-        Five specialist brands, one shared operating standard. Tap a brand to head straight to its site.
-      </p>
-    </div>
-
-    <div class="launch-grid">
-
-      <!-- CFO -->
-      <a class="brand-card fade" style="--accent: var(--cfo)" href="https://turnkeycfo.com" target="_blank" rel="noopener" aria-label="Visit Turnkey CFO">
-        <span class="bc-sheen" aria-hidden="true"></span>
-        <span class="bc-top">
-          <svg class="bc-mark" viewBox="0 0 200 130"><use href="#tk-glyph"/></svg>
-          <span class="bc-status"><span class="dot"></span>Live</span>
-        </span>
-        <span class="bc-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 21h18"/><rect x="5" y="12" width="3.6" height="6.5"/><rect x="10.4" y="8" width="3.6" height="10.5"/><rect x="15.8" y="4" width="3.6" height="14.5"/>
-          </svg>
-        </span>
-        <span class="bc-name"><span>Turnkey</span>CFO</span>
-        <span class="bc-desc">Bookkeeping, payroll, AP/AR &amp; monthly close — books that run on a calendar.</span>
-        <span class="bc-go">
-          <span class="bc-domain">turnkeycfo.com</span>
-          <span class="bc-arrow"><svg viewBox="0 0 16 16" fill="none"><path d="M5 11L11 5M11 5H5M11 5V11" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        </span>
-      </a>
-
-      <!-- AI -->
-      <a class="brand-card fade d1" style="--accent: var(--ai)" href="https://turnkeyai.org" target="_blank" rel="noopener" aria-label="Visit Turnkey AI">
-        <span class="bc-sheen" aria-hidden="true"></span>
-        <span class="bc-top">
-          <svg class="bc-mark" viewBox="0 0 200 130"><use href="#tk-glyph"/></svg>
-          <span class="bc-status"><span class="dot"></span>Live</span>
-        </span>
-        <span class="bc-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="5" y="8" width="14" height="11" rx="2.4"/><path d="M12 8V4.5M10.4 4.5h3.2"/><circle cx="9.6" cy="13" r="1.3"/><circle cx="14.4" cy="13" r="1.3"/><path d="M3 12.5v3M21 12.5v3"/>
-          </svg>
-        </span>
-        <span class="bc-name"><span>Turnkey</span>AI</span>
-        <span class="bc-desc">Custom AI agents wired into the tools you already pay for.</span>
-        <span class="bc-go">
-          <span class="bc-domain">turnkeyai.org</span>
-          <span class="bc-arrow"><svg viewBox="0 0 16 16" fill="none"><path d="M5 11L11 5M11 5H5M11 5V11" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        </span>
-      </a>
-
-      <!-- WEB -->
-      <a class="brand-card fade d2" style="--accent: var(--web)" href="https://turnkeyweb.org" target="_blank" rel="noopener" aria-label="Visit Turnkey Web">
-        <span class="bc-sheen" aria-hidden="true"></span>
-        <span class="bc-top">
-          <svg class="bc-mark" viewBox="0 0 200 130"><use href="#tk-glyph"/></svg>
-          <span class="bc-status"><span class="dot"></span>Live</span>
-        </span>
-        <span class="bc-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/>
-          </svg>
-        </span>
-        <span class="bc-name"><span>Turnkey</span>Web</span>
-        <span class="bc-desc">Modern websites that load fast, rank, and earn the call.</span>
-        <span class="bc-go">
-          <span class="bc-domain">turnkeyweb.org</span>
-          <span class="bc-arrow"><svg viewBox="0 0 16 16" fill="none"><path d="M5 11L11 5M11 5H5M11 5V11" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        </span>
-      </a>
-
-      <!-- SEO -->
-      <a class="brand-card fade d3" style="--accent: var(--seo)" href="seo/" aria-label="Visit Turnkey SEO">
-        <span class="bc-sheen" aria-hidden="true"></span>
-        <span class="bc-top">
-          <svg class="bc-mark" viewBox="0 0 200 130"><use href="#tk-glyph"/></svg>
-          <span class="bc-status"><span class="dot"></span>Live</span>
-        </span>
-        <span class="bc-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="11" cy="11" r="6"/><path d="M20 20l-5.2-5.2"/><path d="M11 8.5v5M8.5 11h5"/>
-          </svg>
-        </span>
-        <span class="bc-name"><span>Turnkey</span>SEO</span>
-        <span class="bc-desc">Rank higher, grow faster — search visibility that compounds.</span>
-        <span class="bc-go">
-          <span class="bc-domain">Explore SEO</span>
-          <span class="bc-arrow"><svg viewBox="0 0 16 16" fill="none"><path d="M5 11L11 5M11 5H5M11 5V11" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        </span>
-      </a>
-
-      <!-- DESIGN -->
-      <a class="brand-card fade d4" style="--accent: var(--design)" href="design/" aria-label="Visit Turnkey Design">
-        <span class="bc-sheen" aria-hidden="true"></span>
-        <span class="bc-top">
-          <svg class="bc-mark" viewBox="0 0 200 130"><use href="#tk-glyph"/></svg>
-          <span class="bc-status"><span class="dot"></span>Live</span>
-        </span>
-        <span class="bc-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 20l4.2-1L19 8.2l-3.2-3.2L5 15.8 4 20z"/><path d="M14 6l4 4"/>
-          </svg>
-        </span>
-        <span class="bc-name"><span>Turnkey</span>Design</span>
-        <span class="bc-desc">Brand identity and UI/UX that connects — and converts.</span>
-        <span class="bc-go">
-          <span class="bc-domain">Explore Design</span>
-          <span class="bc-arrow"><svg viewBox="0 0 16 16" fill="none"><path d="M5 11L11 5M11 5H5M11 5V11" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        </span>
-      </a>
-
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════ MARQUEE ═══════════════════ -->
-<section class="ribbon-section" aria-hidden="true">
-  <div class="marquee">
-    <span class="glyph">Turnkey CFO <i class="dot"></i> Turnkey AI <i class="dot"></i> Turnkey Web <i class="dot"></i> Turnkey SEO <i class="dot"></i> Turnkey Design <i class="dot"></i></span>
-    <span class="glyph">Turnkey CFO <i class="dot"></i> Turnkey AI <i class="dot"></i> Turnkey Web <i class="dot"></i> Turnkey SEO <i class="dot"></i> Turnkey Design <i class="dot"></i></span>
-  </div>
-</section>
-
-<!-- ═══════════ CAPABILITIES — 6 PILLARS ═══════════ -->
-<section class="section capabilities" id="capabilities">
-  <div class="wrap">
-    <div class="cap-head">
-      <div>
-        <div class="kicker fade">02 · Capabilities</div>
-        <h2 class="fade d1">Six pillars.<br>One <em>operating standard.</em></h2>
-      </div>
-      <p class="cap-lede fade d2">
-        Every brand at Turnkey Services runs against the same six disciplines. They're how we keep the work consistent — and how the services integrate cleanly when you take more than one.
-      </p>
-    </div>
-
-    <div class="cap-grid">
-      <div class="cap-tile fade">
-        <div class="ic">
-          <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M22 6 L36 14 L22 22 L8 14 Z"/>
-            <path d="M8 22 L22 30 L36 22"/>
-            <path d="M8 30 L22 38 L36 30"/>
-          </svg>
+          <div class="hero-actions">
+            <a href="#services" class="button button-primary">See our services</a>
+            <a href="https://calendly.com/ricky-turnkeycfo/15min-intro-call" class="button button-secondary" target="_blank" rel="noreferrer">Book a call</a>
+          </div>
+          <p class="hero-note">Engage the bookkeeping service. Add the website service. Layer in AI. One firm, one quality bar — no stitching together five vendors.</p>
         </div>
-        <div class="num">— 01</div>
-        <h3>Integrated</h3>
-        <p>Books, site, and automation all see the same data. No swivel-chair workflow, no copy-paste between tools you already pay for.</p>
-      </div>
 
-      <div class="cap-tile fade d1">
-        <div class="ic">
-          <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="22" cy="22" r="14"/>
-            <circle cx="22" cy="22" r="8"/>
-            <circle cx="22" cy="22" r="2" fill="currentColor"/>
-            <path d="M22 4 L22 10 M22 34 L22 40 M4 22 L10 22 M34 22 L40 22"/>
-          </svg>
+        <div class="hero-visual reveal">
+          <div class="svc-accordion" id="svcAccordion" role="tablist" aria-label="Turnkey Services lines">
+            <a class="svc-panel is-active" href="https://turnkeycfo.com" target="_blank" rel="noreferrer"
+               data-svc="cfo" style="--brand:#00E676; --brand-deep:#006B2F" role="tab" aria-selected="true">
+              <span class="svc-panel-bg"></span>
+              <img class="svc-panel-logo" src="./assets/brands/tkcfo.png" alt="" loading="lazy" decoding="async">
+              <span class="svc-panel-tint"></span>
+              <span class="svc-panel-overlay"></span>
+              <span class="svc-panel-label">Bookkeeping</span>
+              <span class="svc-panel-pitch">Clean monthly books, payroll, 1099s, and AP/AR — so you stop guessing where your business stands.</span>
+              <span class="svc-panel-cta">Learn more →</span>
+            </a>
+            <a class="svc-panel" href="https://turnkeyweb.org" target="_blank" rel="noreferrer"
+               data-svc="web" style="--brand:#6600CC; --brand-deep:#2E0E5C" role="tab" aria-selected="false">
+              <span class="svc-panel-bg"></span>
+              <img class="svc-panel-logo" src="./assets/brands/tkweb.png" alt="" loading="lazy" decoding="async">
+              <span class="svc-panel-tint"></span>
+              <span class="svc-panel-overlay"></span>
+              <span class="svc-panel-label">Websites</span>
+              <span class="svc-panel-pitch">Fast, conversion-built sites that turn visitors into booked calls — not just digital business cards.</span>
+              <span class="svc-panel-cta">Learn more →</span>
+            </a>
+            <a class="svc-panel" href="https://turnkeyai.org" target="_blank" rel="noreferrer"
+               data-svc="ai" style="--brand:#0055FF; --brand-deep:#082973" role="tab" aria-selected="false">
+              <span class="svc-panel-bg"></span>
+              <img class="svc-panel-logo" src="./assets/brands/tkai.png" alt="" loading="lazy" decoding="async">
+              <span class="svc-panel-tint"></span>
+              <span class="svc-panel-overlay"></span>
+              <span class="svc-panel-label">AI Workflows</span>
+              <span class="svc-panel-pitch">Automate the repetitive work draining your team — custom AI agents that run your business in the background.</span>
+              <span class="svc-panel-cta">Learn more →</span>
+            </a>
+            <div class="svc-panel svc-panel-disabled" data-svc="seo"
+                 style="--brand:#FF1564; --brand-deep:#6B0A2C" role="tab" aria-selected="false" aria-disabled="true">
+              <span class="svc-panel-bg"></span>
+              <img class="svc-panel-logo" src="./assets/brands/tkseo.png" alt="" loading="lazy" decoding="async">
+              <span class="svc-panel-tint"></span>
+              <span class="svc-panel-overlay"></span>
+              <span class="svc-panel-status">Under construction</span>
+              <span class="svc-panel-label">SEO</span>
+              <span class="svc-panel-cta">Service site in progress</span>
+            </div>
+            <div class="svc-panel svc-panel-disabled" data-svc="design"
+                 style="--brand:#BD22A7; --brand-deep:#4F1146" role="tab" aria-selected="false" aria-disabled="true">
+              <span class="svc-panel-bg"></span>
+              <img class="svc-panel-logo" src="./assets/brands/tkdesign.png" alt="" loading="lazy" decoding="async">
+              <span class="svc-panel-tint"></span>
+              <span class="svc-panel-overlay"></span>
+              <span class="svc-panel-status">Coming soon</span>
+              <span class="svc-panel-label">Design</span>
+              <span class="svc-panel-cta">Launching this year</span>
+            </div>
+          </div>
         </div>
-        <div class="num">— 02</div>
-        <h3>Strategy</h3>
-        <p>We size the problem before we build for it. Diagnose first — then scope the engagement to the friction that actually matters.</p>
       </div>
+    </section>
 
-      <div class="cap-tile fade d2">
-        <div class="ic">
-          <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="22" cy="22" r="6"/>
-            <path d="M22 4 L22 10 M22 34 L22 40 M4 22 L10 22 M34 22 L40 22 M9.5 9.5 L13.5 13.5 M30.5 30.5 L34.5 34.5 M9.5 34.5 L13.5 30.5 M30.5 13.5 L34.5 9.5"/>
-          </svg>
+    <!-- TRUST STRIP -->
+    <section class="trust-strip reveal">
+      <div class="container trust-row">
+        <div><strong>5</strong><span>service lines</span></div>
+        <div><strong>Austin, TX</strong><span>serving nationwide</span></div>
+        <div><strong>Systems</strong><span>not headcount</span></div>
+        <div><strong>24-hour</strong><span>response time</span></div>
+        <div><strong>One firm</strong><span>one quality bar</span></div>
+      </div>
+    </section>
+
+    <!-- WHAT IS TURNKEY SERVICES -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker">About the firm</p>
+          <h2>A full-service firm. Multiple service lines. One company.</h2>
         </div>
-        <div class="num">— 03</div>
-        <h3>Automation</h3>
-        <p>The repetitive, error-prone work runs without a human pushing a button. Recurring tasks happen on cadence, every time.</p>
-      </div>
-
-      <div class="cap-tile fade d3">
-        <div class="ic">
-          <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M6 38 L6 6"/>
-            <path d="M6 38 L38 38"/>
-            <rect x="12" y="22" width="6"  height="14"/>
-            <rect x="22" y="14" width="6"  height="22"/>
-            <rect x="32" y="8"  width="6"  height="28"/>
-          </svg>
+        <div class="two-col reveal">
+          <div>
+            <p class="body-lg">Most small businesses end up stitching together a freelance bookkeeper, a separate web designer, a third party for SEO, and a friend who "does AI." Five relationships, five invoices, five different quality bars — and nobody owns the whole picture.</p>
+            <p class="body-lg">Turnkey Services replaces that with one firm running specialized service lines under one roof. Each service line is focused on doing one thing exceptionally well. Together, they cover the operating layer your business needs to grow — and you only have one company to call.</p>
+          </div>
+          <ul class="benefits-list">
+            <li><strong>One intake.</strong> One conversation covers every active service line.</li>
+            <li><strong>One invoice.</strong> Everything billed through Turnkey Services.</li>
+            <li><strong>One quality bar.</strong> Same standards across every service line.</li>
+            <li><strong>One point of contact.</strong> A real human owning the relationship.</li>
+            <li><strong>Built on systems.</strong> Automation does the grunt work; humans handle the judgment.</li>
+            <li><strong>24-hour response.</strong> Whether it's books, a site update, or an AI workflow.</li>
+          </ul>
         </div>
-        <div class="num">— 04</div>
-        <h3>Analytics</h3>
-        <p>Dashboards that show you what's actually happening — on a cadence you can trust. Reporting ships itself; you read the result.</p>
       </div>
+    </section>
 
-      <div class="cap-tile fade d4">
-        <div class="ic">
-          <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M22 4 L36 10 L36 22 C36 30 30 36 22 40 C14 36 8 30 8 22 L8 10 Z"/>
-            <path d="M15 22 L20 27 L30 17"/>
-          </svg>
+    <!-- SERVICES GRID -->
+    <section class="section section-tinted" id="services">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker">Services we deliver</p>
+          <h2>Solutions to move your business forward.</h2>
+          <p class="section-sub">Five service lines, engineered to plug into the operating layer of your company. Hire one. Hire all of them. Same standards, same accountable team.</p>
         </div>
-        <div class="num">— 05</div>
-        <h3>Secure</h3>
-        <p>Source-of-truth ownership. Audit trails by default. U.S.-based delivery on anything that touches your books, brand, or customers.</p>
-      </div>
 
-      <div class="cap-tile fade d5">
-        <div class="ic">
-          <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 32 L18 18 L26 26 L40 12"/>
-            <path d="M30 12 L40 12 L40 22"/>
-          </svg>
+        <div class="brand-grid reveal" id="brandGrid">
+
+          <!-- TURNKEY CFO -->
+          <a class="brand-card brand-card-shimmer" href="https://turnkeycfo.com" target="_blank" rel="noreferrer" style="--brand:#00E676">
+            <span class="brand-card-top"></span>
+            <div class="brand-card-logo">
+              <img src="./assets/brands/tkcfo.png" alt="Turnkey CFO" loading="lazy" decoding="async">
+            </div>
+            <div class="brand-card-body">
+              <p class="brand-tag">Financial clarity. Confident growth.</p>
+              <p class="brand-pain"><strong>You're tired of</strong> books that are always behind, missed deadlines, no clear picture of cash, and tax season surprises.</p>
+              <p class="brand-outcome"><strong>We deliver</strong> a monthly close on time, every time — payroll, 1099s, AP/AR handled, and dashboards that show you exactly where your money is.</p>
+              <span class="brand-link">Engage Turnkey CFO →</span>
+            </div>
+          </a>
+
+          <!-- TURNKEY WEB -->
+          <a class="brand-card brand-card-shimmer" href="https://turnkeyweb.org" target="_blank" rel="noreferrer" style="--brand:#6600CC">
+            <span class="brand-card-top"></span>
+            <div class="brand-card-logo">
+              <img src="./assets/brands/tkweb.png" alt="Turnkey Web" loading="lazy" decoding="async">
+            </div>
+            <div class="brand-card-body">
+              <p class="brand-tag">A site that earns its keep.</p>
+              <p class="brand-pain"><strong>You're tired of</strong> a website that looks dated, loads slow, doesn't convert, and that you can't update without calling someone.</p>
+              <p class="brand-outcome"><strong>We deliver</strong> a fast, modern, conversion-tuned site with industry-specific pages, edited and shipped in days — not months.</p>
+              <span class="brand-link">Engage Turnkey Web →</span>
+            </div>
+          </a>
+
+          <!-- TURNKEY AI -->
+          <a class="brand-card brand-card-shimmer" href="https://turnkeyai.org" target="_blank" rel="noreferrer" style="--brand:#0055FF">
+            <span class="brand-card-top"></span>
+            <div class="brand-card-logo">
+              <img src="./assets/brands/tkai.png" alt="Turnkey AI" loading="lazy" decoding="async">
+            </div>
+            <div class="brand-card-body">
+              <p class="brand-tag">Practical AI. Real ROI.</p>
+              <p class="brand-pain"><strong>You're tired of</strong> drowning in repetitive back-office work, manual data entry, and "AI tools" that demo well but never ship anything.</p>
+              <p class="brand-outcome"><strong>We deliver</strong> AI workflows that actually run in production — quoting, scheduling, intake, reporting — quietly handling the work in the background.</p>
+              <span class="brand-link">Engage Turnkey AI →</span>
+            </div>
+          </a>
+
+          <!-- TURNKEY SEO — UNDER CONSTRUCTION -->
+          <div class="brand-card brand-card-status brand-card-construction" style="--brand:#FF1564" aria-disabled="true">
+            <span class="brand-card-top"></span>
+            <span class="brand-card-badge brand-card-badge-construction">Under construction</span>
+            <div class="brand-card-logo">
+              <img src="./assets/brands/tkseo.png" alt="Turnkey SEO" loading="lazy" decoding="async">
+            </div>
+            <div class="brand-card-body">
+              <p class="brand-tag">Show up where buyers are searching.</p>
+              <p class="brand-pain"><strong>You're tired of</strong> being invisible on Google, paying for ads forever to make the phone ring, and watching competitors outrank you.</p>
+              <p class="brand-outcome"><strong>We will deliver</strong> on-page, technical, local, and content SEO that earns the searches that actually buy — so leads come in without paying per click.</p>
+              <span class="brand-link brand-link-muted">Service site in progress</span>
+            </div>
+          </div>
+
+          <!-- TURNKEY DESIGN — COMING SOON -->
+          <div class="brand-card brand-card-status brand-card-soon" style="--brand:#BD22A7" aria-disabled="true">
+            <span class="brand-card-top"></span>
+            <span class="brand-card-badge brand-card-badge-soon">Coming soon</span>
+            <div class="brand-card-logo">
+              <img src="./assets/brands/tkdesign.png" alt="Turnkey Design" loading="lazy" decoding="async">
+            </div>
+            <div class="brand-card-body">
+              <p class="brand-tag">A brand that earns premium pricing.</p>
+              <p class="brand-pain"><strong>You're tired of</strong> a brand that looks amateur, inconsistent across every surface, and quietly costs you deals before the first call.</p>
+              <p class="brand-outcome"><strong>We will deliver</strong> a brand identity, UI/UX system, and motion language that signals premium — so clients show up pre-sold on your standards.</p>
+              <span class="brand-link brand-link-muted">Launching this year</span>
+            </div>
+          </div>
+
         </div>
-        <div class="num">— 06</div>
-        <h3>Growth</h3>
-        <p>Operating leverage. Less time on admin means more time on the work that actually grows the business — and a back office that scales with it.</p>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- ═══════════════════ PROCESS ═══════════════════ -->
-<section class="section process">
-  <div class="wrap">
-    <div class="process-head">
-      <div>
-        <div class="kicker fade">03 · How we work</div>
-        <h2 class="fade d1">Four steps.<br>Every <em>engagement.</em></h2>
+    <!-- ABOUT THE FIRM -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker">About the firm</p>
+          <h2>Built to serve. Wired to deliver.</h2>
+        </div>
+        <div class="two-col reveal">
+          <div>
+            <p class="body-lg">Turnkey Services is a services firm — not a freelancer collective, not a referral network, not a marketplace. Every service line is run by the same team, against the same standards, on top of the same shared infrastructure.</p>
+            <p class="body-lg">We exist to take the operating layer of your business off your plate so you can focus on the work only you can do. Books, websites, AI, SEO, design — pick the services you need and let our team run them.</p>
+          </div>
+          <ul class="benefits-list">
+            <li><strong>Services, not products.</strong> Real deliverables, owned end-to-end.</li>
+            <li><strong>Systems-led.</strong> Automation handles the repetition; people handle the judgment.</li>
+            <li><strong>One team accountable.</strong> Not a marketplace of vendors.</li>
+            <li><strong>Built for small business.</strong> Sized for owner-operators, not enterprises.</li>
+            <li><strong>Austin HQ, US-wide.</strong> Local roots, virtual delivery.</li>
+            <li><strong>Long-term partner.</strong> Engagements designed to compound.</li>
+          </ul>
+        </div>
       </div>
-      <p class="fade d2">A repeatable operating cadence — not a custom proposal every time. The same process keeps small projects small and big projects from sprawling.</p>
-    </div>
+    </section>
 
-    <div class="process-grid">
-      <div class="proc-step fade">
-        <div class="step-num">01</div>
-        <h3>Diagnose</h3>
-        <p>Where's the friction? What's actually breaking? We size the problem before we build for it.</p>
+    <!-- HOW WE WORK -->
+    <section class="section section-tinted">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker">How we engage</p>
+          <h2>Up and running in days, not months.</h2>
+        </div>
+        <div class="steps-grid reveal">
+          <article class="step">
+            <span class="step-num">01</span>
+            <h3>Intro call</h3>
+            <p>A 15-minute call to learn the business and figure out which service (or services) fits what you need.</p>
+          </article>
+          <article class="step">
+            <span class="step-num">02</span>
+            <h3>Scope &amp; quote</h3>
+            <p>A clear, written scope and a fixed quote — no surprise line items, no open-ended hourly billing.</p>
+          </article>
+          <article class="step">
+            <span class="step-num">03</span>
+            <h3>Onboard in 1–2 weeks</h3>
+            <p>We connect systems, do any cleanup, and stand the engagement up. Most clients are live inside two weeks.</p>
+          </article>
+        </div>
       </div>
-      <div class="proc-step fade d1">
-        <div class="step-num">02</div>
-        <h3>Scope</h3>
-        <p>Tight scope, fixed cadence, transparent pricing. You know what's shipping and when.</p>
-      </div>
-      <div class="proc-step fade d2">
-        <div class="step-num">03</div>
-        <h3>Ship</h3>
-        <p>Build to the discipline, deliver against the cadence. No mystery hours, no scope creep.</p>
-      </div>
-      <div class="proc-step fade d3">
-        <div class="step-num">04</div>
-        <h3>Operate</h3>
-        <p>Run the system every month. Surface the data. Adjust. The result is what we charge for.</p>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- ═══════════════════ MANIFESTO ═══════════════════ -->
-<section class="manifesto">
-  <div class="manifesto-inner">
-    <div class="manifesto-mark fade">
-      <svg viewBox="0 0 200 130"><use href="#tk-mark"/></svg>
-    </div>
-    <blockquote class="fade d1">
-      Small businesses don't need another vendor.<br>
-      They need a services firm that can actually <em>integrate the work</em> — <span class="silver-text">and a system that runs the same way every month.</span>
-    </blockquote>
-    <span class="source fade d2">— Turnkey Services</span>
-  </div>
-</section>
-
-<!-- ═══════════════════ CTA ═══════════════════ -->
-<section class="cta section">
-  <div class="wrap">
-    <div class="cta-inner">
-      <h2 class="fade">Ready to put the back-office work <em>on rails?</em></h2>
-      <div class="cta-actions fade d1">
-        <a class="btn-block primary" href="contact.html">
-          Start with a 15-min call
-          <svg class="arrow" width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-        <a class="btn-block ghost" href="#launcher">
-          Browse the five brands
-          <svg class="arrow" width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
+    <!-- CTA BAND (the one dark section) -->
+    <section class="cta-band" id="contact">
+      <div class="cta-orbs" aria-hidden="true"></div>
+      <div class="cta-shimmer" aria-hidden="true"></div>
+      <div class="container cta-inner reveal">
+        <h2>Ready to put our services to work?</h2>
+        <p>One call. We'll figure out which services fit and scope a quote. No pressure, no sales pitch.</p>
+        <div class="cta-actions">
+          <a href="https://calendly.com/ricky-turnkeycfo/15min-intro-call" class="button button-cta-primary" target="_blank" rel="noreferrer">Book a 15-min call</a>
+          <a href="mailto:hello@turnkeyservices.com" class="button button-cta-secondary">Email the team</a>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- ═══════════════════ FOOTER ═══════════════════ -->
-<footer>
-  <div class="wrap">
-    <div class="footer-top">
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker">Frequently asked</p>
+          <h2>Straight answers.</h2>
+        </div>
+        <div class="faq-list reveal">
+          <details class="faq-item">
+            <summary>What does Turnkey Services do?</summary>
+            <p>Turnkey Services delivers the operating-layer services small businesses need to grow — bookkeeping (Turnkey CFO), websites (Turnkey Web), AI workflows (Turnkey AI), with SEO and Design service lines launching soon. One firm, multiple service lines, one accountable team.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Can I engage more than one service line?</summary>
+            <p>Yes — most clients do. Start with books and add a website, or start with a site and bring books in later. One intake covers every active service line; you choose what you need.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Is everything billed under one company?</summary>
+            <p>Yes. Every service line invoices through Turnkey Services. One statement, one point of contact, one accountable team — regardless of how many service lines you engage.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Where is Turnkey Services based?</summary>
+            <p>Austin, Texas. Headquartered locally, but every service line is delivered fully virtually across the United States.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Do you take on clients outside Austin?</summary>
+            <p>Yes. The majority of our clients are outside Austin. Everything we deliver — books, websites, AI workflows — is built and delivered remotely. Same quality bar, same response time, nationwide.</p>
+          </details>
+          <details class="faq-item">
+            <summary>How do I get started?</summary>
+            <p>Book a 15-minute intro call. We'll talk through what you need, recommend which service line (or lines) fit, and scope a clear quote. Most engagements are onboarded in one to two weeks.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
       <div class="footer-brand">
-        <a class="brand" href="index.html" aria-label="Turnkey Services — home">
-          <svg class="brand-mark" viewBox="0 0 200 130" style="width:48px;"><use href="#tk-mark"/></svg>
-          <span class="brand-text">
-            <span class="t1">TURNKEY</span>
-            <span class="t2">— Services —</span>
-          </span>
-        </a>
-        <p>A modern services firm headquartered in Austin, Texas. One operating system behind five specialist brands — built for the small businesses actually doing the work.</p>
+        <img src="./assets/tks-logo-dark.png" alt="Turnkey Services" class="footer-logo" decoding="async">
+        <p class="footer-tagline">One system. Every solution.</p>
+        <p class="footer-meta">Austin, Texas<br><a href="mailto:hello@turnkeyservices.com">hello@turnkeyservices.com</a></p>
       </div>
-      <div class="footer-col brands">
-        <h4>Brands</h4>
-        <a style="--d-accent: var(--cfo)"    href="https://turnkeycfo.com" target="_blank" rel="noopener">Turnkey CFO ↗</a>
-        <a style="--d-accent: var(--ai)"     href="https://turnkeyai.org"  target="_blank" rel="noopener">Turnkey AI ↗</a>
-        <a style="--d-accent: var(--web)"    href="https://turnkeyweb.org" target="_blank" rel="noopener">Turnkey Web ↗</a>
-        <a style="--d-accent: var(--seo)"    href="seo/">Turnkey SEO</a>
-        <a style="--d-accent: var(--design)" href="design/">Turnkey Design</a>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="https://turnkeycfo.com" target="_blank" rel="noreferrer">Turnkey CFO</a>
+        <a href="https://turnkeyweb.org" target="_blank" rel="noreferrer">Turnkey Web</a>
+        <a href="https://turnkeyai.org" target="_blank" rel="noreferrer">Turnkey AI</a>
+        <a href="#services">Turnkey SEO <span class="footer-pill">soon</span></a>
+        <a href="#services">Turnkey Design <span class="footer-pill">soon</span></a>
       </div>
       <div class="footer-col">
         <h4>Company</h4>
-        <a href="about.html">About</a>
-        <a href="services.html">Services</a>
-        <a href="contact.html">Contact</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="./about.html">More about</a>
       </div>
       <div class="footer-col">
-        <h4>Reach</h4>
-        <a href="mailto:hello@turnkeyservices.com">hello@turnkeyservices.com</a>
-        <span>Austin, TX</span>
-        <span>(682) 433-1852</span>
+        <h4>Resources</h4>
+        <a href="./hub/">Hub</a>
+        <a href="./decks/">Decks</a>
       </div>
     </div>
-    <div class="footer-bottom">
-      <span>© <span data-year>2026</span> Turnkey Services</span>
-      <span class="silver-text">One system · Every solution</span>
+    <div class="container footer-bottom">
+      <span>© 2026 Turnkey Services · One system. Every solution.</span>
+      <span class="footer-social">
+        <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" aria-label="LinkedIn">LinkedIn</a>
+      </span>
     </div>
-  </div>
-</footer>
+  </footer>
 
-<script src="site.js?v=6"></script>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+  <script src="./site.js?v=2026-05-21-v10" defer></script>
+  <script>
+    // Hero sparkles — lightweight: ~45 particles, no per-particle shadowBlur,
+    // paused when offscreen via IntersectionObserver.
+    (function () {
+      const canvas = document.getElementById('hero-sparkles');
+      if (!canvas) return;
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduce) return;
+      const ctx = canvas.getContext('2d');
+      const COLORS = ['#00E676', '#6600CC', '#0055FF', '#FF1564', '#BD22A7', '#E0B90B'];
+      let w, h, dpr, particles, raf = 0, visible = true;
+      function resize() {
+        dpr = Math.min(2, window.devicePixelRatio || 1);
+        const rect = canvas.getBoundingClientRect();
+        w = rect.width; h = rect.height;
+        canvas.width = Math.floor(w * dpr);
+        canvas.height = Math.floor(h * dpr);
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      }
+      function seed() {
+        const count = Math.min(45, Math.max(24, Math.floor(w / 12)));
+        particles = Array.from({ length: count }, () => ({
+          x: Math.random() * w,
+          y: Math.random() * h,
+          r: 0.5 + Math.random() * 1.4,
+          vx: (Math.random() - 0.5) * 0.22,
+          vy: -0.05 - Math.random() * 0.3,
+          life: Math.random(),
+          decay: 0.003 + Math.random() * 0.005,
+          color: COLORS[(Math.random() * COLORS.length) | 0],
+        }));
+      }
+      function frame() {
+        if (!visible) { raf = 0; return; }
+        ctx.clearRect(0, 0, w, h);
+        for (const p of particles) {
+          p.x += p.vx; p.y += p.vy; p.life += p.decay;
+          if (p.life >= 1) {
+            p.life = 0;
+            p.x = Math.random() * w;
+            p.y = h - Math.random() * 8;
+            p.color = COLORS[(Math.random() * COLORS.length) | 0];
+          }
+          const a = Math.sin(p.life * Math.PI);
+          ctx.globalAlpha = Math.max(0, Math.min(1, a)) * 0.85;
+          ctx.fillStyle = p.color;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        ctx.globalAlpha = 1;
+        raf = requestAnimationFrame(frame);
+      }
+      function start() { resize(); seed(); if (!raf) raf = requestAnimationFrame(frame); }
+      window.addEventListener('resize', () => { resize(); seed(); });
+      // Pause when the hero scrolls offscreen
+      const io = new IntersectionObserver(([e]) => {
+        visible = e.isIntersecting;
+        if (visible && !raf) raf = requestAnimationFrame(frame);
+      }, { threshold: 0 });
+      io.observe(canvas);
+      requestAnimationFrame(start);
+    })();
+
+    // Hero beams — lightweight: ~16 beams, NO per-frame canvas blur (the
+    // blur is applied once via CSS `filter` on the canvas element so the
+    // GPU compositor handles it). Pauses when hero is offscreen.
+    (function () {
+      const canvas = document.getElementById('hero-beams');
+      if (!canvas) return;
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduce) return;
+      const ctx = canvas.getContext('2d');
+      const HUES = [145, 220, 270, 335, 310, 50]; // emerald, blue, purple, pink, magenta, gold
+      const TOTAL = 16;
+      let w, h, dpr, beams, raf = 0, visible = true;
+      function makeBeam(W, H, i) {
+        const isSilver = i % 5 === 0;
+        return {
+          x: Math.random() * W,
+          y: H + Math.random() * H * 0.8,
+          width: 70 + Math.random() * 130,
+          length: H * 2.2,
+          angle: -38 + Math.random() * 12,
+          speed: 0.5 + Math.random() * 1.1,
+          opacity: isSilver ? 0.22 + Math.random() * 0.10 : 0.14 + Math.random() * 0.16,
+          hue: isSilver ? -1 : HUES[i % HUES.length],
+          sat: isSilver ? 0 : 80,
+          light: isSilver ? 88 : 62,
+          pulse: Math.random() * Math.PI * 2,
+          pulseSpeed: 0.02 + Math.random() * 0.025,
+          silver: isSilver,
+        };
+      }
+      function resize() {
+        dpr = Math.min(2, window.devicePixelRatio || 1);
+        const rect = canvas.getBoundingClientRect();
+        w = rect.width; h = rect.height;
+        canvas.width = Math.floor(w * dpr);
+        canvas.height = Math.floor(h * dpr);
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        beams = Array.from({ length: TOTAL }, (_, i) => makeBeam(w, h, i));
+      }
+      function reset(b, i) {
+        b.y = h + 80;
+        b.x = (i % 4) * (w / 4) + (w / 8) + (Math.random() - 0.5) * (w / 5);
+        b.width = 80 + Math.random() * 130;
+        b.speed = 0.5 + Math.random() * 0.9;
+        b.opacity = b.silver ? 0.22 + Math.random() * 0.10 : 0.14 + Math.random() * 0.16;
+      }
+      function draw(b) {
+        ctx.save();
+        ctx.translate(b.x, b.y);
+        ctx.rotate(b.angle * Math.PI / 180);
+        const op = b.opacity * (0.78 + Math.sin(b.pulse) * 0.22);
+        const g = ctx.createLinearGradient(0, 0, 0, b.length);
+        const base = b.silver
+          ? (a) => `hsla(0,0%,${b.light}%,${a})`
+          : (a) => `hsla(${b.hue},${b.sat}%,${b.light}%,${a})`;
+        g.addColorStop(0, base(0));
+        g.addColorStop(0.1, base(op * 0.5));
+        g.addColorStop(0.5, base(op));
+        g.addColorStop(0.9, base(op * 0.5));
+        g.addColorStop(1, base(0));
+        ctx.fillStyle = g;
+        ctx.fillRect(-b.width / 2, 0, b.width, b.length);
+        ctx.restore();
+      }
+      function frame() {
+        if (!visible) { raf = 0; return; }
+        ctx.clearRect(0, 0, w, h);
+        for (let i = 0; i < beams.length; i++) {
+          const b = beams[i];
+          b.y -= b.speed;
+          b.pulse += b.pulseSpeed;
+          if (b.y + b.length < -80) reset(b, i);
+          draw(b);
+        }
+        raf = requestAnimationFrame(frame);
+      }
+      function start() { resize(); if (!raf) raf = requestAnimationFrame(frame); }
+      window.addEventListener('resize', resize);
+      const io = new IntersectionObserver(([e]) => {
+        visible = e.isIntersecting;
+        if (visible && !raf) raf = requestAnimationFrame(frame);
+      }, { threshold: 0 });
+      io.observe(canvas);
+      requestAnimationFrame(start);
+    })();
+
+    // Service accordion — hover/focus/click expands a panel.
+    (function () {
+      const root = document.getElementById('svcAccordion');
+      if (!root) return;
+      const panels = Array.from(root.querySelectorAll('.svc-panel'));
+      function activate(p) {
+        panels.forEach(el => {
+          const on = el === p;
+          el.classList.toggle('is-active', on);
+          el.setAttribute('aria-selected', on ? 'true' : 'false');
+        });
+      }
+      panels.forEach(p => {
+        p.addEventListener('mouseenter', () => activate(p));
+        p.addEventListener('focusin',    () => activate(p));
+        p.addEventListener('click', (e) => {
+          if (p.classList.contains('svc-panel-disabled')) e.preventDefault();
+          activate(p);
+        });
+        p.addEventListener('touchstart', () => activate(p), { passive: true });
+      });
+    })();
+
+    // Cursor brand-rainbow highlight — soft glow follows the mouse, cycles
+    // through brand hues based on horizontal position. Throttled to one RAF
+    // tick per move event so it doesn't drown the main thread.
+    (function () {
+      const el = document.getElementById('cursorGlow');
+      if (!el) return;
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduce) return;
+      if (matchMedia('(hover: none)').matches) return;
+
+      const COLORS = ['#00E676', '#6600CC', '#0055FF', '#FF1564', '#BD22A7', '#E0B90B'];
+      let tx = 0, ty = 0, x = 0, y = 0, lastBrand = '', queued = false, on = false;
+
+      function pickColor(px) {
+        const w = window.innerWidth || 1;
+        const ratio = Math.max(0, Math.min(1, px / w));
+        const idx = Math.min(COLORS.length - 1, Math.floor(ratio * COLORS.length));
+        return COLORS[idx];
+      }
+      function flush() {
+        queued = false;
+        // ease toward cursor (cheap lerp, only when we actually moved)
+        x += (tx - x) * 0.22;
+        y += (ty - y) * 0.22;
+        el.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+      }
+      window.addEventListener('pointermove', (e) => {
+        tx = e.clientX; ty = e.clientY;
+        if (!on) { on = true; el.classList.add('is-on'); }
+        // brand-aware: if cursor is over a branded element, lock glow to that brand
+        const card = e.target && e.target.closest && e.target.closest('[style*="--brand"]');
+        const brand = card ? card.style.getPropertyValue('--brand').trim() : '';
+        const next = brand || pickColor(e.clientX);
+        if (next !== lastBrand) { el.style.setProperty('--glow', next); lastBrand = next; }
+        if (!queued) { queued = true; requestAnimationFrame(flush); }
+      }, { passive: true });
+      window.addEventListener('pointerleave', () => {
+        on = false; el.classList.remove('is-on');
+      });
+    })();
+  </script>
 </body>
 </html>
