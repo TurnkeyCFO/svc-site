@@ -1488,11 +1488,48 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
 /* Gradient spectrum bar under H1 (sparkle canvas mounts above) */
 .hero-spectrum {
   position: relative;
-  width: min(560px, 90%);
-  height: 56px;
-  /* More top margin so descenders ("g" in "scaling") aren't clipped
-     by the spectrum bar + sparkle band beneath the H1. */
-  margin: 36px 0 26px;
+  /* Bar grew to make room for the vertical "starting" + "scaling"
+     bookend labels at each end. Height bumped so the rotated words
+     have full vertical room without colliding with the lede below. */
+  width: min(620px, 95%);
+  height: 96px;
+  margin: 36px 0 36px;
+}
+
+/* Vertical bookend words — "starting" reads bottom-up on the left,
+   "scaling" reads bottom-up on the right. The spectrum bar between
+   them literally renders the bridge. */
+.hero-spectrum-word {
+  position: absolute;
+  bottom: 0;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  white-space: nowrap;
+  color: #0A0A0A;
+  pointer-events: none;
+  z-index: 3;
+}
+.hero-spectrum-word-start {
+  left: 6px;
+  bottom: 6px;
+  /* Rotate -90deg → original L→R text becomes bottom→top.
+     transform-origin bottom-left so the rotated text "grows up" from
+     the corner instead of pivoting out of the box. */
+  transform: rotate(-90deg);
+  transform-origin: left bottom;
+  white-space: nowrap;
+}
+.hero-spectrum-word-end {
+  right: 6px;
+  bottom: 6px;
+  transform: rotate(-90deg);
+  transform-origin: right bottom;
+  /* push it down + right of its corner so the rotated word ends flush
+     with the bar's right edge */
+  translate: 0 0;
+  white-space: nowrap;
 }
 .hero-sparkles {
   position: absolute; inset: 0 0 28px 0;
@@ -1501,7 +1538,9 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
   z-index: 2;
 }
 .hero-spectrum-bar {
-  position: absolute; left: 0; right: 0; bottom: 14px;
+  position: absolute;
+  left: 32px; right: 32px;  /* inset so vertical "starting" / "scaling" bookends sit clear */
+  bottom: 14px;
   height: 4px;
   z-index: 1;
 }
@@ -1768,9 +1807,13 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
 
 .svc-panel-overlay {
   position: absolute; inset: 0; z-index: 2;
-  /* Very faint dark-to-darker veil — keeps the cards reading as DARK
-     regardless of where the flow is in its loop. */
-  background: linear-gradient(160deg, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.22) 100%);
+  /* Dark-corner vignette + faint diagonal veil — keeps every card reading
+     as DARK at the edges regardless of brand color, matching the natural
+     vignette the SEO/Design multi-stop gradients already produce. Applied
+     uniformly to CFO / Web / AI / SEO / Design for consistency. */
+  background:
+    radial-gradient(120% 100% at 50% 50%, transparent 45%, rgba(0,0,0,0.55) 100%),
+    linear-gradient(160deg, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.22) 100%);
 }
 
 @media (prefers-reduced-motion: reduce) {

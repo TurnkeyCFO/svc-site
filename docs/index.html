@@ -30,7 +30,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css?v=2026-05-21-v30">
+  <link rel="stylesheet" href="./styles.css?v=2026-05-21-v33">
 
   <!-- Organization + WebSite schema -->
   <script type="application/ld+json">
@@ -43,7 +43,7 @@
         "name": "Turnkey Services",
         "url": "https://turnkey-services.org/",
         "logo": "https://turnkey-services.org/assets/tks-logo.png",
-        "email": "hello@turnkeyservices.com",
+        "email": "ricky@turnkey-services.org",
         "telephone": "+1-682-433-1852",
         "slogan": "The bridge between starting and scaling.",
         "description": "Austin-based services firm delivering bookkeeping, websites, AI, SEO, and design for small businesses, nonprofits, and service teams nationwide.",
@@ -89,8 +89,8 @@
       },
       {
         "@type": "Question",
-        "name": "Is everything billed under one company?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every service line invoices through Turnkey Services. One statement, one point of contact, one accountable team — regardless of how many service lines you engage." }
+        "name": "Can you work with more than one of my companies?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. We work with founders who run multiple entities — separate LLCs, sister brands, holding-and-operating company structures, side ventures. Each company is treated as its own client with its own books, site, and team, so the work stays clean across every business you own." }
       },
       {
         "@type": "Question",
@@ -146,12 +146,14 @@
             <span class="hero-em hero-line-2">from starting to scaling.</span>
           </h1>
 
-          <div class="hero-spectrum" aria-hidden="true">
-            <canvas id="hero-sparkles" class="hero-sparkles"></canvas>
-            <div class="hero-spectrum-bar">
+          <div class="hero-spectrum">
+            <canvas id="hero-sparkles" class="hero-sparkles" aria-hidden="true"></canvas>
+            <span class="hero-spectrum-word hero-spectrum-word-start">starting</span>
+            <div class="hero-spectrum-bar" aria-hidden="true">
               <span class="hero-spectrum-blur"></span>
               <span class="hero-spectrum-line"></span>
             </div>
+            <span class="hero-spectrum-word hero-spectrum-word-end">scaling</span>
           </div>
 
           <p class="lede">Turnkey Services is a full-service firm — bookkeeping, websites, AI, SEO, and design — delivered by one team, on one operating system, accountable end-to-end. Services that ship. Systems that scale. One firm to call.</p>
@@ -165,14 +167,14 @@
 
         <div class="hero-visual reveal">
           <div class="svc-accordion" id="svcAccordion" role="tablist" aria-label="Turnkey Services lines">
-            <a class="svc-panel is-active" href="https://turnkeycfo.com" target="_blank" rel="noreferrer"
-               data-svc="cfo" style="--brand:#00E676; --brand-deep:#006B2F" role="tab" aria-selected="true">
+            <a class="svc-panel is-active" href="https://turnkeyai.org" target="_blank" rel="noreferrer"
+               data-svc="ai" style="--brand:#0055FF; --brand-deep:#082973" role="tab" aria-selected="true">
               <span class="svc-panel-bg"></span>
-              <img class="svc-panel-logo" src="./assets/brands/tkcfo.png" alt="" loading="lazy" decoding="async">
+              <img class="svc-panel-logo" src="./assets/brands/tkai.png" alt="" loading="lazy" decoding="async">
               <span class="svc-panel-tint"></span>
               <span class="svc-panel-overlay"></span>
-              <span class="svc-panel-label">Bookkeeping</span>
-              <span class="svc-panel-pitch">Clean monthly books, payroll, 1099s, and AP/AR — so you stop guessing where your business stands.</span>
+              <span class="svc-panel-label">AI</span>
+              <span class="svc-panel-pitch">Automate the repetitive work draining your team — custom AI agents that run your business in the background.</span>
               <span class="svc-panel-cta">Learn more →</span>
             </a>
             <a class="svc-panel" href="https://turnkeyweb.org" target="_blank" rel="noreferrer"
@@ -185,14 +187,14 @@
               <span class="svc-panel-pitch">Fast, conversion-built sites that turn visitors into booked calls — not just digital business cards.</span>
               <span class="svc-panel-cta">Learn more →</span>
             </a>
-            <a class="svc-panel" href="https://turnkeyai.org" target="_blank" rel="noreferrer"
-               data-svc="ai" style="--brand:#0055FF; --brand-deep:#082973" role="tab" aria-selected="false">
+            <a class="svc-panel" href="https://turnkeycfo.com" target="_blank" rel="noreferrer"
+               data-svc="cfo" style="--brand:#00E676; --brand-deep:#006B2F" role="tab" aria-selected="false">
               <span class="svc-panel-bg"></span>
-              <img class="svc-panel-logo" src="./assets/brands/tkai.png" alt="" loading="lazy" decoding="async">
+              <img class="svc-panel-logo" src="./assets/brands/tkcfo.png" alt="" loading="lazy" decoding="async">
               <span class="svc-panel-tint"></span>
               <span class="svc-panel-overlay"></span>
-              <span class="svc-panel-label">AI Workflows</span>
-              <span class="svc-panel-pitch">Automate the repetitive work draining your team — custom AI agents that run your business in the background.</span>
+              <span class="svc-panel-label">Bookkeeping</span>
+              <span class="svc-panel-pitch">Clean monthly books, payroll, 1099s, and AP/AR — so you stop guessing where your business stands.</span>
               <span class="svc-panel-cta">Learn more →</span>
             </a>
             <div class="svc-panel svc-panel-disabled" data-svc="seo"
@@ -379,7 +381,7 @@
         <p>One call. We'll figure out which services fit and scope a quote. No pressure, no sales pitch.</p>
         <div class="cta-actions">
           <a href="https://calendly.com/ricky-turnkeycfo/15min-intro-call" class="button button-cta-primary" target="_blank" rel="noreferrer">Book a 15-min call</a>
-          <a href="mailto:hello@turnkeyservices.com" class="button button-cta-secondary">Email the team</a>
+          <a href="mailto:ricky@turnkey-services.org" class="button button-cta-secondary">Email the team</a>
         </div>
       </div>
     </section>
@@ -401,8 +403,8 @@
             <p>Yes — most clients do. Start with books and add a website, or start with a site and bring books in later. One intake covers every active service line; you choose what you need.</p>
           </details>
           <details class="faq-item">
-            <summary>Is everything billed under one company?</summary>
-            <p>Yes. Every service line invoices through Turnkey Services. One statement, one point of contact, one accountable team — regardless of how many service lines you engage.</p>
+            <summary>Can you work with more than one of my companies?</summary>
+            <p>Yes. We work with founders who run multiple entities — separate LLCs, sister brands, holding-and-operating company structures, side ventures. Each company is treated as its own client with its own books, site, and team, so the work stays clean across every business you own.</p>
           </details>
           <details class="faq-item">
             <summary>Where is Turnkey Services based?</summary>
@@ -427,7 +429,7 @@
       <div class="footer-brand">
         <img src="./assets/tks-logo-dark.png" alt="Turnkey Services" class="footer-logo" decoding="async">
         <p class="footer-tagline">The bridge between starting and scaling.</p>
-        <p class="footer-meta">Austin, Texas<br><a href="mailto:hello@turnkeyservices.com">hello@turnkeyservices.com</a></p>
+        <p class="footer-meta">Austin, Texas<br><a href="mailto:ricky@turnkey-services.org">ricky@turnkey-services.org</a></p>
       </div>
       <div class="footer-col">
         <h4>Services</h4>
