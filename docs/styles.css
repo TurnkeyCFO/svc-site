@@ -1847,7 +1847,7 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
     width: 100%;
     border-radius: 14px;
   }
-  .svc-panel.is-active { flex: 1 1 200px; min-height: 200px; }
+  .svc-panel.is-active { flex: 1 1 240px; min-height: 240px; }
   .svc-panel:not(.is-active) .svc-panel-label {
     bottom: auto;
     top: 50%;
@@ -1855,6 +1855,41 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
     transform: translateY(-50%) rotate(0);
   }
   .svc-panel.is-active .svc-panel-label { font-size: 1.2rem; }
+
+  /* MOBILE: shrink the brand logo + pin it to the bottom-right corner
+     so it never collides with the pitch text or the "Learn more" pill.
+     Collapsed panels hide the logo entirely (label-only row). */
+  .svc-panel-logo {
+    left: auto !important;
+    top: auto !important;
+    right: 14px !important;
+    bottom: 14px !important;
+    transform: none !important;
+    width: 96px !important;
+    max-width: 96px !important;
+    height: 32px !important;
+    opacity: 0 !important;
+    object-fit: contain;
+  }
+  .svc-panel.is-active .svc-panel-logo { opacity: 0.75 !important; }
+  .svc-panel:not(.is-active) .svc-panel-logo { display: none !important; }
+
+  /* Pitch + CTA need room — they live above the corner logo. The pitch
+     gets a right gutter wide enough to clear the logo footprint. */
+  .svc-panel-pitch {
+    left: 18px !important;
+    right: 120px !important;
+    bottom: 64px !important;
+    font-size: 0.92rem !important;
+    line-height: 1.38 !important;
+    max-width: none !important;
+  }
+  .svc-panel-cta {
+    left: 18px !important;
+    bottom: 14px !important;
+    padding: 8px 12px !important;
+    font-size: 0.85rem !important;
+  }
 }
 
 /* --- Services-section beams (replaces wave-watermark) --- */
