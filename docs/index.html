@@ -30,7 +30,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css?v=2026-05-22-v39-rim">
+  <link rel="stylesheet" href="./styles.css?v=2026-05-22-v40-ask">
 
   <!-- Organization + WebSite schema -->
   <script type="application/ld+json">
@@ -142,8 +142,8 @@
       <div class="container hero-layout">
         <div class="hero-copy reveal">
           <h1 class="hero-headline">
-            <span class="hero-line-1">The bridge</span>
-            <span class="hero-em hero-line-2">from starting to scaling.</span>
+            <span class="hero-line-1">Why we exist:</span>
+            <span class="hero-em hero-line-2">To be the bridge between starting and scaling for your business.</span>
           </h1>
 
           <div class="hero-spectrum">
@@ -351,68 +351,42 @@
     <!-- ABOUT THE FIRM -->
     <section class="section" id="about">
       <div class="container">
-        <div class="section-head reveal">
-          <p class="kicker">About the firm</p>
-          <h2>Built for the in-between.</h2>
-        </div>
-        <div class="two-col reveal">
-          <div>
-            <p class="body-lg">Turnkey Services exists for the season after you've started something but before it runs on its own — early-stage businesses, startups, budding nonprofits, and church plants. The teams building from nothing to something.</p>
-            <p class="body-lg">It's the season where every dollar counts, every move matters, and you're still wearing every hat. We take the back office, the website, the workflows — every piece of the operating layer — off your plate, so your time goes into the work only you can do.</p>
-          </div>
-          <div class="ask-box" id="askBox" aria-label="Ask Turnkey Services anything">
-            <span class="ask-glow" aria-hidden="true"></span>
-            <div class="ask-inner">
-              <div class="ask-head">
-                <p class="ask-kicker">Ask Turnkey anything</p>
-                <h3 class="ask-title">Got an open question? Try us.</h3>
-                <p class="ask-sub">Pricing, scope, timing, fit — ask in plain English. Trained on how we actually work; ends every answer with a way to talk to a real human.</p>
+        <div class="ask-box ask-box-wide reveal" id="askBox" aria-label="Ask Turnkey Services anything">
+          <span class="ask-glow" aria-hidden="true"></span>
+          <div class="ask-inner">
+            <div class="ask-head">
+              <p class="ask-kicker">Have questions? Get answers now.</p>
+              <p class="ask-sub">Pricing, scope, timing, fit — ask in plain English. Trained on how we actually work; every answer ends with a way to talk to a real human.</p>
+            </div>
+            <form class="ask-form" id="askForm" autocomplete="off">
+              <label class="sr-only" for="askInput">Your question</label>
+              <textarea id="askInput" name="question" rows="3" maxlength="600"
+                placeholder="e.g. How much does bookkeeping for a church plant usually run?" required></textarea>
+              <div class="ask-actions">
+                <button type="submit" class="button button-primary ask-submit">Ask</button>
+                <span class="ask-hint">Powered by Turnkey's own context · answers in seconds</span>
               </div>
-              <form class="ask-form" id="askForm" autocomplete="off">
-                <label class="sr-only" for="askInput">Your question</label>
-                <textarea id="askInput" name="question" rows="2" maxlength="600"
-                  placeholder="e.g. How much does bookkeeping for a church plant usually run?" required></textarea>
-                <div class="ask-actions">
-                  <button type="submit" class="button button-primary ask-submit">Ask</button>
-                  <span class="ask-hint">Powered by Turnkey's own context · answers in seconds</span>
-                </div>
-              </form>
-              <div class="ask-output" id="askOutput" aria-live="polite" hidden></div>
-              <div class="ask-chips" aria-label="Common questions">
-                <button type="button" class="ask-chip" data-q="How much does bookkeeping for a small nonprofit typically cost?">Bookkeeping pricing</button>
-                <button type="button" class="ask-chip" data-q="How long does a new website usually take from kickoff to launch?">Website timeline</button>
-                <button type="button" class="ask-chip" data-q="What kind of AI work do you do for service businesses?">AI for service biz</button>
-                <button type="button" class="ask-chip" data-q="Do you work with church plants?">Church plants</button>
-              </div>
+            </form>
+            <div class="ask-output" id="askOutput" aria-live="polite" hidden></div>
+            <p class="ask-chips-label">Or try one of these:</p>
+            <div class="ask-chips" aria-label="Common questions">
+              <button type="button" class="ask-chip" data-q="How much does bookkeeping for a small nonprofit typically cost?">Bookkeeping pricing</button>
+              <button type="button" class="ask-chip" data-q="What's included in your monthly close?">What's in monthly close</button>
+              <button type="button" class="ask-chip" data-q="How long does a new website usually take from kickoff to launch?">Website timeline</button>
+              <button type="button" class="ask-chip" data-q="How much does a small-business website usually cost?">Website pricing</button>
+              <button type="button" class="ask-chip" data-q="What kind of AI work do you do for service businesses?">AI for service biz</button>
+              <button type="button" class="ask-chip" data-q="What does an AI Audit include and how long does it take?">AI Audit scope</button>
+              <button type="button" class="ask-chip" data-q="Do you work with church plants?">Church plants</button>
+              <button type="button" class="ask-chip" data-q="Do you handle payroll and 1099s too?">Payroll & 1099s</button>
+              <button type="button" class="ask-chip" data-q="Can I hire you for just one service or do I have to bundle?">One service or bundle</button>
+              <button type="button" class="ask-chip" data-q="How is Turnkey different from Bench or Pilot?">Vs. Bench / Pilot</button>
+              <button type="button" class="ask-chip" data-q="How fast can you actually start?">How fast you can start</button>
+              <button type="button" class="ask-chip" data-q="Do you do tax filing?">Do you file taxes</button>
+              <button type="button" class="ask-chip" data-q="What does onboarding look like in the first two weeks?">Onboarding process</button>
+              <button type="button" class="ask-chip" data-q="Are you month-to-month or do I have to sign a long contract?">Contract terms</button>
+              <button type="button" class="ask-chip" data-q="Who actually does the work on my account?">Who does the work</button>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- HOW WE WORK -->
-    <section class="section section-tinted">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="kicker">How we engage</p>
-          <h2>Up and running in days, not months.</h2>
-        </div>
-        <div class="steps-grid reveal">
-          <article class="step">
-            <span class="step-num">01</span>
-            <h3>Intro call</h3>
-            <p>A 15-minute call to learn the business and figure out which service (or services) fits what you need.</p>
-          </article>
-          <article class="step">
-            <span class="step-num">02</span>
-            <h3>Scope &amp; quote</h3>
-            <p>A clear, written scope and a fixed quote — no surprise line items, no open-ended hourly billing.</p>
-          </article>
-          <article class="step">
-            <span class="step-num">03</span>
-            <h3>Onboard in 1–2 weeks</h3>
-            <p>We connect systems, do any cleanup, and stand the engagement up. Most clients are live inside two weeks.</p>
-          </article>
         </div>
       </div>
     </section>
@@ -505,7 +479,7 @@
   </footer>
 
   <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
-  <script src="./site.js?v=2026-05-22-v12-rim" defer></script>
+  <script src="./site.js?v=2026-05-22-v13-beams" defer></script>
   <script>
     // Hero sparkles — lightweight: ~45 particles, no per-particle shadowBlur,
     // paused when offscreen via IntersectionObserver.
@@ -579,25 +553,27 @@
       const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       if (reduce) return;
       const ctx = canvas.getContext('2d');
-      const HUES = [145, 220, 270, 335, 310, 50]; // emerald, blue, purple, pink, magenta, gold
       const TOTAL = 16;
       let w, h, dpr, beams, raf = 0, visible = true;
       function makeBeam(W, H, i) {
-        const isSilver = i % 5 === 0;
+        // Grayscale only — varying brightness so darker beams read against
+        // the light backdrop and lighter ones read against the darker mesh.
+        const light = 18 + Math.random() * 78;     // 18%–96%
+        const opacity = 0.16 + Math.random() * 0.18;
         return {
+          // Spread across the full vertical extent on init so beams are
+          // visible from frame 1 (previously they all started below the
+          // canvas and took 10–40s to drift up into view).
           x: Math.random() * W,
-          y: H + Math.random() * H * 0.8,
+          y: (Math.random() - 0.15) * H * 1.6,
           width: 70 + Math.random() * 130,
           length: H * 2.2,
           angle: -38 + Math.random() * 12,
           speed: 0.5 + Math.random() * 1.1,
-          opacity: isSilver ? 0.22 + Math.random() * 0.10 : 0.14 + Math.random() * 0.16,
-          hue: isSilver ? -1 : HUES[i % HUES.length],
-          sat: isSilver ? 0 : 80,
-          light: isSilver ? 88 : 62,
+          opacity: opacity,
+          light: light,
           pulse: Math.random() * Math.PI * 2,
           pulseSpeed: 0.02 + Math.random() * 0.025,
-          silver: isSilver,
         };
       }
       function resize() {
@@ -614,7 +590,8 @@
         b.x = (i % 4) * (w / 4) + (w / 8) + (Math.random() - 0.5) * (w / 5);
         b.width = 80 + Math.random() * 130;
         b.speed = 0.5 + Math.random() * 0.9;
-        b.opacity = b.silver ? 0.22 + Math.random() * 0.10 : 0.14 + Math.random() * 0.16;
+        b.opacity = 0.16 + Math.random() * 0.18;
+        b.light = 18 + Math.random() * 78;
       }
       function draw(b) {
         ctx.save();
@@ -622,9 +599,7 @@
         ctx.rotate(b.angle * Math.PI / 180);
         const op = b.opacity * (0.78 + Math.sin(b.pulse) * 0.22);
         const g = ctx.createLinearGradient(0, 0, 0, b.length);
-        const base = b.silver
-          ? (a) => `hsla(0,0%,${b.light}%,${a})`
-          : (a) => `hsla(${b.hue},${b.sat}%,${b.light}%,${a})`;
+        const base = (a) => `hsla(0,0%,${b.light}%,${a})`;
         g.addColorStop(0, base(0));
         g.addColorStop(0.1, base(op * 0.5));
         g.addColorStop(0.5, base(op));

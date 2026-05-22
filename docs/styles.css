@@ -2505,9 +2505,30 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
   padding: 0; margin: -1px; overflow: hidden;
   clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
 }
+.ask-box-wide { max-width: 980px; margin: 0 auto; }
+.ask-box-wide .ask-inner { padding: 44px 48px 36px; gap: 22px; }
+.ask-box-wide .ask-kicker {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  text-transform: none;
+  color: var(--text);
+}
+.ask-box-wide .ask-sub { font-size: 1.05rem; }
+.ask-box-wide .ask-form textarea { min-height: 88px; font-size: 1.05rem; }
+.ask-chips-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 4px 0 -4px;
+}
 @media (max-width: 720px) {
   .ask-inner { padding: 22px 20px 18px; }
   .ask-title { font-size: 1.35rem; }
+  .ask-box-wide .ask-inner { padding: 26px 22px 22px; }
+  .ask-box-wide .ask-kicker { font-size: 1.3rem; }
 }
 @media (prefers-reduced-motion: reduce) {
   .ask-glow { animation: none; }
