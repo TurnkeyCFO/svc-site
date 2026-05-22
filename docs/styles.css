@@ -61,11 +61,11 @@ ul { padding: 0; list-style: none; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 110px;
+  min-height: 150px;
   gap: 18px;
 }
 .brand-lockup { display: flex; align-items: center; }
-.brand-logo { height: 84px; width: auto; }
+.brand-logo { height: 126px; width: auto; }
 
 .desktop-nav { display: flex; align-items: center; gap: 6px; }
 .desktop-nav a:not(.button) {
@@ -700,8 +700,8 @@ ul { padding: 0; list-style: none; }
 @media (max-width: 560px) {
   body { font-size: 16px; }
   .container { width: calc(100% - 32px); }
-  .topbar-inner { min-height: 92px; }
-  .brand-logo { height: 72px; }
+  .topbar-inner { min-height: 124px; }
+  .brand-logo { height: 108px; }
   .hero { padding: 48px 0 40px; }
   .hero h1 { font-size: clamp(2.1rem, 9vw, 2.8rem); }
   .lede { font-size: 1.05rem; }
