@@ -2367,13 +2367,13 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
 .ask-box {
   position: relative;
   isolation: isolate;
-  border-radius: 20px;
-  padding: 1px; /* hairline rim */
+  border-radius: 22px;
+  padding: 2px; /* 2x thickness rim */
 }
 .ask-inner {
   position: relative;
   background: #FFFFFF;
-  border-radius: 19px;
+  border-radius: 20px;
   padding: 28px 28px 22px;
   display: flex;
   flex-direction: column;
@@ -2382,9 +2382,9 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
 }
 .ask-glow {
   position: absolute;
-  inset: -1px;
-  border-radius: 21px;
-  padding: 1px;
+  inset: -2px;
+  border-radius: 24px;
+  padding: 2px;
   background: linear-gradient(90deg,
     transparent 0%,
     #00B85F 12%,
