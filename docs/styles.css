@@ -2361,108 +2361,49 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
   .kicker, .site-footer::before { animation: none !important; }
 }
 
-/* ── SITE-WIDE MOUSE SPOTLIGHT ─────────────
-   A soft, brand-tinted radial glow that follows the cursor on all sections,
-   light or dark. Drawn as a fixed full-viewport overlay above backgrounds
-   but below text. Hidden on touch/no-hover devices. */
-.cursor-spotlight {
-  position: fixed;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 320ms ease;
-  background:
-    radial-gradient(
-      280px 280px at var(--cx, 50%) var(--cy, 50%),
-      rgba(0, 85, 255, 0.10) 0%,
-      rgba(102, 0, 204, 0.08) 28%,
-      rgba(0, 230, 118, 0.06) 55%,
-      rgba(255, 122, 0, 0.04) 78%,
-      rgba(0, 0, 0, 0) 100%
-    );
-  mix-blend-mode: multiply;
-  will-change: background-position;
-}
-.cursor-spotlight.is-visible { opacity: 1; }
-/* On dark sections (hero / cta-band) switch blend so it adds light not darkens */
-body.cursor-on-dark .cursor-spotlight {
-  mix-blend-mode: screen;
-  background:
-    radial-gradient(
-      320px 320px at var(--cx, 50%) var(--cy, 50%),
-      rgba(0, 85, 255, 0.28) 0%,
-      rgba(102, 0, 204, 0.20) 28%,
-      rgba(0, 230, 118, 0.14) 55%,
-      rgba(255, 122, 0, 0.10) 78%,
-      rgba(0, 0, 0, 0) 100%
-    );
-}
-@media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
-  .cursor-spotlight { display: none !important; }
-}
-
 /* ── ASK TURNKEY BOX (LLM) ─────────────────
-   Rounded card with an animated multi-brand-color glow chasing its border. */
+   Rounded card with a thin animated brand-bridge glow rim. Palette and
+   pacing match .hero-spectrum-bar (the bridge under the hero H1). */
 .ask-box {
   position: relative;
   isolation: isolate;
-  border-radius: 22px;
-  padding: 2px; /* leaves room for the glow rim */
+  border-radius: 20px;
+  padding: 1px; /* hairline rim */
 }
 .ask-inner {
   position: relative;
   background: #FFFFFF;
-  border-radius: 20px;
+  border-radius: 19px;
   padding: 28px 28px 22px;
   display: flex;
   flex-direction: column;
   gap: 18px;
   z-index: 2;
 }
-.ask-glow,
-.ask-glow-2 {
+.ask-glow {
   position: absolute;
-  inset: -2px;
-  border-radius: 24px;
-  padding: 2px;
-  background: conic-gradient(
-    from var(--ask-angle, 0deg),
-    #0055FF 0%,
-    #6600CC 18%,
-    #BD22A7 36%,
-    #FF1564 52%,
-    #FF7A00 68%,
-    #00E676 84%,
-    #0055FF 100%
-  );
+  inset: -1px;
+  border-radius: 21px;
+  padding: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    #00B85F 12%,
+    #5A1FB8 30%,
+    #2A56C7 48%,
+    #D8326A 66%,
+    #962F8E 82%,
+    #C99E18 92%,
+    transparent 100%);
+  background-size: 220% 100%;
   -webkit-mask: linear-gradient(#000, #000) content-box, linear-gradient(#000, #000);
   -webkit-mask-composite: xor;
           mask-composite: exclude;
-  animation: ask-spin 8s linear infinite;
+  animation: ask-pan 10s linear infinite;
   z-index: 1;
-  filter: drop-shadow(0 0 18px rgba(102, 0, 204, 0.22));
 }
-.ask-glow-2 {
-  inset: -10px;
-  border-radius: 30px;
-  padding: 10px;
-  filter: blur(22px) saturate(1.2);
-  opacity: 0.55;
-  animation: ask-spin 14s linear infinite reverse;
-  z-index: 0;
-}
-@property --ask-angle {
-  syntax: '<angle>';
-  inherits: false;
-  initial-value: 0deg;
-}
-@keyframes ask-spin {
-  to { --ask-angle: 360deg; }
-}
-/* Fallback for browsers without @property — animate via class swap */
-@supports not (background: conic-gradient(from 0deg, red, blue)) {
-  .ask-glow, .ask-glow-2 { animation: none; }
+@keyframes ask-pan {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 220% 50%; }
 }
 
 .ask-kicker {
@@ -2569,5 +2510,5 @@ body.cursor-on-dark .cursor-spotlight {
   .ask-title { font-size: 1.35rem; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .ask-glow, .ask-glow-2 { animation: none; }
+  .ask-glow { animation: none; }
 }

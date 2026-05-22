@@ -84,38 +84,6 @@
     counters.forEach(function (el) { cio.observe(el); });
   }
 
-  // ── Site-wide cursor spotlight (light + dark sections) ─────
-  if (!prefersReduced && window.matchMedia('(hover: hover)').matches && window.matchMedia('(pointer: fine)').matches) {
-    var spot = document.createElement('div');
-    spot.className = 'cursor-spotlight';
-    spot.setAttribute('aria-hidden', 'true');
-    document.body.appendChild(spot);
-    var spotRaf = null, sx = 50, sy = 50, lastY = 0;
-    function spotFlush() {
-      spot.style.setProperty('--cx', sx + 'px');
-      spot.style.setProperty('--cy', sy + 'px');
-      // Detect dark section under cursor → swap blend mode
-      var el = document.elementFromPoint(sx, sy);
-      var onDark = false;
-      while (el && el !== document.body) {
-        if (el.classList && (el.classList.contains('hero') || el.classList.contains('cta-band') || el.classList.contains('site-footer'))) {
-          onDark = true; break;
-        }
-        el = el.parentElement;
-      }
-      document.body.classList.toggle('cursor-on-dark', onDark);
-      spotRaf = null;
-    }
-    document.addEventListener('mousemove', function (e) {
-      sx = e.clientX; sy = e.clientY;
-      if (!spot.classList.contains('is-visible')) spot.classList.add('is-visible');
-      if (spotRaf === null) spotRaf = requestAnimationFrame(spotFlush);
-    }, { passive: true });
-    document.addEventListener('mouseleave', function () {
-      spot.classList.remove('is-visible');
-    });
-  }
-
   // ── Ask Turnkey (LLM) ──────────────────────────────────────
   (function initAsk() {
     var form = document.getElementById('askForm');
