@@ -30,7 +30,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css?v=2026-05-21-v36">
+  <link rel="stylesheet" href="./styles.css?v=2026-05-22-v38-ask">
 
   <!-- Organization + WebSite schema -->
   <script type="application/ld+json">
@@ -223,6 +223,32 @@
       </div>
     </section>
 
+    <!-- CLIENT BAR -->
+    <section class="client-bar reveal" aria-label="Trusted by">
+      <div class="container client-bar-inner">
+        <p class="client-bar-kicker">Trusted by businesses, nonprofits, and ministries growing from nothing to something</p>
+        <div class="client-bar-track" role="list">
+          <span class="client-mark" role="listitem">Doxa&nbsp;Coffee</span>
+          <span class="client-dot" aria-hidden="true">·</span>
+          <span class="client-mark" role="listitem">The&nbsp;Harbor&nbsp;Company</span>
+          <span class="client-dot" aria-hidden="true">·</span>
+          <span class="client-mark" role="listitem">Mascara&nbsp;Counseling</span>
+          <span class="client-dot" aria-hidden="true">·</span>
+          <span class="client-mark" role="listitem">Heirloom&nbsp;Church</span>
+          <span class="client-dot" aria-hidden="true">·</span>
+          <span class="client-mark" role="listitem">Village&nbsp;of&nbsp;Hope&nbsp;Maui</span>
+          <span class="client-dot" aria-hidden="true">·</span>
+          <span class="client-mark" role="listitem">Sivils&nbsp;Metal</span>
+          <span class="client-dot" aria-hidden="true">·</span>
+          <span class="client-mark" role="listitem">Doza&nbsp;Circle</span>
+          <span class="client-dot" aria-hidden="true">·</span>
+          <span class="client-mark" role="listitem">Build&nbsp;AI</span>
+          <span class="client-dot" aria-hidden="true">·</span>
+          <span class="client-mark client-mark-more" role="listitem">+&nbsp;more</span>
+        </div>
+      </div>
+    </section>
+
     <!-- TRUST STRIP -->
     <section class="trust-strip reveal">
       <div class="container trust-row">
@@ -334,14 +360,33 @@
             <p class="body-lg">Turnkey Services exists for the season after you've started something but before it runs on its own — early-stage businesses, startups, budding nonprofits, and church plants. The teams building from nothing to something.</p>
             <p class="body-lg">It's the season where every dollar counts, every move matters, and you're still wearing every hat. We take the back office, the website, the workflows — every piece of the operating layer — off your plate, so your time goes into the work only you can do.</p>
           </div>
-          <ul class="benefits-list">
-            <li><strong>For early stage.</strong> Built around startups, nonprofits, and church plants — not enterprises.</li>
-            <li><strong>One team accountable.</strong> Real deliverables, owned end-to-end. Not a marketplace of vendors.</li>
-            <li><strong>Systems-led.</strong> Automation handles the repetition; humans handle the judgment.</li>
-            <li><strong>Founder-friendly.</strong> Pricing and pace that fits the season you're in.</li>
-            <li><strong>Long-term partner.</strong> Engagements designed to compound as you grow.</li>
-            <li><strong>Austin HQ, US-wide.</strong> Local roots, virtual delivery.</li>
-          </ul>
+          <div class="ask-box" id="askBox" aria-label="Ask Turnkey Services anything">
+            <span class="ask-glow" aria-hidden="true"></span>
+            <span class="ask-glow ask-glow-2" aria-hidden="true"></span>
+            <div class="ask-inner">
+              <div class="ask-head">
+                <p class="ask-kicker">Ask Turnkey anything</p>
+                <h3 class="ask-title">Got an open question? Try us.</h3>
+                <p class="ask-sub">Pricing, scope, timing, fit — ask in plain English. Trained on how we actually work; ends every answer with a way to talk to a real human.</p>
+              </div>
+              <form class="ask-form" id="askForm" autocomplete="off">
+                <label class="sr-only" for="askInput">Your question</label>
+                <textarea id="askInput" name="question" rows="2" maxlength="600"
+                  placeholder="e.g. How much does bookkeeping for a church plant usually run?" required></textarea>
+                <div class="ask-actions">
+                  <button type="submit" class="button button-primary ask-submit">Ask</button>
+                  <span class="ask-hint">Powered by Turnkey's own context · answers in seconds</span>
+                </div>
+              </form>
+              <div class="ask-output" id="askOutput" aria-live="polite" hidden></div>
+              <div class="ask-chips" aria-label="Common questions">
+                <button type="button" class="ask-chip" data-q="How much does bookkeeping for a small nonprofit typically cost?">Bookkeeping pricing</button>
+                <button type="button" class="ask-chip" data-q="How long does a new website usually take from kickoff to launch?">Website timeline</button>
+                <button type="button" class="ask-chip" data-q="What kind of AI work do you do for service businesses?">AI for service biz</button>
+                <button type="button" class="ask-chip" data-q="Do you work with church plants?">Church plants</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -461,7 +506,7 @@
   </footer>
 
   <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
-  <script src="./site.js?v=2026-05-21-v10" defer></script>
+  <script src="./site.js?v=2026-05-22-v11-ask" defer></script>
   <script>
     // Hero sparkles — lightweight: ~45 particles, no per-particle shadowBlur,
     // paused when offscreen via IntersectionObserver.

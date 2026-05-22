@@ -84,6 +84,125 @@
     counters.forEach(function (el) { cio.observe(el); });
   }
 
+  // ── Site-wide cursor spotlight (light + dark sections) ─────
+  if (!prefersReduced && window.matchMedia('(hover: hover)').matches && window.matchMedia('(pointer: fine)').matches) {
+    var spot = document.createElement('div');
+    spot.className = 'cursor-spotlight';
+    spot.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(spot);
+    var spotRaf = null, sx = 50, sy = 50, lastY = 0;
+    function spotFlush() {
+      spot.style.setProperty('--cx', sx + 'px');
+      spot.style.setProperty('--cy', sy + 'px');
+      // Detect dark section under cursor → swap blend mode
+      var el = document.elementFromPoint(sx, sy);
+      var onDark = false;
+      while (el && el !== document.body) {
+        if (el.classList && (el.classList.contains('hero') || el.classList.contains('cta-band') || el.classList.contains('site-footer'))) {
+          onDark = true; break;
+        }
+        el = el.parentElement;
+      }
+      document.body.classList.toggle('cursor-on-dark', onDark);
+      spotRaf = null;
+    }
+    document.addEventListener('mousemove', function (e) {
+      sx = e.clientX; sy = e.clientY;
+      if (!spot.classList.contains('is-visible')) spot.classList.add('is-visible');
+      if (spotRaf === null) spotRaf = requestAnimationFrame(spotFlush);
+    }, { passive: true });
+    document.addEventListener('mouseleave', function () {
+      spot.classList.remove('is-visible');
+    });
+  }
+
+  // ── Ask Turnkey (LLM) ──────────────────────────────────────
+  (function initAsk() {
+    var form = document.getElementById('askForm');
+    var input = document.getElementById('askInput');
+    var output = document.getElementById('askOutput');
+    if (!form || !input || !output) return;
+    var inflight = false;
+
+    function setLoading(on) {
+      if (on) {
+        output.hidden = false;
+        output.textContent = 'Thinking';
+        output.classList.add('is-loading');
+      } else {
+        output.classList.remove('is-loading');
+      }
+    }
+
+    function render(answer, cta) {
+      output.classList.remove('is-loading');
+      output.innerHTML = '';
+      var p = document.createElement('div');
+      p.textContent = answer;
+      output.appendChild(p);
+      if (cta) {
+        var c = document.createElement('p');
+        c.style.marginTop = '12px';
+        c.innerHTML = '<strong>' + cta + '</strong> · <a href="https://calendly.com/ricky-turnkeycfo/15min-intro-call" target="_blank" rel="noreferrer">Book a 15-min call</a> · <a href="mailto:ricky@turnkey-services.org">ricky@turnkey-services.org</a>';
+        output.appendChild(c);
+      }
+    }
+
+    function renderError(msg) {
+      output.classList.remove('is-loading');
+      output.innerHTML = '';
+      var p = document.createElement('div');
+      p.textContent = msg;
+      output.appendChild(p);
+      var c = document.createElement('p');
+      c.style.marginTop = '12px';
+      c.innerHTML = 'The fastest answer is a 15-min call. <a href="https://calendly.com/ricky-turnkeycfo/15min-intro-call" target="_blank" rel="noreferrer">Book one →</a>';
+      output.appendChild(c);
+    }
+
+    function ask(q) {
+      if (inflight) return;
+      if (!q || q.length < 6) { input.focus(); return; }
+      inflight = true;
+      setLoading(true);
+      var ctrl = new AbortController();
+      var t = setTimeout(function () { ctrl.abort(); }, 16000);
+      fetch('/api/ask', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ question: q.slice(0, 600) }),
+        signal: ctrl.signal
+      }).then(function (r) {
+        clearTimeout(t);
+        return r.json().then(function (j) { return { ok: r.ok, body: j }; });
+      }).then(function (res) {
+        inflight = false;
+        if (res.ok && res.body && res.body.answer) {
+          render(res.body.answer, res.body.cta || 'Want to talk it through?');
+        } else {
+          renderError("We're getting that brain online. In the meantime, the fastest answer is a quick call.");
+        }
+      }).catch(function () {
+        clearTimeout(t);
+        inflight = false;
+        renderError("We're getting that brain online. In the meantime, the fastest answer is a quick call.");
+      });
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      ask((input.value || '').trim());
+    });
+
+    document.querySelectorAll('.ask-chip').forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        var q = chip.getAttribute('data-q') || chip.textContent;
+        input.value = q;
+        ask(q);
+      });
+    });
+  })();
+
   // ── Cursor spotlight on brand grid (desktop only) ──────────
   var grid = document.getElementById('brandGrid');
   if (grid && !prefersReduced && window.matchMedia('(hover: hover)').matches) {
