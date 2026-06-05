@@ -7,8 +7,8 @@
    ============================================================ */
 
 const HUB = {
-  version: '1.1.0',
-  updated: 'May 18, 2026'
+  version: '1.2.0',
+  updated: 'Jun 5, 2026'
 };
 
 /* The 30 service-business verticals.
@@ -55,9 +55,9 @@ const BRANDS = {
   cfo:      { name: 'Turnkey CFO',      tagline: 'Financial clarity. Confident growth.',          color: '#00B050', ink: '#fff' },
   web:      { name: 'Turnkey Web',      tagline: 'Modern website. More traffic.',                 color: '#0055FF', ink: '#fff' },
   ai:       { name: 'Turnkey AI',       tagline: 'Intelligence. Automated. Impact.',              color: '#0098C7', ink: '#fff' },
-  services: { name: 'Turnkey Services', tagline: 'The bridge between starting and scaling.',     color: '#0A0A0A', ink: '#fff' },
+  services: { name: 'Turnkey Services', tagline: 'One system. Every solution.',                   color: '#0A0A0A', ink: '#fff' },
   design:   { name: 'Turnkey Design',   tagline: 'Design that connects. Creativity that converts.',color: '#BD22A7', ink: '#fff' },
-  seo:      { name: 'Turnkey SEO',      tagline: 'Rank higher. Grow faster.',                     color: '#FF7A00', ink: '#fff' },
+  seo:      { name: 'Turnkey SEO',      tagline: 'Rank higher. Grow faster.',                     color: '#FF1564', ink: '#fff' },
   partners: { name: 'Turnkey Partners', tagline: 'Stronger together. Built for lasting impact.',  color: '#B8920A', ink: '#fff' },
   product:  { name: 'Demos & Products', tagline: 'Live products, demos & internal tools.',        color: '#3D3D3D', ink: '#fff' },
   client:   { name: 'Client Showcase Sites', tagline: 'Built-for-prospect demo sites.',           color: '#6600CC', ink: '#fff' }
@@ -105,6 +105,8 @@ const SITES = [
   { brand: 'partners', cat: 'page', name: 'Turnkey Partners',   url: 'https://turnkey-services.org/partners', note: 'Sacred Partner Program', status: 'live' },
 
   /* ---- Demos & Products ---- */
+  { brand: 'product', cat: 'demo', name: 'Financial & Growth Command Center', url: 'https://cortana-digest.pages.dev/turnkey-financials/', note: 'Live QBO actuals + all-brands growth planner', status: 'live' },
+  { brand: 'product', cat: 'demo', name: 'H2 2026 Roadmap Scorecard',        url: 'https://turnkey-h2-roadmap.pages.dev', note: 'Plan-vs-actuals + AI pace read', status: 'live' },
   { brand: 'product', cat: 'demo', name: 'Cortana Digest — Morning Brief', url: 'https://cortana-digest.pages.dev/morning-brief/', note: 'Daily HUD-style brief', status: 'live' },
   { brand: 'product', cat: 'demo', name: 'Echo Supply — Storefront Hub',   url: 'https://echo-supply-site.pages.dev/', note: 'Print-on-demand store hub', status: 'pending' },
   { brand: 'product', cat: 'demo', name: 'Faithful AI',                    url: '', note: 'Church agent platform — add live link', status: 'pending' },
