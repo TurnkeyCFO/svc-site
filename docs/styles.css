@@ -66,9 +66,17 @@ ul { padding: 0; list-style: none; }
 }
 .brand-lockup { display: flex; align-items: center; }
 .brand-logo { height: 126px; width: auto; }
-/* Animated logo video — sits on the near-white header; round the corners
-   slightly and clip so the light backdrop reads as part of the bar. */
-video.brand-logo { display: block; object-fit: contain; border-radius: 10px; background: transparent; }
+/* Animated logo video — bleed it into the header. The clip's background is
+   lifted to pure white at encode time so it dissolves into the white bar;
+   the soft radial mask feathers any residual edge to transparent so there's
+   never a rectangle seam against the (lightly tinted) blurred header. */
+video.brand-logo {
+  display: block;
+  object-fit: contain;
+  background: transparent;
+  -webkit-mask-image: radial-gradient(ellipse 94% 82% at 50% 50%, #000 70%, transparent 100%);
+  mask-image: radial-gradient(ellipse 94% 82% at 50% 50%, #000 70%, transparent 100%);
+}
 
 .desktop-nav { display: flex; align-items: center; gap: 6px; }
 .desktop-nav a:not(.button) {
