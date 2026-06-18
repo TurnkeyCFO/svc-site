@@ -307,46 +307,94 @@ video.brand-logo {
   text-align: center;
   max-width: 720px;
 }
-.client-bar-track {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 14px 22px;
+/* Logo carousel (infinite marquee) */
+.client-marquee {
+  position: relative;
   width: 100%;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
 }
-.client-mark {
+.client-track {
+  display: flex;
+  align-items: center;
+  gap: 56px;
+  width: max-content;
+  animation: client-scroll 46s linear infinite;
+  will-change: transform;
+}
+.client-marquee:hover .client-track { animation-play-state: paused; }
+@keyframes client-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.client-logo {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 58px;
+}
+.client-logo img {
+  height: 38px;
+  max-width: 168px;
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.6;
+  transition: filter 220ms ease, opacity 220ms ease;
+}
+.client-logo:hover img {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+/* per-logo optical balancing (stacked/square logos need more height; wide ones less) */
+.client-logo img.cl-mojo     { height: 30px; max-width: 150px; }
+.client-logo img.cl-heirloom { height: 50px; }
+.client-logo img.cl-epic     { height: 48px; }
+.client-logo img.cl-np       { height: 40px; max-width: 152px; }
+.client-logo img.cl-harbour  { height: 56px; }
+.client-logo--word span {
   font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-  font-size: 1.02rem;
+  font-size: 1.12rem;
   font-weight: 600;
   letter-spacing: -0.01em;
   color: var(--text-2);
-  opacity: 0.78;
+  opacity: 0.6;
   white-space: nowrap;
-  transition: opacity 180ms ease, color 180ms ease, transform 180ms ease;
-  cursor: default;
+  transition: opacity 220ms ease, color 220ms ease;
 }
-.client-mark:hover {
+.client-logo--word:hover span {
   opacity: 1;
   color: var(--text);
-  transform: translateY(-1px);
-}
-.client-mark-more {
-  font-style: italic;
-  font-weight: 500;
-  opacity: 0.55;
-}
-.client-dot {
-  color: var(--border-2);
-  font-weight: 700;
-  user-select: none;
 }
 @media (max-width: 720px) {
   .client-bar { padding: 28px 0 24px; }
   .client-bar-kicker { font-size: 0.68rem; }
-  .client-bar-track { gap: 10px 16px; }
-  .client-mark { font-size: 0.92rem; }
-  .client-dot { display: none; }
+  .client-track { gap: 40px; animation-duration: 34s; }
+  .client-logo { height: 48px; }
+  .client-logo img { height: 30px; max-width: 132px; }
+  .client-logo img.cl-mojo     { height: 24px; max-width: 118px; }
+  .client-logo img.cl-heirloom { height: 40px; }
+  .client-logo img.cl-epic     { height: 38px; }
+  .client-logo img.cl-np       { height: 32px; max-width: 120px; }
+  .client-logo img.cl-harbour  { height: 46px; }
+  .client-logo--word span { font-size: 0.98rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .client-marquee {
+    -webkit-mask-image: none;
+            mask-image: none;
+    overflow-x: auto;
+  }
+  .client-track {
+    animation: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    gap: 32px 48px;
+    padding: 0 24px;
+  }
 }
 
 /* ── TRUST STRIP ────────────────────────── */
