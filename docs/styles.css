@@ -312,6 +312,7 @@ video.brand-logo {
   position: relative;
   width: 100%;
   overflow: hidden;
+  background: #FFFFFF; /* gives mix-blend-mode a white backdrop so the shimmer is invisible over gaps */
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
           mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
 }
@@ -327,6 +328,35 @@ video.brand-logo {
 @keyframes client-scroll {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
+}
+/* Center brand-color shimmer — invisible over the white background (blend mode),
+   colorizes only the logo glyphs as they glide through the middle. */
+.client-shimmer {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background: linear-gradient(
+    100deg,
+    var(--tk-cfo),
+    var(--tk-ai),
+    var(--tk-design),
+    var(--tk-seo),
+    var(--tk-gold),
+    var(--tk-web),
+    var(--tk-cfo)
+  );
+  background-size: 220% 100%;
+  mix-blend-mode: overlay;
+  opacity: 0.92;
+  /* concentrate the shimmer in the middle ~40% of the track, invisible at the edges */
+  -webkit-mask-image: linear-gradient(90deg, transparent 28%, #000 48%, #000 52%, transparent 72%);
+          mask-image: linear-gradient(90deg, transparent 28%, #000 48%, #000 52%, transparent 72%);
+  animation: client-shimmer-drift 7s linear infinite;
+}
+@keyframes client-shimmer-drift {
+  from { background-position: 0% 50%; }
+  to   { background-position: 220% 50%; }
 }
 .client-logo {
   flex: 0 0 auto;
@@ -354,6 +384,11 @@ video.brand-logo {
 .client-logo img.cl-epic     { height: 48px; }
 .client-logo img.cl-np       { height: 40px; max-width: 152px; }
 .client-logo img.cl-harbour  { height: 56px; }
+.client-logo img.cl-idt      { height: 34px; max-width: 174px; }
+.client-logo img.cl-mosquera { height: 40px; max-width: 168px; }
+.client-logo img.cl-doza     { height: 40px; max-width: 162px; }
+.client-logo img.cl-buildai  { height: 38px; max-width: 134px; }
+.client-logo img.cl-sivils   { height: 46px; max-width: 130px; }
 .client-logo--word span {
   font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
   font-size: 1.12rem;
@@ -395,6 +430,7 @@ video.brand-logo {
     gap: 32px 48px;
     padding: 0 24px;
   }
+  .client-shimmer { display: none; }
 }
 
 /* ── TRUST STRIP ────────────────────────── */
