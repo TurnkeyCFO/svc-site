@@ -29,7 +29,8 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css?v=2026-06-08-v45-whiteheader">
 
   <!-- Organization + WebSite schema -->
   <script type="application/ld+json">
@@ -109,984 +110,633 @@
     ]
   }
   </script>
-
-<style>
-:root{
-  --bg:#f4f1ea;            /* warm off-white */
-  --bg-2:#ece8df;
-  --paper:#faf8f2;
-  --ink:#111016;           /* near-black */
-  --ink-soft:#3c3a44;
-  --ink-mute:#76737f;
-  --line:rgba(17,16,22,.11);
-  --line-soft:rgba(17,16,22,.06);
-  /* brand family — the organizing system */
-  --cfo:#00C566;
-  --web:#7C3AED;
-  --ai:#1D4ED8;
-  --design:#BD22A7;
-  --seo:#FF6B00;
-  --partners:#E0B90B;
-  /* LIVE accent — morphs as you focus a line */
-  --accent:#111016;
-  --accent-soft:rgba(17,16,22,.08);
-  --maxw:1320px;
-  --ease:cubic-bezier(.19,1,.22,1);
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{-webkit-text-size-adjust:100%}
-body{
-  font-family:"Plus Jakarta Sans",system-ui,sans-serif;
-  background:var(--bg);
-  color:var(--ink);
-  line-height:1.55;
-  overflow-x:hidden;
-  -webkit-font-smoothing:antialiased;
-  transition:background .9s var(--ease);
-}
-body.lock{overflow:hidden;height:100vh}
-.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,72px);width:100%}
-a{color:inherit;text-decoration:none}
-img{max-width:100%;display:block}
-.serif{font-family:"Fraunces",Georgia,serif;font-weight:430;letter-spacing:-.01em}
-h1,h2,h3{font-family:"Fraunces",Georgia,serif;font-weight:460;letter-spacing:-.018em;line-height:1.0}
-.tag{font-family:"Plus Jakarta Sans";font-size:.72rem;letter-spacing:.34em;text-transform:uppercase;color:var(--ink-mute)}
-
-/* ============ PRELOADER (orbital — diverges from numeric counter) ============ */
-#pre{position:fixed;inset:0;z-index:9999;background:var(--ink);color:var(--bg);display:flex;align-items:center;justify-content:center;flex-direction:column}
-#pre .orbit-mini{position:relative;width:170px;height:170px}
-#pre .orbit-mini .sun{position:absolute;left:50%;top:50%;width:14px;height:14px;border-radius:50%;background:var(--bg);transform:translate(-50%,-50%)}
-#pre .orbit-mini .ring{position:absolute;left:50%;top:50%;border:1px solid rgba(244,241,234,.16);border-radius:50%;transform:translate(-50%,-50%)}
-#pre .orbit-mini .pl{position:absolute;left:50%;top:50%;width:9px;height:9px;border-radius:50%;margin:-4.5px}
-#pre .pl-cap{margin-top:34px;font-family:"Fraunces";font-size:clamp(1.1rem,3vw,1.5rem);font-weight:430;letter-spacing:-.01em;opacity:0}
-#pre .pl-sub{margin-top:8px;font-size:.7rem;letter-spacing:.32em;text-transform:uppercase;opacity:.5}
-.pl-veil{position:fixed;inset:0;z-index:9998;background:var(--bg);transform:translateY(100%);will-change:transform}
-
-/* ============ CURSOR ============ */
-#cur{position:fixed;top:0;left:0;width:30px;height:30px;border:1.4px solid var(--ink);border-radius:50%;pointer-events:none;z-index:9000;transform:translate(-50%,-50%);transition:width .3s var(--ease),height .3s var(--ease),background .3s,border-color .3s,opacity .25s;opacity:0}
-#cur.show{opacity:1}
-#cur.lg{width:78px;height:78px;background:var(--accent);border-color:transparent}
-#cur .cl{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:#fff;opacity:0;transition:opacity .2s;font-weight:600}
-#cur.lg .cl{opacity:1}
-@media (hover:none),(pointer:coarse){#cur{display:none!important}}
-
-/* ============ PROGRESS — vertical orbital meter on the right ============ */
-#prog{position:fixed;top:0;right:0;height:100%;width:2px;z-index:8000;background:var(--line-soft)}
-#prog .fill{position:absolute;top:0;left:0;width:100%;height:0;background:var(--accent);transition:background .9s var(--ease)}
-
-/* ============ HEADER ============ */
-header{position:fixed;top:0;left:0;right:0;z-index:7000;transition:background .5s,backdrop-filter .5s,border-color .5s;border-bottom:1px solid transparent}
-header.sc{background:rgba(244,241,234,.8);backdrop-filter:blur(16px) saturate(1.2);border-bottom-color:var(--line)}
-.bar{display:flex;align-items:center;justify-content:space-between;height:78px}
-.logo{height:30px;width:auto}
-nav.desk{display:flex;align-items:center;gap:clamp(20px,2.6vw,42px)}
-nav.desk a{font-size:.88rem;font-weight:500;color:var(--ink-soft);position:relative;transition:color .2s}
-nav.desk a:not(.btn)::after{content:"";position:absolute;left:0;bottom:-5px;height:1.5px;width:0;background:var(--accent);transition:width .35s var(--ease)}
-nav.desk a:not(.btn):hover{color:var(--ink)}
-nav.desk a:not(.btn):hover::after{width:100%}
-.btn{display:inline-flex;align-items:center;gap:.5em;font-weight:600;border-radius:100px;transition:transform .35s var(--ease),background .4s,color .3s,box-shadow .3s,border-color .3s;cursor:pointer;border:none;font-family:inherit}
-.btn-primary{background:var(--accent);color:#fff;padding:.74em 1.55em;font-size:.88rem}
-.btn-primary:hover{box-shadow:0 16px 38px -14px var(--accent)}
-.btn-ghost{border:1px solid var(--line);padding:.74em 1.55em;font-size:.88rem;color:var(--ink)}
-.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
-.btn-lg{padding:.98em 2em;font-size:1rem}
-.ntog{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
-.ntog span{width:24px;height:2px;background:var(--ink);transition:.3s}
-#mnav{position:fixed;inset:0;background:var(--ink);color:var(--bg);z-index:6999;display:flex;flex-direction:column;justify-content:center;gap:14px;padding:0 34px;transform:translateY(-100%);transition:transform .6s var(--ease)}
-#mnav.open{transform:translateY(0)}
-#mnav a{font-family:"Fraunces";font-size:clamp(2rem,9vw,3.2rem);color:var(--bg);opacity:.92}
-
-/* ============ HERO — orbital system is the centerpiece ============ */
-.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding-top:96px;padding-bottom:40px;overflow:hidden}
-.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.02fr 1fr;gap:clamp(24px,4vw,70px);align-items:center;width:100%}
-.kick{display:inline-flex;align-items:center;gap:.7em;margin-bottom:clamp(22px,3vw,32px)}
-.kick .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 5px var(--accent-soft);transition:background .8s,box-shadow .8s}
-h1.hh{font-size:clamp(2.5rem,5.7vw,5.5rem);font-weight:430;line-height:1.02}
-h1.hh .ln{display:block;overflow:hidden}
-h1.hh .ln>span{display:inline-block;will-change:transform}
-h1.hh .pre{display:block;font-family:"Plus Jakarta Sans";font-size:clamp(.95rem,1.5vw,1.2rem);font-weight:500;letter-spacing:.02em;color:var(--ink-mute);margin-bottom:.7em;overflow:hidden}
-h1.hh em{font-style:italic;font-family:"Fraunces";font-weight:430;color:var(--accent);transition:color .8s}
-.lede{font-size:clamp(1rem,1.22vw,1.16rem);color:var(--ink-soft);max-width:33em;margin:clamp(24px,3vw,32px) 0;line-height:1.66}
-.hact{display:flex;gap:13px;flex-wrap:wrap;align-items:center}
-.hnote{margin-top:26px;font-size:.85rem;color:var(--ink-mute);max-width:30em;border-left:2px solid var(--accent);padding-left:14px;line-height:1.58;transition:border-color .8s}
-
-/* ORBITAL STAGE */
-.orbit-wrap{position:relative;aspect-ratio:1/1;width:100%;max-width:560px;margin-left:auto;touch-action:pan-y}
-#orbit{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:1}
-.orbit-core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);text-align:center;z-index:2;pointer-events:none;width:42%}
-.orbit-core .oc-mark{font-family:"Fraunces";font-size:clamp(1.5rem,3.4vw,2.4rem);font-weight:500;line-height:.95;letter-spacing:-.02em}
-.orbit-core .oc-sub{font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-mute);margin-top:8px}
-.orbit-readout{position:absolute;left:0;right:0;bottom:-2px;text-align:center;z-index:3;pointer-events:none;transition:opacity .4s}
-.orbit-readout .or-name{font-family:"Fraunces";font-size:clamp(1.05rem,2vw,1.5rem);font-weight:500;color:var(--accent);transition:color .6s}
-.orbit-readout .or-tag{font-size:.8rem;color:var(--ink-soft);max-width:26em;margin:6px auto 0;line-height:1.45}
-.orbit-readout .or-cta{display:inline-flex;align-items:center;gap:.4em;font-size:.78rem;font-weight:600;color:var(--accent);margin-top:9px;letter-spacing:.01em;transition:color .6s}
-.orbit-hint{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:42%;text-align:center;z-index:2;pointer-events:none;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-mute);opacity:0;transition:opacity .5s}
-
-/* ============ MARQUEE — vertical-rhythm divider, distinct from others ============ */
-.strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-2);overflow:hidden;white-space:nowrap;padding:clamp(16px,2vw,24px) 0}
-.strip-track{display:inline-flex;will-change:transform}
-.strip-track .it{font-family:"Fraunces";font-size:clamp(1.4rem,3.2vw,2.7rem);font-weight:440;letter-spacing:-.01em;padding:0 .55em;display:inline-flex;align-items:center;gap:.5em;color:var(--ink)}
-.strip-track .it .o{color:transparent;-webkit-text-stroke:1px var(--ink-mute)}
-.strip-track .sep{align-self:center;width:7px;height:7px;border-radius:50%;background:var(--accent);transition:background .8s}
-
-/* ============ STATEMENT ============ */
-.say{padding:clamp(86px,13vw,180px) 0}
-.say .ln{font-family:"Fraunces";font-size:clamp(1.8rem,4.6vw,4rem);font-weight:430;line-height:1.1;letter-spacing:-.018em;max-width:18em}
-.say .ln .mut{color:var(--ink-mute)}
-.say .ln em{font-style:italic;color:var(--accent);transition:color .8s}
-.say-sub{margin-top:clamp(32px,4vw,52px);max-width:38em;color:var(--ink-soft);font-size:clamp(1rem,1.2vw,1.14rem);line-height:1.68}
-
-/* ============ LINES — architectural ledger (the parent's "directory of brands") ============ */
-.lines{padding:clamp(56px,8vw,104px) 0;position:relative}
-.lhead{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px;margin-bottom:clamp(30px,4vw,52px)}
-.lines h2{font-size:clamp(2rem,4.4vw,3.6rem);margin-top:14px;max-width:13em;font-weight:440}
-.ledger{border-top:1px solid var(--line)}
-.lrow{position:relative;display:grid;grid-template-columns:auto auto 1fr auto;align-items:center;gap:clamp(16px,3vw,40px);padding:clamp(22px,3.2vw,40px) 0;border-bottom:1px solid var(--line);cursor:pointer;transition:padding-left .5s var(--ease)}
-.lrow .lfill{position:absolute;left:-100vw;top:0;bottom:0;width:100vw;background:var(--bc);opacity:.07;transform:scaleX(0);transform-origin:left;transition:transform .6s var(--ease);z-index:0}
-.lrow:hover .lfill,.lrow.on .lfill{transform:scaleX(1)}
-.lrow:hover,.lrow.on{padding-left:clamp(12px,2vw,28px)}
-.lrow>*{position:relative;z-index:1}
-.lnum{font-family:"Fraunces";font-size:clamp(.92rem,1.3vw,1.2rem);color:var(--ink-mute);width:2.4em}
-.ldotw{width:14px;display:flex;justify-content:center}
-.ldot{width:11px;height:11px;border-radius:50%;background:var(--bc);box-shadow:0 0 0 5px color-mix(in srgb,var(--bc) 16%,transparent)}
-.lname{font-family:"Fraunces";font-size:clamp(2rem,6vw,4.8rem);font-weight:470;line-height:.95;letter-spacing:-.02em;transition:color .4s}
-.lrow:hover .lname,.lrow.on .lname{color:var(--bc)}
-.lmeta{text-align:right;max-width:23em}
-.ltag{font-size:clamp(.9rem,1.1vw,1.05rem);color:var(--ink-soft);line-height:1.5}
-.lcta{display:inline-flex;align-items:center;gap:.4em;font-size:.8rem;font-weight:600;margin-top:7px;color:var(--bc);opacity:0;transform:translateX(-8px);transition:opacity .4s,transform .4s}
-.lrow:hover .lcta,.lrow.on .lcta{opacity:1;transform:translateX(0)}
-.lbadge{display:inline-block;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;border:1px solid var(--line);border-radius:100px;padding:.3em .8em;color:var(--ink-mute);margin-left:14px;vertical-align:middle}
-.ldis{cursor:default}
-.ldis:hover{padding-left:0}
-
-/* ============ TRUSTED ============ */
-.trust{padding:clamp(48px,7vw,86px) 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-2);overflow:hidden}
-.trust-k{text-align:center;font-size:.84rem;color:var(--ink-mute);margin-bottom:clamp(28px,4vw,44px);padding:0 20px}
-.lmar{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-.ltrack{display:inline-flex;align-items:center;gap:clamp(46px,6vw,88px);will-change:transform}
-.ltrack .ll{flex:none;height:clamp(26px,3.2vw,44px);display:flex;align-items:center}
-.ltrack img{height:100%;width:auto;object-fit:contain;filter:grayscale(1) opacity(.5);transition:filter .35s}
-.ltrack .ll:hover img{filter:grayscale(0) opacity(1)}
-
-/* ============ PROCESS ============ */
-.proc{padding:clamp(78px,11vw,150px) 0}
-.proc-h{margin-bottom:clamp(38px,5vw,66px);max-width:30em}
-.proc h2{font-size:clamp(2rem,4.4vw,3.6rem);margin-top:14px;font-weight:440}
-.step{display:grid;grid-template-columns:auto 1fr;gap:clamp(22px,5vw,72px);padding:clamp(28px,4vw,52px) 0;border-top:1px solid var(--line);align-items:start}
-.step:last-child{border-bottom:1px solid var(--line)}
-.snum{font-family:"Fraunces";font-size:clamp(3.6rem,12vw,10.5rem);font-weight:470;line-height:.8;color:transparent;-webkit-text-stroke:1.3px var(--line);letter-spacing:-.04em;transition:-webkit-text-stroke-color .5s}
-.step:hover .snum{-webkit-text-stroke-color:var(--accent)}
-.sbody h3{font-size:clamp(1.35rem,2.4vw,1.95rem);margin-bottom:13px;font-weight:480}
-.sbody p{color:var(--ink-soft);max-width:34em;line-height:1.64;font-size:clamp(.96rem,1.1vw,1.06rem)}
-
-/* ============ STATS ============ */
-.stats{padding:clamp(66px,9vw,116px) 0;background:var(--ink);color:var(--bg)}
-.sgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(22px,4vw,48px)}
-.stat .num{font-family:"Fraunces";font-size:clamp(2.6rem,6vw,5.2rem);font-weight:440;line-height:.9;letter-spacing:-.03em}
-.stat .lbl{margin-top:13px;font-size:.9rem;color:rgba(244,241,234,.6);line-height:1.45;max-width:14em}
-@media(max-width:760px){.sgrid{grid-template-columns:repeat(2,1fr);gap:34px 22px}}
-
-/* ============ STANDARD ============ */
-.std{padding:clamp(78px,11vw,150px) 0}
-.std .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(38px,6vw,90px);align-items:center}
-.std h2{font-size:clamp(2rem,4.4vw,3.7rem);max-width:13em;font-weight:440}
-.std h2 em{font-style:italic;color:var(--accent);transition:color .8s}
-.glist{display:grid;gap:18px}
-.git{display:flex;gap:16px;align-items:flex-start;padding-bottom:18px;border-bottom:1px solid var(--line)}
-.git:last-child{border-bottom:none}
-.gm{flex:none;width:30px;height:30px;border-radius:50%;border:1.5px solid var(--accent);color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:.8rem;margin-top:2px;transition:border-color .8s,color .8s}
-.git h4{font-size:1.04rem;margin-bottom:4px;font-family:"Plus Jakarta Sans";font-weight:700}
-.git p{font-size:.94rem;color:var(--ink-soft);line-height:1.55}
-
-/* ============ CONTACT ============ */
-.contact{padding:clamp(78px,11vw,150px) 0;background:var(--ink);color:var(--bg);position:relative;overflow:hidden}
-#blob{position:absolute;inset:0;z-index:0;opacity:.55}
-.contact .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:clamp(38px,6vw,90px);align-items:center}
-.contact h2{font-size:clamp(2.2rem,5vw,4.2rem);max-width:11em;font-weight:440}
-.contact .csub{margin-top:22px;color:rgba(244,241,234,.7);max-width:30em;line-height:1.6}
-.cact{margin-top:32px;display:flex;gap:13px;flex-wrap:wrap}
-.btn-light{background:var(--bg);color:var(--ink);padding:.98em 2em;font-size:1rem}
-.btn-ol{border:1px solid rgba(244,241,234,.3);color:var(--bg);padding:.98em 2em;font-size:1rem}
-.btn-ol:hover{border-color:var(--bg)}
-.form{background:rgba(244,241,234,.04);border:1px solid rgba(244,241,234,.13);border-radius:22px;padding:clamp(24px,3vw,40px);backdrop-filter:blur(6px)}
-.form .fl{display:block;font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(244,241,234,.55);margin-bottom:8px;margin-top:18px}
-.form .fl:first-child{margin-top:0}
-.form input,.form select,.form textarea{width:100%;background:rgba(244,241,234,.05);border:1px solid rgba(244,241,234,.16);border-radius:12px;padding:.85em 1em;color:var(--bg);font-family:inherit;font-size:.97rem;transition:border-color .25s}
-.form input::placeholder,.form textarea::placeholder{color:rgba(244,241,234,.4)}
-.form input:focus,.form select:focus,.form textarea:focus{outline:none;border-color:var(--bg)}
-.form select option{color:#111}
-.form .more{max-height:0;overflow:hidden;transition:max-height .5s var(--ease)}
-.form .more.open{max-height:420px}
-.form .mtog{background:none;border:none;color:rgba(244,241,234,.7);font-family:inherit;font-size:.84rem;cursor:pointer;margin-top:18px;padding:0}
-.form button[type=submit]{width:100%;margin-top:22px;justify-content:center}
-.fdone{display:none;text-align:center;padding:30px 0}
-.fdone.show{display:block}
-.fdone .big{font-family:"Fraunces";font-size:1.7rem;margin-bottom:10px}
-
-/* ============ FOOTER ============ */
-footer.site{padding:clamp(66px,9vw,116px) 0 40px}
-.ftop{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:clamp(28px,4vw,58px);padding-bottom:clamp(48px,6vw,78px);border-bottom:1px solid var(--line)}
-.fbig{font-family:"Fraunces";font-size:clamp(2.3rem,7vw,5.6rem);font-weight:470;letter-spacing:-.03em;line-height:.9;margin-bottom:22px}
-.fbrand img{height:30px;margin-bottom:18px}
-.fbrand p{color:var(--ink-soft);font-size:.9rem;line-height:1.55;max-width:24em}
-.fcol h4{font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:18px}
-.fcol a{display:block;color:var(--ink-soft);font-size:.93rem;margin-bottom:11px;transition:color .2s,padding-left .2s}
-.fcol a:hover{color:var(--accent);padding-left:4px}
-.fpill{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--line);border-radius:100px;padding:.2em .6em;color:var(--ink-mute);margin-left:6px}
-.fbot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;padding-top:28px;font-size:.84rem;color:var(--ink-mute)}
-
-/* ============ REVEAL ============ */
-.rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
-.rv.in{opacity:1;transform:none}
-
-/* ============ RESPONSIVE ============ */
-@media(max-width:980px){
-  .hero-grid{grid-template-columns:1fr;gap:40px}
-  .orbit-wrap{max-width:440px;margin:0 auto}
-  .std .wrap,.contact .wrap{grid-template-columns:1fr;gap:42px}
-  .lrow{grid-template-columns:auto auto 1fr;gap:16px}
-  .lmeta{display:none}
-  .ftop{grid-template-columns:1fr 1fr}
-}
-@media(max-width:680px){
-  nav.desk{display:none}
-  .ntog{display:flex}
-  .step{grid-template-columns:1fr;gap:6px}
-  .snum{font-size:clamp(3.2rem,20vw,5.6rem)}
-  .ftop{grid-template-columns:1fr}
-  .hero{padding-top:88px}
-  .orbit-readout{position:static;margin-top:18px}
-}
-@media (prefers-reduced-motion:reduce){
-  *{animation-duration:.001s!important;transition-duration:.001s!important}
-  .rv{opacity:1;transform:none}
-}
-</style>
 </head>
-<body class="lock">
+<body>
 
-<!-- PRELOADER -->
-<div id="pre">
-  <div class="orbit-mini" id="plOrbit"></div>
-  <div class="pl-cap" id="plCap">Turnkey Services</div>
-  <div class="pl-sub">The bridge between starting &amp; scaling</div>
-</div>
-<div class="pl-veil" id="veil"></div>
-
-<div id="prog"><span class="fill" id="progFill"></span></div>
-<div id="cur"><span class="cl" id="curLab"></span></div>
-
-<!-- HEADER -->
-<header id="hdr">
-  <div class="wrap bar">
-    <a href="#top" aria-label="Turnkey Services home"><img class="logo" src="./assets/tks-logo.png" alt="Turnkey Services"></a>
-    <nav class="desk">
-      <a href="#lines" data-cur>Services</a>
-      <a href="#process" data-cur>How we work</a>
-      <a href="#contact" data-cur>Contact</a>
-      <a href="/blog/" data-cur>Blog</a>
-      <a href="https://calendly.com/ricky-turnkeycfo/15min-intro-call" target="_blank" rel="noreferrer" class="btn btn-primary" data-cur data-mag>Book a call</a>
-    </nav>
-    <button class="ntog" id="ntog" aria-label="Open menu"><span></span><span></span><span></span></button>
-  </div>
-</header>
-<div id="mnav">
-  <a href="#lines">Services</a>
-  <a href="#process">How we work</a>
-  <a href="#contact">Contact</a>
-  <a href="/blog/">Blog</a>
-  <a href="https://calendly.com/ricky-turnkeycfo/15min-intro-call" target="_blank" rel="noreferrer">Book a call</a>
-</div>
-
-<main id="top">
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="wrap hero-grid">
-      <div class="hcopy">
-        <span class="kick"><span class="dot"></span> <span class="tag">One operating system · many lines</span></span>
-        <h1 class="hh">
-          <span class="pre"><span>Why we exist</span></span>
-          <span class="ln"><span>To be the <em>bridge</em></span></span>
-          <span class="ln"><span>between <em>starting</em></span></span>
-          <span class="ln"><span>and <em>scaling.</em></span></span>
-        </h1>
-        <p class="lede">Turnkey Services is built for the in-between — early-stage businesses, startups, budding nonprofits, and church plants growing from nothing to something. Bookkeeping, websites, AI, SEO, and design, delivered by one team, so you can spend your time on the parts only you can do.</p>
-        <div class="hact">
-          <a href="#lines" class="btn btn-primary btn-lg" data-cur data-mag>Explore the system</a>
-          <a href="https://calendly.com/ricky-turnkeycfo/15min-intro-call" target="_blank" rel="noreferrer" class="btn btn-ghost btn-lg" data-cur data-mag>Book a call</a>
-        </div>
-        <p class="hnote">For the season between starting it and scaling it — the months and years where every move matters, every dollar counts, and you're still wearing every hat.</p>
-      </div>
-
-      <div class="hvis rv">
-        <div class="orbit-wrap" id="orbitWrap">
-          <canvas id="orbit"></canvas>
-          <div class="orbit-core">
-            <div class="oc-mark">Turnkey</div>
-            <div class="oc-sub">the parent</div>
-          </div>
-          <div class="orbit-hint" id="orbitHint">Drag · hover · click a line</div>
-          <div class="orbit-readout" id="readout" style="opacity:0">
-            <div class="or-name" id="roName">Bookkeeping</div>
-            <div class="or-tag" id="roTag"></div>
-            <a class="or-cta" id="roCta" href="#" target="_blank" rel="noreferrer">Engage →</a>
-          </div>
-        </div>
-      </div>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand-lockup" href="./index.html" aria-label="Turnkey Services home">
+        <video class="brand-logo" autoplay muted loop playsinline disablepictureinpicture
+               poster="./assets/tks-logo2-poster.png" aria-label="Turnkey Services">
+          <source src="./assets/tks-logo2.mp4" type="video/mp4">
+          <img src="./assets/tks-logo.png" alt="Turnkey Services" class="brand-logo" decoding="async">
+        </video>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="desktop-nav" id="desktop-nav" aria-label="Primary">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="https://calendly.com/ricky-turnkeycfo/15min-intro-call" class="button button-primary" target="_blank" rel="noreferrer">Book a call</a>
+        <a href="/blog/">Blog</a>
+      </nav>
     </div>
-  </section>
+  </header>
 
-  <!-- STRIP -->
-  <div class="strip" data-strip>
-    <div class="strip-track" id="stripTrack">
-      <span class="it">Bookkeeping</span><span class="sep"></span>
-      <span class="it"><span class="o">Websites</span></span><span class="sep"></span>
-      <span class="it">AI Workflows</span><span class="sep"></span>
-      <span class="it"><span class="o">SEO</span></span><span class="sep"></span>
-      <span class="it">Design</span><span class="sep"></span>
-      <span class="it"><span class="o">Recruiting</span></span><span class="sep"></span>
-    </div>
-  </div>
-
-  <!-- STATEMENT -->
-  <section class="say">
-    <div class="wrap">
-      <p class="ln" data-lines>
-        <span>Most founders don't need <em>five vendors.</em></span>
-        <span class="mut">They need one team that already knows</span>
-        <span class="mut">the whole business — and shows up like</span>
-        <span>it's their own.</span>
-      </p>
-      <p class="say-sub rv">Books, site, automation, brand. The work that keeps a young company alive usually lives in five disconnected places, with five people who never talk. Turnkey puts it under one roof, one quality bar, and one number to call.</p>
-    </div>
-  </section>
-
-  <!-- LINES — architectural ledger -->
-  <section class="lines" id="lines">
-    <div class="wrap">
-      <div class="lhead">
-        <div>
-          <p class="tag rv">The service lines</p>
-          <h2 class="rv">Solutions to move your business forward.</h2>
-        </div>
-        <p class="rv" style="max-width:24em;color:var(--ink-soft);font-size:.97rem;line-height:1.6">Six lines built for early-stage businesses, startups, nonprofits, and church plants. Hire one. Hire all of them. Same team, same accountable bar.</p>
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-backdrop" aria-hidden="true">
+        <canvas id="hero-beams" class="hero-beams"></canvas>
+        <div class="hero-mesh hero-mesh-animated"></div>
+        <div class="hero-shimmer"></div>
+        <div class="hero-grain"></div>
       </div>
+      <div class="container hero-layout">
+        <div class="hero-copy reveal">
+          <h1 class="hero-headline">
+            <span class="hero-line-1">Why we exist:</span>
+            <span class="hero-em hero-line-2">To be the bridge between starting and scaling for your business.</span>
+          </h1>
 
-      <div class="ledger" id="ledger">
-        <a class="lrow rv" href="https://turnkeycfo.com" target="_blank" rel="noreferrer" style="--bc:var(--cfo)" data-line="cfo" data-cur="visit">
-          <span class="lfill"></span>
-          <span class="lnum">01</span>
-          <span class="ldotw"><span class="ldot"></span></span>
-          <span><span class="lname">Bookkeeping</span></span>
-          <span class="lmeta"><span class="ltag">Clean monthly books, payroll, 1099s, and AP/AR, so you stop guessing where your business stands.</span><br><span class="lcta">Engage Turnkey CFO →</span></span>
-        </a>
-        <a class="lrow rv" href="https://turnkeyweb.org" target="_blank" rel="noreferrer" style="--bc:var(--web)" data-line="web" data-cur="visit">
-          <span class="lfill"></span>
-          <span class="lnum">02</span>
-          <span class="ldotw"><span class="ldot"></span></span>
-          <span><span class="lname">Websites</span></span>
-          <span class="lmeta"><span class="ltag">Fast, conversion-built sites that turn visitors into booked calls, not just digital business cards.</span><br><span class="lcta">Engage Turnkey Web →</span></span>
-        </a>
-        <a class="lrow rv" href="https://turnkeyai.org" target="_blank" rel="noreferrer" style="--bc:var(--ai)" data-line="ai" data-cur="visit">
-          <span class="lfill"></span>
-          <span class="lnum">03</span>
-          <span class="ldotw"><span class="ldot"></span></span>
-          <span><span class="lname">AI Workflows</span></span>
-          <span class="lmeta"><span class="ltag">Custom AI agents that quietly run the repetitive work draining your team, in the background.</span><br><span class="lcta">Engage Turnkey AI →</span></span>
-        </a>
-        <div class="lrow ldis rv" style="--bc:var(--seo)" data-line="seo">
-          <span class="lfill"></span>
-          <span class="lnum">04</span>
-          <span class="ldotw"><span class="ldot"></span></span>
-          <span><span class="lname">SEO</span><span class="lbadge">Coming soon</span></span>
-          <span class="lmeta"><span class="ltag">On-page, technical, local, and content SEO that earns the searches that actually buy.</span></span>
-        </div>
-        <div class="lrow ldis rv" style="--bc:var(--design)" data-line="design">
-          <span class="lfill"></span>
-          <span class="lnum">05</span>
-          <span class="ldotw"><span class="ldot"></span></span>
-          <span><span class="lname">Design</span><span class="lbadge">Coming soon</span></span>
-          <span class="lmeta"><span class="ltag">Brand identity, UI/UX, and motion language that signals premium before the first call.</span></span>
-        </div>
-        <div class="lrow ldis rv" style="--bc:var(--partners)" data-line="recruiting">
-          <span class="lfill"></span>
-          <span class="lnum">06</span>
-          <span class="ldotw"><span class="ldot"></span></span>
-          <span><span class="lname">Recruiting</span><span class="lbadge">Coming soon</span></span>
-          <span class="lmeta"><span class="ltag">Senior finance, operations, and revenue hires, sourced, vetted, and placed in weeks.</span></span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TRUSTED -->
-  <section class="trust">
-    <p class="trust-k rv">Trusted by businesses, nonprofits, and ministries growing from nothing to something</p>
-    <div class="lmar">
-      <div class="ltrack" id="logoTrack">
-        <span class="ll"><img src="assets/clients/mojo.svg" alt="Mojo Coffee"></span>
-        <span class="ll"><img src="assets/clients/heirloom.png" alt="Heirloom Church"></span>
-        <span class="ll"><img src="assets/clients/idt.svg" alt="Integrated Digital Technologies"></span>
-        <span class="ll"><img src="assets/clients/epic-life.png" alt="Epic Life Church"></span>
-        <span class="ll"><img src="assets/clients/doza-circle.svg" alt="Doza Circle"></span>
-        <span class="ll"><img src="assets/clients/northpoint.png" alt="North Point Church"></span>
-        <span class="ll"><img src="assets/clients/build-ai.svg" alt="Build AI"></span>
-        <span class="ll"><img src="assets/clients/harbour.png" alt="The Harbour Company"></span>
-        <span class="ll"><img src="assets/clients/mosquera.svg" alt="Mosquera Counseling"></span>
-        <span class="ll"><img src="assets/clients/doxa.png" alt="DOXA Coffee Roasters"></span>
-        <span class="ll"><img src="assets/clients/sivils.svg" alt="Sivils Metals"></span>
-        <span class="ll"><img src="assets/clients/voh.png" alt="Village of Hope Maui"></span>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROCESS -->
-  <section class="proc" id="process">
-    <div class="wrap">
-      <div class="proc-h">
-        <p class="tag rv">How we work</p>
-        <h2 class="rv">One intake. The whole firm behind you.</h2>
-      </div>
-      <div class="steps">
-        <div class="step rv">
-          <div class="snum">01</div>
-          <div class="sbody">
-            <h3>One conversation</h3>
-            <p>Book a 15-minute intro call. We talk through the season you're in, what's actually slowing you down, and which line — or lines — fit. No pitch deck, no pressure.</p>
+          <div class="hero-spectrum">
+            <canvas id="hero-sparkles" class="hero-sparkles" aria-hidden="true"></canvas>
+            <span class="hero-spectrum-word hero-spectrum-word-start">starting</span>
+            <div class="hero-spectrum-bar" aria-hidden="true">
+              <span class="hero-spectrum-blur"></span>
+              <span class="hero-spectrum-line"></span>
+            </div>
+            <span class="hero-spectrum-word hero-spectrum-word-end">scaling</span>
+            <span class="hero-spectrum-middle">Turnkey Services</span>
           </div>
-        </div>
-        <div class="step rv">
-          <div class="snum">02</div>
-          <div class="sbody">
-            <h3>A clear, scoped quote</h3>
-            <p>We recommend exactly what you need and what you don't, then scope it to a plain quote. Start with books and add a site, or start with a site and bring books in later — one intake covers every active line.</p>
+
+          <p class="lede">Turnkey Services is built for the in-between — early-stage businesses, startups, budding nonprofits, and church plants growing from nothing to something. Bookkeeping, websites, AI, SEO, and design — delivered by one team, so you can spend your time on the parts only you can do.</p>
+
+          <div class="hero-actions">
+            <a href="#services" class="button button-primary">See our services</a>
+            <a href="https://calendly.com/ricky-turnkeycfo/15min-intro-call" class="button button-secondary" target="_blank" rel="noreferrer">Book a call</a>
           </div>
+          <p class="hero-note">For the season between starting it and scaling it — the months and years where every move matters, every dollar counts, and you're still wearing every hat.</p>
         </div>
-        <div class="step rv">
-          <div class="snum">03</div>
-          <div class="sbody">
-            <h3>Onboarded in one to two weeks</h3>
-            <p>Most engagements go live inside two weeks. One accountable team owns the work across every service line, so nothing falls between vendors who never talk to each other.</p>
-          </div>
-        </div>
-        <div class="step rv">
-          <div class="snum">04</div>
-          <div class="sbody">
-            <h3>Systems, not headcount</h3>
-            <p>We run on automation and tight process instead of bodies, which is how a small team delivers a big-firm quality bar with a 24-hour response time, nationwide.</p>
+
+        <div class="hero-visual reveal">
+          <div class="svc-accordion" id="svcAccordion" role="tablist" aria-label="Turnkey Services lines">
+            <a class="svc-panel is-active" href="https://turnkeyai.org" target="_blank" rel="noreferrer"
+               data-svc="ai" style="--brand:#0055FF; --brand-deep:#082973" role="tab" aria-selected="true">
+              <span class="svc-panel-bg"></span>
+              <img class="svc-panel-logo" src="./assets/brands/tkai.png" alt="" loading="lazy" decoding="async">
+              <span class="svc-panel-tint"></span>
+              <span class="svc-panel-overlay"></span>
+              <span class="svc-panel-label">AI</span>
+              <span class="svc-panel-pitch">Automate the repetitive work draining your team — custom AI agents that run your business in the background.</span>
+              <span class="svc-panel-cta">Learn more →</span>
+            </a>
+            <a class="svc-panel" href="https://turnkeyweb.org" target="_blank" rel="noreferrer"
+               data-svc="web" style="--brand:#6600CC; --brand-deep:#2E0E5C" role="tab" aria-selected="false">
+              <span class="svc-panel-bg"></span>
+              <img class="svc-panel-logo" src="./assets/brands/tkweb.png" alt="" loading="lazy" decoding="async">
+              <span class="svc-panel-tint"></span>
+              <span class="svc-panel-overlay"></span>
+              <span class="svc-panel-label">Websites</span>
+              <span class="svc-panel-pitch">Fast, conversion-built sites that turn visitors into booked calls — not just digital business cards.</span>
+              <span class="svc-panel-cta">Learn more →</span>
+            </a>
+            <a class="svc-panel" href="https://turnkeycfo.com" target="_blank" rel="noreferrer"
+               data-svc="cfo" style="--brand:#00E676; --brand-deep:#006B2F" role="tab" aria-selected="false">
+              <span class="svc-panel-bg"></span>
+              <img class="svc-panel-logo" src="./assets/brands/tkcfo.png" alt="" loading="lazy" decoding="async">
+              <span class="svc-panel-tint"></span>
+              <span class="svc-panel-overlay"></span>
+              <span class="svc-panel-label">Bookkeeping</span>
+              <span class="svc-panel-pitch">Clean monthly books, payroll, 1099s, and AP/AR — so you stop guessing where your business stands.</span>
+              <span class="svc-panel-cta">Learn more →</span>
+            </a>
+            <div class="svc-panel svc-panel-disabled" data-svc="seo"
+                 style="--brand:#FF7A00; --brand-deep:#5C2C00" role="tab" aria-selected="false" aria-disabled="true">
+              <span class="svc-panel-bg"></span>
+              <img class="svc-panel-logo" src="./assets/brands/tkseo.png" alt="" loading="lazy" decoding="async">
+              <span class="svc-panel-tint"></span>
+              <span class="svc-panel-overlay"></span>
+              <span class="svc-panel-status">Coming soon</span>
+              <span class="svc-panel-label">SEO</span>
+              <span class="svc-panel-cta">Launching soon</span>
+            </div>
+            <div class="svc-panel svc-panel-disabled" data-svc="design"
+                 style="--brand:#BD22A7; --brand-deep:#4F1146" role="tab" aria-selected="false" aria-disabled="true">
+              <span class="svc-panel-bg"></span>
+              <img class="svc-panel-logo" src="./assets/brands/tkdesign.png" alt="" loading="lazy" decoding="async">
+              <span class="svc-panel-tint"></span>
+              <span class="svc-panel-overlay"></span>
+              <span class="svc-panel-status">Coming soon</span>
+              <span class="svc-panel-label">Design</span>
+              <span class="svc-panel-cta">Launching soon</span>
+            </div>
+            <div class="svc-panel svc-panel-disabled" data-svc="recruiting"
+                 style="--brand:#DC2626; --brand-deep:#5C0A12" role="tab" aria-selected="false" aria-disabled="true">
+              <span class="svc-panel-bg"></span>
+              <img class="svc-panel-logo" src="./assets/brands/tkrecruiting.png" alt="" loading="lazy" decoding="async">
+              <span class="svc-panel-tint"></span>
+              <span class="svc-panel-overlay"></span>
+              <span class="svc-panel-status">Coming soon</span>
+              <span class="svc-panel-label">Recruiting</span>
+              <span class="svc-panel-cta">Launching soon</span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- STATS -->
-  <section class="stats">
-    <div class="wrap sgrid">
-      <div class="stat rv"><div class="num" data-count="6">0</div><div class="lbl">service lines under one roof</div></div>
-      <div class="stat rv"><div class="num" data-count="24" data-suffix="h">0</div><div class="lbl">response-time commitment</div></div>
-      <div class="stat rv"><div class="num" data-count="1">0</div><div class="lbl">accountable team, one quality bar</div></div>
-      <div class="stat rv"><div class="num" data-count="50" data-suffix="+">0</div><div class="lbl">states served from Austin, TX</div></div>
-    </div>
-  </section>
-
-  <!-- STANDARD -->
-  <section class="std">
-    <div class="wrap">
-      <div class="rv">
-        <p class="tag" style="margin-bottom:16px">The Turnkey standard</p>
-        <h2>Built for founders who run <em>more than one thing.</em></h2>
+    <!-- CLIENT BAR -->
+    <section class="client-bar reveal" aria-label="Trusted by">
+      <div class="container client-bar-inner">
+        <p class="client-bar-kicker">Trusted by businesses, nonprofits, and ministries growing from nothing to something</p>
       </div>
-      <div class="glist rv">
-        <div class="git">
-          <span class="gm">✓</span>
-          <div><h4>Hire one line, or all of them</h4><p>Most clients engage more than one. You choose what you need; one intake covers every active service line.</p></div>
-        </div>
-        <div class="git">
-          <span class="gm">✓</span>
-          <div><h4>Multiple companies, kept clean</h4><p>Separate LLCs, sister brands, holding-and-operating structures, side ventures — each treated as its own client.</p></div>
-        </div>
-        <div class="git">
-          <span class="gm">✓</span>
-          <div><h4>Austin-based, delivered nationwide</h4><p>Headquartered locally, every line delivered fully virtually. Same quality bar, same response time, anywhere.</p></div>
-        </div>
-        <div class="git">
-          <span class="gm">✓</span>
-          <div><h4>Month-to-month, no theatrics</h4><p>Straight answers on pricing, scope, and timing. We earn the next month by delivering this one.</p></div>
+      <div class="client-marquee" role="list" aria-label="Client logos">
+        <div class="client-shimmer" aria-hidden="true"></div>
+        <div class="client-track">
+          <!-- set 1 -->
+          <div class="client-logo" role="listitem"><img class="cl-mojo" src="assets/clients/mojo.svg" alt="Mojo Coffee" loading="lazy"></div>
+          <div class="client-logo" role="listitem"><img class="cl-heirloom" src="assets/clients/heirloom.png" alt="Heirloom Church" loading="lazy"></div>
+          <div class="client-logo" role="listitem"><img class="cl-idt" src="assets/clients/idt.svg" alt="Integrated Digital Technologies" loading="lazy"></div>
+          <div class="client-logo" role="listitem"><img class="cl-epic" src="assets/clients/epic-life.png" alt="Epic Life Church" loading="lazy"></div>
+          <div class="client-logo" role="listitem"><img class="cl-doza" src="assets/clients/doza-circle.svg" alt="Doza Circle" loading="lazy"></div>
+          <div class="client-logo" role="listitem"><img class="cl-np" src="assets/clients/northpoint.png" alt="North Point Church" loading="lazy"></div>
+          <div class="client-logo" role="listitem"><img class="cl-buildai" src="assets/clients/build-ai.svg" alt="Build AI" loading="lazy"></div>
+          <div class="client-logo" role="listitem"><img class="cl-harbour" src="assets/clients/harbour.png" alt="The Harbour Company" loading="lazy"></div>
+          <div class="client-logo" role="listitem"><img class="cl-mosquera" src="assets/clients/mosquera.svg" alt="Mosquera Counseling" loading="lazy"></div>
+          <div class="client-logo" role="listitem"><img src="assets/clients/doxa.png" alt="DOXA Coffee Roasters" loading="lazy"></div>
+          <div class="client-logo" role="listitem"><img class="cl-sivils" src="assets/clients/sivils.svg" alt="Sivils Metals" loading="lazy"></div>
+          <div class="client-logo" role="listitem"><img src="assets/clients/voh.png" alt="Village of Hope Maui" loading="lazy"></div>
+          <!-- set 2 (seamless loop clone) -->
+          <div class="client-logo" aria-hidden="true"><img class="cl-mojo" src="assets/clients/mojo.svg" alt="" loading="lazy"></div>
+          <div class="client-logo" aria-hidden="true"><img class="cl-heirloom" src="assets/clients/heirloom.png" alt="" loading="lazy"></div>
+          <div class="client-logo" aria-hidden="true"><img class="cl-idt" src="assets/clients/idt.svg" alt="" loading="lazy"></div>
+          <div class="client-logo" aria-hidden="true"><img class="cl-epic" src="assets/clients/epic-life.png" alt="" loading="lazy"></div>
+          <div class="client-logo" aria-hidden="true"><img class="cl-doza" src="assets/clients/doza-circle.svg" alt="" loading="lazy"></div>
+          <div class="client-logo" aria-hidden="true"><img class="cl-np" src="assets/clients/northpoint.png" alt="" loading="lazy"></div>
+          <div class="client-logo" aria-hidden="true"><img class="cl-buildai" src="assets/clients/build-ai.svg" alt="" loading="lazy"></div>
+          <div class="client-logo" aria-hidden="true"><img class="cl-harbour" src="assets/clients/harbour.png" alt="" loading="lazy"></div>
+          <div class="client-logo" aria-hidden="true"><img class="cl-mosquera" src="assets/clients/mosquera.svg" alt="" loading="lazy"></div>
+          <div class="client-logo" aria-hidden="true"><img src="assets/clients/doxa.png" alt="" loading="lazy"></div>
+          <div class="client-logo" aria-hidden="true"><img class="cl-sivils" src="assets/clients/sivils.svg" alt="" loading="lazy"></div>
+          <div class="client-logo" aria-hidden="true"><img src="assets/clients/voh.png" alt="" loading="lazy"></div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CONTACT -->
-  <section class="contact" id="contact">
-    <canvas id="blob"></canvas>
-    <div class="wrap">
-      <div>
-        <p class="tag" style="color:rgba(244,241,234,.55);margin-bottom:16px">Let's talk</p>
+    <!-- TRUST STRIP -->
+    <section class="trust-strip reveal">
+      <div class="container trust-row">
+        <div><strong>6</strong><span>service lines</span></div>
+        <div><strong>Austin, TX</strong><span>serving nationwide</span></div>
+        <div><strong>Systems</strong><span>not headcount</span></div>
+        <div><strong>24-hour</strong><span>response time</span></div>
+        <div><strong>One firm</strong><span>one quality bar</span></div>
+      </div>
+    </section>
+
+
+    <!-- SERVICES GRID -->
+    <section class="section section-tinted" id="services">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker">Services we deliver</p>
+          <h2>Solutions to move your business forward.</h2>
+          <p class="section-sub">Six service lines built for early-stage businesses, startups, nonprofits, and church plants. Hire one. Hire all of them. Same team, same accountable bar.</p>
+        </div>
+
+        <div class="brand-grid reveal" id="brandGrid">
+
+          <!-- TURNKEY AI -->
+          <a class="brand-card brand-card-shimmer" href="https://turnkeyai.org" target="_blank" rel="noreferrer" style="--brand:#0055FF">
+            <span class="brand-card-top"></span>
+            <div class="brand-card-logo">
+              <img src="./assets/brands/tkai.png" alt="Turnkey AI" loading="lazy" decoding="async">
+            </div>
+            <div class="brand-card-body">
+              <p class="brand-tag">Practical AI. Real ROI.</p>
+              <p class="brand-pain"><strong>You're tired of</strong> drowning in repetitive back-office work, manual data entry, and "AI tools" that demo well but never ship anything.</p>
+              <p class="brand-outcome"><strong>We deliver</strong> AI workflows that actually run in production — quoting, scheduling, intake, reporting — quietly handling the work in the background.</p>
+              <span class="brand-link">Engage Turnkey AI →</span>
+            </div>
+          </a>
+
+          <!-- TURNKEY WEB -->
+          <a class="brand-card brand-card-shimmer" href="https://turnkeyweb.org" target="_blank" rel="noreferrer" style="--brand:#6600CC">
+            <span class="brand-card-top"></span>
+            <div class="brand-card-logo">
+              <img src="./assets/brands/tkweb.png" alt="Turnkey Web" loading="lazy" decoding="async">
+            </div>
+            <div class="brand-card-body">
+              <p class="brand-tag">A site that earns its keep.</p>
+              <p class="brand-pain"><strong>You're tired of</strong> a website that looks dated, loads slow, doesn't convert, and that you can't update without calling someone.</p>
+              <p class="brand-outcome"><strong>We deliver</strong> a fast, modern, conversion-tuned site with industry-specific pages, edited and shipped in days — not months.</p>
+              <span class="brand-link">Engage Turnkey Web →</span>
+            </div>
+          </a>
+
+          <!-- TURNKEY CFO -->
+          <a class="brand-card brand-card-shimmer" href="https://turnkeycfo.com" target="_blank" rel="noreferrer" style="--brand:#00E676">
+            <span class="brand-card-top"></span>
+            <div class="brand-card-logo">
+              <img src="./assets/brands/tkcfo.png" alt="Turnkey CFO" loading="lazy" decoding="async">
+            </div>
+            <div class="brand-card-body">
+              <p class="brand-tag">Financial clarity. Confident growth.</p>
+              <p class="brand-pain"><strong>You're tired of</strong> books that are always behind, missed deadlines, no clear picture of cash, and tax season surprises.</p>
+              <p class="brand-outcome"><strong>We deliver</strong> a monthly close on time, every time — payroll, 1099s, AP/AR handled, and dashboards that show you exactly where your money is.</p>
+              <span class="brand-link">Engage Turnkey CFO →</span>
+            </div>
+          </a>
+
+          <!-- TURNKEY SEO — COMING SOON -->
+          <div class="brand-card brand-card-status brand-card-soon" style="--brand:#FF7A00" aria-disabled="true">
+            <span class="brand-card-top"></span>
+            <span class="brand-card-badge brand-card-badge-soon">Coming soon</span>
+            <div class="brand-card-logo">
+              <img src="./assets/brands/tkseo.png" alt="Turnkey SEO" loading="lazy" decoding="async">
+            </div>
+            <div class="brand-card-body">
+              <p class="brand-tag">Show up where buyers are searching.</p>
+              <p class="brand-pain"><strong>You're tired of</strong> being invisible on Google, paying for ads forever to make the phone ring, and watching competitors outrank you.</p>
+              <p class="brand-outcome"><strong>We will deliver</strong> on-page, technical, local, and content SEO that earns the searches that actually buy — so leads come in without paying per click.</p>
+              <span class="brand-link brand-link-muted">Launching soon</span>
+            </div>
+          </div>
+
+          <!-- TURNKEY DESIGN — COMING SOON -->
+          <div class="brand-card brand-card-status brand-card-soon" style="--brand:#BD22A7" aria-disabled="true">
+            <span class="brand-card-top"></span>
+            <span class="brand-card-badge brand-card-badge-soon">Coming soon</span>
+            <div class="brand-card-logo">
+              <img src="./assets/brands/tkdesign.png" alt="Turnkey Design" loading="lazy" decoding="async">
+            </div>
+            <div class="brand-card-body">
+              <p class="brand-tag">A brand that earns premium pricing.</p>
+              <p class="brand-pain"><strong>You're tired of</strong> a brand that looks amateur, inconsistent across every surface, and quietly costs you deals before the first call.</p>
+              <p class="brand-outcome"><strong>We will deliver</strong> a brand identity, UI/UX system, and motion language that signals premium — so clients show up pre-sold on your standards.</p>
+              <span class="brand-link brand-link-muted">Launching soon</span>
+            </div>
+          </div>
+
+          <!-- TURNKEY RECRUITING — COMING SOON -->
+          <div class="brand-card brand-card-status brand-card-soon" style="--brand:#DC2626" aria-disabled="true">
+            <span class="brand-card-top"></span>
+            <span class="brand-card-badge brand-card-badge-soon">Coming soon</span>
+            <div class="brand-card-logo">
+              <img src="./assets/brands/tkrecruiting.png" alt="Turnkey Recruiting" loading="lazy" decoding="async">
+            </div>
+            <div class="brand-card-body">
+              <p class="brand-tag">The right people, placed to last.</p>
+              <p class="brand-pain"><strong>You're tired of</strong> slow hires, mismatched candidates, and recruiters who send résumés instead of the operators who actually move your business.</p>
+              <p class="brand-outcome"><strong>We will deliver</strong> senior-level finance, operations, and revenue hires — sourced, vetted, and placed in weeks, not months.</p>
+              <span class="brand-link brand-link-muted">Launching soon</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT THE FIRM -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="ask-box ask-box-wide reveal" id="askBox" aria-label="Ask Turnkey Services anything">
+          <span class="ask-glow" aria-hidden="true"></span>
+          <div class="ask-inner">
+            <div class="ask-head">
+              <p class="ask-kicker">Have questions? Get answers now.</p>
+              <p class="ask-sub">Pricing, scope, timing, fit — ask in plain English. Trained on how we actually work; every answer ends with a way to talk to a real human.</p>
+            </div>
+            <form class="ask-form" id="askForm" autocomplete="off">
+              <label class="sr-only" for="askInput">Your question</label>
+              <textarea id="askInput" name="question" rows="3" maxlength="600"
+                placeholder="e.g. How much does bookkeeping for a church plant usually run?" required></textarea>
+              <div class="ask-actions">
+                <button type="submit" class="button button-primary ask-submit">Ask</button>
+                <span class="ask-hint">Powered by Turnkey's own context · answers in seconds</span>
+              </div>
+            </form>
+            <div class="ask-output" id="askOutput" aria-live="polite" hidden></div>
+            <p class="ask-chips-label">Or try one of these:</p>
+            <div class="ask-chips" aria-label="Common questions">
+              <button type="button" class="ask-chip" data-q="How much does bookkeeping for a small nonprofit typically cost?">Bookkeeping pricing</button>
+              <button type="button" class="ask-chip" data-q="What's included in your monthly close?">What's in monthly close</button>
+              <button type="button" class="ask-chip" data-q="How long does a new website usually take from kickoff to launch?">Website timeline</button>
+              <button type="button" class="ask-chip" data-q="How much does a small-business website usually cost?">Website pricing</button>
+              <button type="button" class="ask-chip" data-q="What kind of AI work do you do for service businesses?">AI for service biz</button>
+              <button type="button" class="ask-chip" data-q="What does an AI Audit include and how long does it take?">AI Audit scope</button>
+              <button type="button" class="ask-chip" data-q="Do you work with church plants?">Church plants</button>
+              <button type="button" class="ask-chip" data-q="Do you handle payroll and 1099s too?">Payroll & 1099s</button>
+              <button type="button" class="ask-chip" data-q="Can I hire you for just one service or do I have to bundle?">One service or bundle</button>
+              <button type="button" class="ask-chip" data-q="How is Turnkey different from Bench or Pilot?">Vs. Bench / Pilot</button>
+              <button type="button" class="ask-chip" data-q="How fast can you actually start?">How fast you can start</button>
+              <button type="button" class="ask-chip" data-q="Do you do tax filing?">Do you file taxes</button>
+              <button type="button" class="ask-chip" data-q="What does onboarding look like in the first two weeks?">Onboarding process</button>
+              <button type="button" class="ask-chip" data-q="Are you month-to-month or do I have to sign a long contract?">Contract terms</button>
+              <button type="button" class="ask-chip" data-q="Who actually does the work on my account?">Who does the work</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA BAND (the one dark section) -->
+    <section class="cta-band" id="contact">
+      <div class="cta-orbs" aria-hidden="true"></div>
+      <div class="cta-shimmer" aria-hidden="true"></div>
+      <div class="container cta-inner reveal">
         <h2>We'd love to help you scale your business.</h2>
-        <p class="csub">One call. Tell us about the season you're in — early days, scrappy growth, or somewhere in between. We'll figure out what fits and scope a quote. No pressure.</p>
-        <div class="cact">
-          <a href="https://calendly.com/ricky-turnkeycfo/15min-intro-call" target="_blank" rel="noreferrer" class="btn btn-light" data-cur data-mag>Book a 15-min call</a>
-          <a href="mailto:ricky@turnkey-services.org" class="btn btn-ol" data-cur data-mag>Email the team</a>
+        <p>One call. Tell us about the season you're in — early days, scrappy growth, or somewhere in between. We'll figure out what fits and scope a quote. No pressure.</p>
+        <div class="cta-actions">
+          <a href="https://calendly.com/ricky-turnkeycfo/15min-intro-call" class="button button-cta-primary" target="_blank" rel="noreferrer">Book a 15-min call</a>
+          <a href="mailto:ricky@turnkey-services.org" class="button button-cta-secondary">Email the team</a>
         </div>
       </div>
+    </section>
 
-      <form class="form" id="leadForm" novalidate>
-        <div id="ffields">
-          <label class="fl" for="f-name">Your name</label>
-          <input id="f-name" name="name" placeholder="Jane Founder" required>
-          <label class="fl" for="f-email">Email</label>
-          <input id="f-email" name="email" type="email" placeholder="jane@company.com" required>
-          <label class="fl" for="f-line">What do you need?</label>
-          <select id="f-line" name="line" required>
-            <option value="">Select a service line…</option>
-            <option>Bookkeeping</option>
-            <option>Website</option>
-            <option>AI Workflows</option>
-            <option>More than one</option>
-            <option>Not sure yet</option>
-          </select>
-          <button type="button" class="mtog" id="mtog">+ Add a few details (optional)</button>
-          <div class="more" id="mfields">
-            <label class="fl" for="f-company">Company</label>
-            <input id="f-company" name="company" placeholder="Company name">
-            <label class="fl" for="f-msg">Anything we should know?</label>
-            <textarea id="f-msg" name="message" rows="3" placeholder="The season you're in, what's slowing you down…"></textarea>
-          </div>
-          <button type="submit" class="btn btn-light" data-cur data-mag>Send it over</button>
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker">Frequently asked</p>
+          <h2>Straight answers.</h2>
         </div>
-        <div class="fdone" id="fdone">
-          <div class="big">Got it.</div>
-          <p style="color:rgba(244,241,234,.7)">We'll be in touch within 24 hours. Want it faster? Book a call above.</p>
+        <div class="faq-list reveal">
+          <details class="faq-item">
+            <summary>What does Turnkey Services do?</summary>
+            <p>Turnkey Services is built for early-stage businesses, startups, nonprofits, and church plants — the teams growing from nothing to something. We deliver bookkeeping (Turnkey CFO), websites (Turnkey Web), AI workflows (Turnkey AI), with SEO, Design, and Recruiting service lines launching soon. One firm, multiple service lines, one accountable team.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Can I engage more than one service line?</summary>
+            <p>Yes — most clients do. Start with books and add a website, or start with a site and bring books in later. One intake covers every active service line; you choose what you need.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Can you work with more than one of my companies?</summary>
+            <p>Yes. We work with founders who run multiple entities — separate LLCs, sister brands, holding-and-operating company structures, side ventures. Each company is treated as its own client with its own books, site, and team, so the work stays clean across every business you own.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Where is Turnkey Services based?</summary>
+            <p>Austin, Texas. Headquartered locally, but every service line is delivered fully virtually across the United States.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Do you take on clients outside Austin?</summary>
+            <p>Yes. The majority of our clients are outside Austin. Everything we deliver — books, websites, AI workflows — is built and delivered remotely. Same quality bar, same response time, nationwide.</p>
+          </details>
+          <details class="faq-item">
+            <summary>How do I get started?</summary>
+            <p>Book a 15-minute intro call. We'll talk through what you need, recommend which service line (or lines) fit, and scope a clear quote. Most engagements are onboarded in one to two weeks.</p>
+          </details>
         </div>
-      </form>
-    </div>
-  </section>
+      </div>
+    </section>
+  </main>
 
   <!-- FOOTER -->
-  <footer class="site">
-    <div class="wrap">
-      <div class="ftop">
-        <div class="fbrand">
-          <div class="fbig">Let's<br>build.</div>
-          <img src="./assets/tks-logo-dark.png" alt="Turnkey Services">
-          <p>The bridge between starting and scaling. Austin, Texas — serving clients nationwide.<br><a href="mailto:ricky@turnkey-services.org" style="text-decoration:underline">ricky@turnkey-services.org</a></p>
-        </div>
-        <div class="fcol">
-          <h4>Services</h4>
-          <a href="https://turnkeycfo.com" target="_blank" rel="noreferrer">Turnkey CFO</a>
-          <a href="https://turnkeyweb.org" target="_blank" rel="noreferrer">Turnkey Web</a>
-          <a href="https://turnkeyai.org" target="_blank" rel="noreferrer">Turnkey AI</a>
-          <a href="#lines">Turnkey SEO <span class="fpill">soon</span></a>
-          <a href="#lines">Turnkey Design <span class="fpill">soon</span></a>
-          <a href="#lines">Turnkey Recruiting <span class="fpill">soon</span></a>
-        </div>
-        <div class="fcol">
-          <h4>Company</h4>
-          <a href="#about" onclick="document.getElementById('lines').scrollIntoView({behavior:'smooth'});return false;">About</a>
-          <a href="#process">How we work</a>
-          <a href="#contact">Contact</a>
-          <a href="./about.html">More about</a>
-        </div>
-        <div class="fcol">
-          <h4>Resources</h4>
-          <a href="/blog/">Blog</a>
-          <a href="./hub/">Hub</a>
-          <a href="./decks/">Decks</a>
-        </div>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="./assets/tks-logo-dark.png" alt="Turnkey Services" class="footer-logo" decoding="async">
+        <p class="footer-tagline">The bridge between starting and scaling.</p>
+        <p class="footer-meta">Austin, Texas<br><a href="mailto:ricky@turnkey-services.org">ricky@turnkey-services.org</a></p>
       </div>
-      <div class="fbot">
-        <span>© 2026 Turnkey Services · The bridge between starting and scaling.</span>
-        <span><a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" data-cur>LinkedIn</a></span>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="https://turnkeycfo.com" target="_blank" rel="noreferrer">Turnkey CFO</a>
+        <a href="https://turnkeyweb.org" target="_blank" rel="noreferrer">Turnkey Web</a>
+        <a href="https://turnkeyai.org" target="_blank" rel="noreferrer">Turnkey AI</a>
+        <a href="#services">Turnkey SEO <span class="footer-pill">soon</span></a>
+        <a href="#services">Turnkey Design <span class="footer-pill">soon</span></a>
+        <a href="#services">Turnkey Recruiting <span class="footer-pill">soon</span></a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="./about.html">More about</a>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <a href="./hub/">Hub</a>
+        <a href="./decks/">Decks</a>
       </div>
     </div>
+    <div class="container footer-bottom">
+      <span>© 2026 Turnkey Services · The bridge between starting and scaling.</span>
+      <span class="footer-social">
+        <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" aria-label="LinkedIn">LinkedIn</a>
+      </span>
+    </div>
   </footer>
-</main>
 
-<!-- VENDOR -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
-
-<script>
-const REDUCE = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const FINE = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
-
-/* brand line data — the orbital system */
-const LINES = [
-  {key:'cfo', name:'Bookkeeping', brand:'Turnkey CFO', color:'#00C566', tag:'Clean monthly books, payroll, 1099s, and AP/AR — so you stop guessing where your business stands.', url:'https://turnkeycfo.com', live:true, orbit:0.42, size:18, speed:0.34, phase:0.2},
-  {key:'web', name:'Websites', brand:'Turnkey Web', color:'#7C3AED', tag:'Fast, conversion-built sites that turn visitors into booked calls — not just digital business cards.', url:'https://turnkeyweb.org', live:true, orbit:0.58, size:16, speed:-0.27, phase:1.4},
-  {key:'ai', name:'AI Workflows', brand:'Turnkey AI', color:'#1D4ED8', tag:'Custom AI agents that quietly run the repetitive work draining your team, in the background.', url:'https://turnkeyai.org', live:true, orbit:0.74, size:17, speed:0.22, phase:2.9},
-  {key:'seo', name:'SEO', brand:'Turnkey SEO', color:'#FF6B00', tag:'On-page, technical, local, and content SEO that earns the searches that actually buy.', url:null, live:false, orbit:0.50, size:12, speed:-0.31, phase:4.1},
-  {key:'design', name:'Design', brand:'Turnkey Design', color:'#BD22A7', tag:'Brand identity, UI/UX, and motion language that signals premium before the first call.', url:null, live:false, orbit:0.66, size:12, speed:0.18, phase:5.3},
-  {key:'recruiting', name:'Recruiting', brand:'Turnkey Partners', color:'#E0B90B', tag:'Senior finance, operations, and revenue hires — sourced, vetted, and placed in weeks.', url:null, live:false, orbit:0.86, size:13, speed:-0.15, phase:0.9},
-];
-const LMAP = Object.fromEntries(LINES.map(l=>[l.key,l]));
-
-/* ---------- GLOBAL ACCENT MORPH ---------- */
-function setAccent(hex){
-  const root=document.documentElement;
-  root.style.setProperty('--accent', hex);
-  // soft tint
-  const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);
-  root.style.setProperty('--accent-soft', `rgba(${r},${g},${b},.12)`);
-}
-function resetAccent(){ setAccent('#111016'); document.documentElement.style.setProperty('--accent-soft','rgba(17,16,22,.08)'); }
-
-/* ---------- ORBITAL CONSTELLATION (signature) ---------- */
-function initOrbit(){
-  const canvas=document.getElementById('orbit');
-  const wrap=document.getElementById('orbitWrap');
-  if(!canvas||!wrap) return null;
-  const ctx=canvas.getContext('2d');
-  let W=0,H=0,cx=0,cy=0,R=0,dpr=1;
-  function size(){
-    const r=wrap.getBoundingClientRect();
-    dpr=Math.min(devicePixelRatio||1,2);
-    W=r.width;H=r.height;cx=W/2;cy=H/2;R=Math.min(W,H)/2;
-    canvas.width=Math.floor(W*dpr);canvas.height=Math.floor(H*dpr);
-    canvas.style.width=W+'px';canvas.style.height=H+'px';
-    ctx.setTransform(dpr,0,0,dpr,0,0);
-  }
-  size();window.addEventListener('resize',size);
-
-  // physics state per planet
-  const P=LINES.map(l=>({l, ang:l.phase, rad:l.orbit, dragVX:0, dragVY:0, ox:0, oy:0, hov:0}));
-  let focused=null, hovered=null, dragging=null, mx=-999, my=-999;
-  const readout=document.getElementById('readout');
-  const roName=document.getElementById('roName'), roTag=document.getElementById('roTag'), roCta=document.getElementById('roCta');
-  const hint=document.getElementById('orbitHint');
-  const SIMPLE = REDUCE || !FINE; // simplified physics on touch / reduced-motion
-
-  function planetXY(p){
-    const rr=p.rad*R*0.92;
-    return { x: cx + Math.cos(p.ang)*rr + p.ox, y: cy + Math.sin(p.ang)*rr*0.78 + p.oy };
-  }
-
-  function showReadout(l){
-    roName.textContent=l.name;
-    roTag.textContent=l.tag;
-    if(l.live){ roCta.style.display='inline-flex'; roCta.href=l.url; roCta.textContent='Engage '+l.brand+' →'; roCta.removeAttribute('aria-disabled'); }
-    else { roCta.style.display='inline-flex'; roCta.removeAttribute('href'); roCta.textContent='Launching soon'; roCta.style.opacity='.6'; roCta.style.cursor='default'; }
-    if(l.live) roCta.style.opacity='1', roCta.style.cursor='pointer';
-    readout.style.opacity='1';
-  }
-  function focus(l){
-    focused=l;
-    setAccent(l.color);
-    showReadout(l);
-    // sync ledger highlight
-    document.querySelectorAll('#ledger .lrow').forEach(r=>r.classList.toggle('on', r.dataset.line===l.key));
-  }
-  function unfocus(){
-    focused=null; resetAccent(); readout.style.opacity='0';
-    document.querySelectorAll('#ledger .lrow').forEach(r=>r.classList.remove('on'));
-  }
-  // expose for ledger hover sync
-  window.__orbitFocus=(key)=>{ const l=LMAP[key]; if(l) focus(l); };
-  window.__orbitUnfocus=()=>{ if(!dragging) unfocus(); };
-
-  // pointer interactions
-  function localPt(e){ const r=canvas.getBoundingClientRect(); const t=e.touches?e.touches[0]:e; return {x:t.clientX-r.left, y:t.clientY-r.top}; }
-  function hitTest(px,py){
-    let best=null,bd=1e9;
-    P.forEach(p=>{ const {x,y}=planetXY(p); const d=Math.hypot(px-x,py-y); const rad=p.l.size+10; if(d<rad&&d<bd){bd=d;best=p;} });
-    return best;
-  }
-  if(FINE){
-    canvas.addEventListener('mousemove',e=>{
-      const {x,y}=localPt(e); mx=x;my=y;
-      if(dragging){
-        const {x:gx,y:gy}=planetXY(dragging);
-        dragging.dragVX += (x-gx)*0.12; dragging.dragVY += (y-gy)*0.12;
-        return;
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+  <script src="./site.js?v=2026-05-22-v13-beams" defer></script>
+  <script>
+    // Hero sparkles — lightweight: ~45 particles, no per-particle shadowBlur,
+    // paused when offscreen via IntersectionObserver.
+    (function () {
+      const canvas = document.getElementById('hero-sparkles');
+      if (!canvas) return;
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduce) return;
+      const ctx = canvas.getContext('2d');
+      const COLORS = ['#00E676', '#6600CC', '#0055FF', '#FF7A00', '#BD22A7', '#E0B90B'];
+      let w, h, dpr, particles, raf = 0, visible = true;
+      function resize() {
+        dpr = Math.min(2, window.devicePixelRatio || 1);
+        const rect = canvas.getBoundingClientRect();
+        w = rect.width; h = rect.height;
+        canvas.width = Math.floor(w * dpr);
+        canvas.height = Math.floor(h * dpr);
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       }
-      const h=hitTest(x,y);
-      hovered=h;
-      canvas.style.cursor=h?'grab':'default';
-      if(h && (!focused || focused.key!==h.l.key)) focus(h.l);
-      else if(!h && focused) { /* keep focus until leave */ }
-    });
-    canvas.addEventListener('mousedown',e=>{ const {x,y}=localPt(e); const h=hitTest(x,y); if(h){dragging=h;canvas.style.cursor='grabbing';focus(h.l);} });
-    window.addEventListener('mouseup',()=>{ if(dragging){dragging=null;canvas.style.cursor='grab';} });
-    canvas.addEventListener('mouseleave',()=>{ mx=-999;my=-999;hovered=null; if(!dragging) unfocus(); });
-    canvas.addEventListener('click',e=>{ const {x,y}=localPt(e); const h=hitTest(x,y); if(h&&h.l.live){ window.open(h.l.url,'_blank','noreferrer'); } });
-    if(hint) setTimeout(()=>{ hint.style.opacity='1'; setTimeout(()=>hint.style.opacity='0',3200); }, 900);
-  } else {
-    // touch: tap a planet to focus
-    canvas.addEventListener('touchstart',e=>{ const {x,y}=localPt(e); const h=hitTest(x,y); if(h){ focus(h.l); } else { unfocus(); } },{passive:true});
-  }
-
-  let visible=true, raf=0, t=0;
-  const io=new IntersectionObserver(([e])=>{visible=e.isIntersecting; if(visible&&!raf)loop();},{threshold:0});
-  io.observe(canvas);
-
-  function frame(){
-    ctx.clearRect(0,0,W,H);
-    const dt = REDUCE?0:0.016;
-    t+=dt;
-
-    // orbit rings + connecting lines
-    ctx.lineWidth=1;
-    P.forEach(p=>{
-      const rr=p.rad*R*0.92;
-      ctx.beginPath();
-      ctx.ellipse(cx,cy,rr,rr*0.78,0,0,Math.PI*2);
-      const isF = focused && focused.key===p.l.key;
-      ctx.strokeStyle = isF ? hexA(p.l.color,0.5) : 'rgba(17,16,22,0.10)';
-      ctx.lineWidth = isF?1.5:1;
-      ctx.stroke();
-    });
-
-    // advance + render planets
-    P.forEach(p=>{
-      // base orbital motion
-      const sp = (focused? (focused.key===p.l.key?0.18:0.5):1) * p.l.speed;
-      p.ang += dt*sp*0.5;
-      // spring drag offset back to 0
-      p.ox += p.dragVX; p.oy += p.dragVY;
-      p.dragVX *= 0.86; p.dragVY *= 0.86;
-      p.ox += (0-p.ox)*0.06; p.oy += (0-p.oy)*0.06;
-
-      // gentle gravity toward cursor (subtle, full mode only)
-      if(!SIMPLE && mx>0 && !dragging){
-        const {x,y}=planetXY(p); const dx=mx-x, dy=my-y; const d=Math.hypot(dx,dy);
-        if(d<140){ const f=(140-d)/140*0.8; p.ox+=dx/d*f; p.oy+=dy/d*f; }
+      function seed() {
+        const count = Math.min(45, Math.max(24, Math.floor(w / 12)));
+        particles = Array.from({ length: count }, () => ({
+          x: Math.random() * w,
+          y: Math.random() * h,
+          r: 0.5 + Math.random() * 1.4,
+          vx: (Math.random() - 0.5) * 0.22,
+          vy: -0.05 - Math.random() * 0.3,
+          life: Math.random(),
+          decay: 0.003 + Math.random() * 0.005,
+          color: COLORS[(Math.random() * COLORS.length) | 0],
+        }));
       }
-
-      const {x,y}=planetXY(p);
-      const isF = focused && focused.key===p.l.key;
-      const isHov = hovered===p;
-      const rad = p.l.size*(isF||isHov?1.22:1);
-
-      // connecting line to core when focused
-      if(isF){
-        ctx.beginPath(); ctx.moveTo(cx,cy); ctx.lineTo(x,y);
-        ctx.strokeStyle=hexA(p.l.color,0.35); ctx.lineWidth=1.4; ctx.stroke();
+      function frame() {
+        if (!visible) { raf = 0; return; }
+        ctx.clearRect(0, 0, w, h);
+        for (const p of particles) {
+          p.x += p.vx; p.y += p.vy; p.life += p.decay;
+          if (p.life >= 1) {
+            p.life = 0;
+            p.x = Math.random() * w;
+            p.y = h - Math.random() * 8;
+            p.color = COLORS[(Math.random() * COLORS.length) | 0];
+          }
+          const a = Math.sin(p.life * Math.PI);
+          ctx.globalAlpha = Math.max(0, Math.min(1, a)) * 0.85;
+          ctx.fillStyle = p.color;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        ctx.globalAlpha = 1;
+        raf = requestAnimationFrame(frame);
       }
+      function start() { resize(); seed(); if (!raf) raf = requestAnimationFrame(frame); }
+      window.addEventListener('resize', () => { resize(); seed(); });
+      // Pause when the hero scrolls offscreen
+      const io = new IntersectionObserver(([e]) => {
+        visible = e.isIntersecting;
+        if (visible && !raf) raf = requestAnimationFrame(frame);
+      }, { threshold: 0 });
+      io.observe(canvas);
+      requestAnimationFrame(start);
+    })();
 
-      // glow
-      const g=ctx.createRadialGradient(x,y,0,x,y,rad*2.6);
-      g.addColorStop(0,hexA(p.l.color, p.l.live?0.5:0.3));
-      g.addColorStop(1,hexA(p.l.color,0));
-      ctx.fillStyle=g; ctx.beginPath(); ctx.arc(x,y,rad*2.6,0,Math.PI*2); ctx.fill();
+    // Hero beams — lightweight: ~16 beams, NO per-frame canvas blur (the
+    // blur is applied once via CSS `filter` on the canvas element so the
+    // GPU compositor handles it). Pauses when hero is offscreen.
+    (function () {
+      const canvas = document.getElementById('hero-beams');
+      if (!canvas) return;
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduce) return;
+      const ctx = canvas.getContext('2d');
+      const TOTAL = 16;
+      let w, h, dpr, beams, raf = 0, visible = true;
+      function makeBeam(W, H, i) {
+        // Grayscale only — varying brightness so darker beams read against
+        // the light backdrop and lighter ones read against the darker mesh.
+        const light = 18 + Math.random() * 78;     // 18%–96%
+        const opacity = 0.16 + Math.random() * 0.18;
+        return {
+          // Spread across the full vertical extent on init so beams are
+          // visible from frame 1 (previously they all started below the
+          // canvas and took 10–40s to drift up into view).
+          x: Math.random() * W,
+          y: (Math.random() - 0.15) * H * 1.6,
+          width: 70 + Math.random() * 130,
+          length: H * 2.2,
+          angle: -38 + Math.random() * 12,
+          speed: 0.5 + Math.random() * 1.1,
+          opacity: opacity,
+          light: light,
+          pulse: Math.random() * Math.PI * 2,
+          pulseSpeed: 0.02 + Math.random() * 0.025,
+        };
+      }
+      function resize() {
+        dpr = Math.min(2, window.devicePixelRatio || 1);
+        const rect = canvas.getBoundingClientRect();
+        w = rect.width; h = rect.height;
+        canvas.width = Math.floor(w * dpr);
+        canvas.height = Math.floor(h * dpr);
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        beams = Array.from({ length: TOTAL }, (_, i) => makeBeam(w, h, i));
+      }
+      function reset(b, i) {
+        b.y = h + 80;
+        b.x = (i % 4) * (w / 4) + (w / 8) + (Math.random() - 0.5) * (w / 5);
+        b.width = 80 + Math.random() * 130;
+        b.speed = 0.5 + Math.random() * 0.9;
+        b.opacity = 0.16 + Math.random() * 0.18;
+        b.light = 18 + Math.random() * 78;
+      }
+      function draw(b) {
+        ctx.save();
+        ctx.translate(b.x, b.y);
+        ctx.rotate(b.angle * Math.PI / 180);
+        const op = b.opacity * (0.78 + Math.sin(b.pulse) * 0.22);
+        const g = ctx.createLinearGradient(0, 0, 0, b.length);
+        const base = (a) => `hsla(0,0%,${b.light}%,${a})`;
+        g.addColorStop(0, base(0));
+        g.addColorStop(0.1, base(op * 0.5));
+        g.addColorStop(0.5, base(op));
+        g.addColorStop(0.9, base(op * 0.5));
+        g.addColorStop(1, base(0));
+        ctx.fillStyle = g;
+        ctx.fillRect(-b.width / 2, 0, b.width, b.length);
+        ctx.restore();
+      }
+      function frame() {
+        if (!visible) { raf = 0; return; }
+        ctx.clearRect(0, 0, w, h);
+        for (let i = 0; i < beams.length; i++) {
+          const b = beams[i];
+          b.y -= b.speed;
+          b.pulse += b.pulseSpeed;
+          if (b.y + b.length < -80) reset(b, i);
+          draw(b);
+        }
+        raf = requestAnimationFrame(frame);
+      }
+      function start() { resize(); if (!raf) raf = requestAnimationFrame(frame); }
+      window.addEventListener('resize', resize);
+      const io = new IntersectionObserver(([e]) => {
+        visible = e.isIntersecting;
+        if (visible && !raf) raf = requestAnimationFrame(frame);
+      }, { threshold: 0 });
+      io.observe(canvas);
+      requestAnimationFrame(start);
+    })();
 
-      // body
-      ctx.beginPath(); ctx.arc(x,y,rad,0,Math.PI*2);
-      ctx.fillStyle = p.l.live ? p.l.color : 'rgba(244,241,234,1)';
-      if(!p.l.live){ ctx.fill(); ctx.lineWidth=2; ctx.strokeStyle=p.l.color; ctx.stroke(); }
-      else ctx.fill();
+    // Service accordion — hover/focus/click expands a panel.
+    (function () {
+      const root = document.getElementById('svcAccordion');
+      if (!root) return;
+      const panels = Array.from(root.querySelectorAll('.svc-panel'));
+      function activate(p) {
+        panels.forEach(el => {
+          const on = el === p;
+          el.classList.toggle('is-active', on);
+          el.setAttribute('aria-selected', on ? 'true' : 'false');
+        });
+      }
+      panels.forEach(p => {
+        p.addEventListener('mouseenter', () => activate(p));
+        p.addEventListener('focusin',    () => activate(p));
+        p.addEventListener('click', (e) => {
+          if (p.classList.contains('svc-panel-disabled')) e.preventDefault();
+          activate(p);
+        });
+        p.addEventListener('touchstart', () => activate(p), { passive: true });
+      });
+    })();
 
-      // ring for focused
-      if(isF){ ctx.beginPath(); ctx.arc(x,y,rad+7,0,Math.PI*2); ctx.strokeStyle=hexA(p.l.color,0.6); ctx.lineWidth=1.5; ctx.stroke(); }
-    });
+    // Cursor brand-rainbow highlight — soft glow follows the mouse, cycles
+    // through brand hues based on horizontal position. Throttled to one RAF
+    // tick per move event so it doesn't drown the main thread.
+    (function () {
+      const el = document.getElementById('cursorGlow');
+      if (!el) return;
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduce) return;
+      if (matchMedia('(hover: none)').matches) return;
 
-    // core node
-    ctx.beginPath(); ctx.arc(cx,cy,7,0,Math.PI*2);
-    ctx.fillStyle = focused?focused.color:'#111016'; ctx.fill();
-    ctx.beginPath(); ctx.arc(cx,cy,13,0,Math.PI*2);
-    ctx.strokeStyle=focused?hexA(focused.color,0.4):'rgba(17,16,22,.25)'; ctx.lineWidth=1; ctx.stroke();
-  }
-  function hexA(hex,a){ const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16); return `rgba(${r},${g},${b},${a})`; }
-  function loop(){ if(!visible){raf=0;return;} frame(); raf=requestAnimationFrame(loop); }
-  loop();
-  return {size};
-}
+      const COLORS = ['#00E676', '#6600CC', '#0055FF', '#FF7A00', '#BD22A7', '#E0B90B'];
+      let tx = 0, ty = 0, x = 0, y = 0, lastBrand = '', queued = false, on = false;
 
-/* ---------- CONTACT BLOB ---------- */
-function initBlob(){
-  const c=document.getElementById('blob'); if(!c) return;
-  const ctx=c.getContext('2d');
-  let w,h,dpr; const cols=['#00C566','#1D4ED8','#7C3AED','#FF6B00','#BD22A7','#E0B90B'];
-  function rs(){dpr=Math.min(devicePixelRatio,2);const r=c.getBoundingClientRect();w=r.width;h=r.height;c.width=w*dpr;c.height=h*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);}
-  rs();window.addEventListener('resize',rs);
-  const blobs=cols.map((col,i)=>({col,r:150+Math.random()*120,a:Math.random()*6.28,s:0.2+Math.random()*0.3}));
-  let visible=true,raf=0;
-  const io=new IntersectionObserver(([e])=>{visible=e.isIntersecting;if(visible&&!raf)loop();},{threshold:0});io.observe(c);
-  function loop(){
-    if(!visible){raf=0;return;}
-    ctx.clearRect(0,0,w,h);ctx.globalCompositeOperation='lighter';
-    const t=performance.now()*0.0002;
-    blobs.forEach((b)=>{
-      const x=(0.5+0.4*Math.sin(t*b.s+b.a))*w;
-      const y=(0.5+0.4*Math.cos(t*b.s*1.3+b.a))*h;
-      const g=ctx.createRadialGradient(x,y,0,x,y,b.r);
-      g.addColorStop(0,b.col+'4D');g.addColorStop(1,b.col+'00');
-      ctx.fillStyle=g;ctx.beginPath();ctx.arc(x,y,b.r,0,6.29);ctx.fill();
-    });
-    ctx.globalCompositeOperation='source-over';
-    raf=REDUCE?0:requestAnimationFrame(loop);
-  }
-  loop();
-}
-
-/* ---------- BUILD MOTION (after preloader) ---------- */
-let orbitApi=null;
-function buildMotion(){
-  let lenis;
-  if(!REDUCE && window.Lenis){
-    lenis=new Lenis({lerp:0.1,smoothWheel:true});
-    lenis.on('scroll',ScrollTrigger.update);
-    gsap.ticker.add((t)=>lenis.raf(t*1000));
-    gsap.ticker.lagSmoothing(0);
-  }
-
-  // vertical progress meter
-  gsap.to('#progFill',{height:'100%',ease:'none',scrollTrigger:{trigger:document.body,start:'top top',end:'bottom bottom',scrub:0.3}});
-
-  // hero line reveal (pixel-based)
-  const lns=gsap.utils.toArray('.hh .ln>span, .hh .pre>span');
-  gsap.set(lns,{yPercent:118});
-  gsap.set('.kick',{opacity:0,y:10});
-  const tl=gsap.timeline({delay:0.1});
-  tl.to('.kick',{opacity:1,y:0,duration:.6,ease:'power2.out'})
-    .to(lns,{yPercent:0,duration:1.0,stagger:0.09,ease:'power3.out'},'-=.3')
-    .from('.lede',{opacity:0,y:20,duration:.7,ease:'power2.out'},'-=.55')
-    .from('.hact',{opacity:0,y:18,duration:.6,ease:'power2.out'},'-=.45')
-    .from('.hnote',{opacity:0,y:14,duration:.6,ease:'power2.out'},'-=.4')
-    .from('.hvis',{opacity:0,scale:.92,duration:1.0,ease:'power3.out'},'-=.85');
-
-  // generic reveals
-  gsap.utils.toArray('.rv').forEach(el=>{
-    ScrollTrigger.create({trigger:el,start:'top 88%',onEnter:()=>el.classList.add('in')});
-  });
-
-  // statement lines
-  gsap.utils.toArray('[data-lines] span').forEach((el)=>{
-    gsap.from(el,{opacity:0,y:28,duration:.9,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 90%'}});
-  });
-
-  // strip marquee
-  document.querySelectorAll('[data-strip]').forEach(m=>{
-    const track=m.querySelector('.strip-track');
-    track.innerHTML+=track.innerHTML;
-    let x=0; const base=0.5;
-    function tick(){ x-=base; if(Math.abs(x)>=track.scrollWidth/2)x=0; track.style.transform=`translateX(${x}px)`; requestAnimationFrame(tick);}
-    if(!REDUCE)tick();
-  });
-
-  // logo marquee
-  (function(){
-    const track=document.getElementById('logoTrack'); if(!track)return;
-    track.innerHTML+=track.innerHTML;
-    let x=0;
-    function tick(){x-=0.5;if(Math.abs(x)>=track.scrollWidth/2)x=0;track.style.transform=`translateX(${x}px)`;requestAnimationFrame(tick);}
-    if(!REDUCE)tick();
-  })();
-
-  // count up
-  gsap.utils.toArray('[data-count]').forEach(el=>{
-    const end=+el.dataset.count, suf=el.dataset.suffix||'';
-    ScrollTrigger.create({trigger:el,start:'top 90%',once:true,onEnter:()=>{
-      const o={v:0};
-      gsap.to(o,{v:end,duration:1.6,ease:'power2.out',onUpdate:()=>{el.textContent=Math.round(o.v)+suf;}});
-    }});
-  });
-
-  // ledger <-> orbit sync
-  document.querySelectorAll('#ledger .lrow').forEach(r=>{
-    const key=r.dataset.line;
-    r.addEventListener('mouseenter',()=>{ if(window.__orbitFocus)window.__orbitFocus(key); });
-  });
-  const ledger=document.getElementById('ledger');
-  if(ledger) ledger.addEventListener('mouseleave',()=>{ if(window.__orbitUnfocus)window.__orbitUnfocus(); });
-
-  // magnetic
-  if(FINE){
-    document.querySelectorAll('[data-mag]').forEach(el=>{
-      el.addEventListener('mousemove',e=>{const r=el.getBoundingClientRect();const dx=e.clientX-r.left-r.width/2;const dy=e.clientY-r.top-r.height/2;gsap.to(el,{x:dx*0.3,y:dy*0.4,duration:.4,ease:'power2.out'});});
-      el.addEventListener('mouseleave',()=>gsap.to(el,{x:0,y:0,duration:.5,ease:'elastic.out(1,.4)'}));
-    });
-  }
-
-  requestAnimationFrame(()=>ScrollTrigger.refresh());
-}
-
-/* ---------- CURSOR ---------- */
-function initCursor(){
-  if(!FINE) return;
-  const cur=document.getElementById('cur'), lab=document.getElementById('curLab');
-  let x=innerWidth/2,y=innerHeight/2,tx=x,ty=y;
-  document.addEventListener('mousemove',e=>{tx=e.clientX;ty=e.clientY;cur.classList.add('show');});
-  function loop(){x+=(tx-x)*0.2;y+=(ty-y)*0.2;cur.style.transform=`translate(${x}px,${y}px) translate(-50%,-50%)`;requestAnimationFrame(loop);}
-  loop();
-  document.querySelectorAll('[data-cur]').forEach(el=>{
-    el.addEventListener('mouseenter',()=>{cur.classList.add('lg');lab.textContent=el.getAttribute('data-cur')==='visit'?'visit':'';});
-    el.addEventListener('mouseleave',()=>{cur.classList.remove('lg');lab.textContent='';});
-  });
-}
-
-/* ---------- HEADER + NAV + FORM ---------- */
-function initUI(){
-  const header=document.getElementById('hdr');
-  window.addEventListener('scroll',()=>{header.classList.toggle('sc',scrollY>30);},{passive:true});
-  const tog=document.getElementById('ntog'), mn=document.getElementById('mnav');
-  tog.addEventListener('click',()=>mn.classList.toggle('open'));
-  mn.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mn.classList.remove('open')));
-  document.querySelectorAll('a[href^="#"]').forEach(a=>{
-    a.addEventListener('click',e=>{const id=a.getAttribute('href');if(id.length>1){const t=document.querySelector(id);if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}}});
-  });
-  const mt=document.getElementById('mtog'), mf=document.getElementById('mfields');
-  mt.addEventListener('click',()=>{mf.classList.toggle('open');mt.textContent=mf.classList.contains('open')?'– Fewer details':'+ Add a few details (optional)';});
-  const form=document.getElementById('leadForm');
-  form.addEventListener('submit',e=>{
-    e.preventDefault();
-    const n=form.name.value.trim(),em=form.email.value.trim(),ln=form.line.value;
-    if(!n||!em||!ln){[...form.querySelectorAll('[required]')].forEach(i=>{if(!i.value)i.style.borderColor='#ff7a7a';});return;}
-    document.getElementById('ffields').style.display='none';
-    document.getElementById('fdone').classList.add('show');
-  });
-}
-
-/* ---------- PRELOADER (orbital build) ---------- */
-function buildPlOrbit(){
-  const wrap=document.getElementById('plOrbit'); if(!wrap)return;
-  const cs=['#00C566','#7C3AED','#1D4ED8','#FF6B00','#BD22A7','#E0B90B'];
-  const sun=document.createElement('div');sun.className='sun';wrap.appendChild(sun);
-  cs.forEach((c,i)=>{
-    const rad=40+i*9;
-    const ring=document.createElement('div');ring.className='ring';ring.style.width=rad*2+'px';ring.style.height=rad*2+'px';wrap.appendChild(ring);
-    const pl=document.createElement('div');pl.className='pl';pl.style.background=c;wrap.appendChild(pl);
-    if(!REDUCE){
-      const dur=2+i*0.5, dir=i%2?1:-1;
-      gsap.to(pl,{duration:dur,repeat:-1,ease:'none',
-        onUpdate:function(){
-          const p=this.progress()*Math.PI*2*dir + i;
-          pl.style.transform=`translate(${Math.cos(p)*rad}px,${Math.sin(p)*rad}px)`;
-        }});
-    } else { pl.style.transform=`translate(${rad}px,0)`; }
-  });
-}
-function runPreloader(done){
-  const cap=document.getElementById('plCap');
-  buildPlOrbit();
-  const finish=()=>{
-    gsap.to('#veil',{y:'0%',duration:.7,ease:'power3.inOut'});
-    gsap.to('#pre',{y:'-100%',duration:.8,ease:'power3.inOut',onComplete:()=>{const p=document.getElementById('pre');if(p)p.style.display='none';}});
-    gsap.to('#veil',{y:'-100%',duration:.8,delay:.55,ease:'power3.inOut',onComplete:()=>{const v=document.getElementById('veil');if(v)v.style.display='none';}});
-    document.body.classList.remove('lock');
-    done();
-  };
-  if(REDUCE){ cap.style.opacity='1'; finish(); return; }
-  gsap.to(cap,{opacity:1,duration:.6,ease:'power2.out'});
-  gsap.delayedCall(1.7, finish);
-}
-
-/* ---------- BOOT ---------- */
-window.addEventListener('load',()=>{
-  orbitApi=initOrbit();
-  initBlob();
-  initCursor();
-  initUI();
-  let built=false;
-  const build=()=>{if(built)return;built=true;buildMotion();if(orbitApi)orbitApi.size();};
-  // safety timeout (4s)
-  setTimeout(()=>{document.body.classList.remove('lock');const p=document.getElementById('pre');if(p)p.style.display='none';const v=document.getElementById('veil');if(v)v.style.display='none';build();},4000);
-  runPreloader(build);
-});
-</script>
+      function pickColor(px) {
+        const w = window.innerWidth || 1;
+        const ratio = Math.max(0, Math.min(1, px / w));
+        const idx = Math.min(COLORS.length - 1, Math.floor(ratio * COLORS.length));
+        return COLORS[idx];
+      }
+      function flush() {
+        queued = false;
+        // ease toward cursor (cheap lerp, only when we actually moved)
+        x += (tx - x) * 0.22;
+        y += (ty - y) * 0.22;
+        el.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+      }
+      window.addEventListener('pointermove', (e) => {
+        tx = e.clientX; ty = e.clientY;
+        if (!on) { on = true; el.classList.add('is-on'); }
+        // brand-aware: if cursor is over a branded element, lock glow to that brand
+        const card = e.target && e.target.closest && e.target.closest('[style*="--brand"]');
+        const brand = card ? card.style.getPropertyValue('--brand').trim() : '';
+        const next = brand || pickColor(e.clientX);
+        if (next !== lastBrand) { el.style.setProperty('--glow', next); lastBrand = next; }
+        if (!queued) { queued = true; requestAnimationFrame(flush); }
+      }, { passive: true });
+      window.addEventListener('pointerleave', () => {
+        on = false; el.classList.remove('is-on');
+      });
+    })();
+  </script>
 </body>
 </html>
