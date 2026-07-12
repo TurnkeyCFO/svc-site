@@ -252,7 +252,7 @@ h2.big em.sf{color:var(--ink)}
 .cards-tornado{cursor:grab;touch-action:pan-y;width:100%;height:min(88dvh,820px);position:relative;overflow:clip}
 .cards-tornado__collection{width:100%;height:100%;position:relative}
 .cards-tornado__list{font-size:clamp(.5em,.75vw,1.5em);width:100%;height:100%;perspective:75em;transform-style:preserve-3d;position:relative}
-.cards-tornado__item{transform-style:preserve-3d;backface-visibility:visible;will-change:transform,filter;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}
+.cards-tornado__item{transform-style:preserve-3d;backface-visibility:visible;will-change:transform,opacity;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}
 .tcard{aspect-ratio:4/5;pointer-events:none;-webkit-user-select:none;user-select:none;background:#fff;border:1px solid var(--line);border-radius:1.1em;width:17em;position:relative;box-shadow:0 20px 55px rgba(16,16,20,.14);display:flex;align-items:center;justify-content:center}
 .tcard img{max-width:68%;max-height:52%;object-fit:contain}
 .tcard::after{content:"";position:absolute;left:1.4em;right:1.4em;bottom:1.3em;height:1.5px;background:linear-gradient(90deg,var(--line),transparent)}
@@ -326,15 +326,6 @@ footer ul a:hover{color:#fff}
 .cursor-wrap{position:fixed;inset:0;z-index:1290;pointer-events:none;width:100%;height:100%}
 .cursor-canvas{top:0;left:0;width:100%;height:100%;z-index:0;position:absolute}
 @media (max-width:991px),(prefers-reduced-motion:reduce){.cursor-wrap{display:none}}
-/* 2. progressive blur (bottom of viewport, desktop only) */
-.progressive-blur{z-index:1140;pointer-events:none;isolation:isolate;contain:paint;width:100%;height:7em;transform-style:preserve-3d;position:fixed;bottom:0;left:0;overflow:hidden;transform:translateZ(0)}
-.progressive-blur__layer{width:100%;height:100%;position:absolute}
-.progressive-blur__layer.is--1{-webkit-backdrop-filter:blur(.09375em);backdrop-filter:blur(.09375em);-webkit-mask:linear-gradient(#0000 50%,#000 62.5% 75%,#0000 87.5%);mask:linear-gradient(#0000 50%,#000 62.5% 75%,#0000 87.5%)}
-.progressive-blur__layer.is--2{-webkit-backdrop-filter:blur(.1875em);backdrop-filter:blur(.1875em);-webkit-mask:linear-gradient(#0000 62.5%,#000 75% 87.5%,#0000 100%);mask:linear-gradient(#0000 62.5%,#000 75% 87.5%,#0000 100%)}
-.progressive-blur__layer.is--3{-webkit-backdrop-filter:blur(.375em);backdrop-filter:blur(.375em);-webkit-mask:linear-gradient(#0000 75%,#000 87.5% 100%);mask:linear-gradient(#0000 75%,#000 87.5% 100%)}
-.progressive-blur__layer.is--4{-webkit-backdrop-filter:blur(.75em);backdrop-filter:blur(.75em);-webkit-mask:linear-gradient(#0000 82%,#000 92% 100%);mask:linear-gradient(#0000 82%,#000 92% 100%)}
-.progressive-blur__layer.is--5{-webkit-backdrop-filter:blur(1.5em);backdrop-filter:blur(1.5em);-webkit-mask:linear-gradient(#0000 88%,#000 100%);mask:linear-gradient(#0000 88%,#000 100%)}
-@media (max-width:880px){.progressive-blur{display:none}}
 /* 3. per-word masked reveals on section headings */
 h2.big .w{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.14em;margin-bottom:-.14em}
 h2.big .w>span{display:inline-block;will-change:transform}
@@ -388,13 +379,6 @@ h1.disp em.sf{background-size:220% 100%;animation:heroShimmer 7s ease-in-out inf
 <div id="prog"></div>
 <div class="grain" aria-hidden="true"></div>
 <div class="cursor-wrap" aria-hidden="true"><canvas data-cursor-canvas class="cursor-canvas"></canvas></div>
-<div class="progressive-blur" aria-hidden="true">
-  <div class="progressive-blur__layer is--1"></div>
-  <div class="progressive-blur__layer is--2"></div>
-  <div class="progressive-blur__layer is--3"></div>
-  <div class="progressive-blur__layer is--4"></div>
-  <div class="progressive-blur__layer is--5"></div>
-</div>
 <div data-cursor="" class="cursor" aria-hidden="true">
   <div class="cursor-scramble">
     <span data-cursor-text-target class="cursor-scramble__text">Turnkey</span>
@@ -689,16 +673,16 @@ h1.disp em.sf{background-size:220% 100%;animation:heroShimmer 7s ease-in-out inf
   <div data-3d-tornado-init class="cards-tornado">
     <div class="cards-tornado__collection">
       <div data-3d-tornado-list class="cards-tornado__list">
-        <div data-3d-tornado-item class="cards-tornado__item"><div draggable="false" class="tcard"><img src="assets/clients/harbour.png" alt="The Harbour Company" loading="lazy"></div></div>
-        <div data-3d-tornado-item class="cards-tornado__item"><div draggable="false" class="tcard"><img src="assets/clients/heirloom.png" alt="Heirloom Church" loading="lazy"></div></div>
-        <div data-3d-tornado-item class="cards-tornado__item"><div draggable="false" class="tcard"><img src="assets/clients/northpoint.png" alt="Northpoint Church" loading="lazy"></div></div>
-        <div data-3d-tornado-item class="cards-tornado__item"><div draggable="false" class="tcard"><img src="assets/clients/epic-life.png" alt="Epic Life Church" loading="lazy"></div></div>
-        <div data-3d-tornado-item class="cards-tornado__item"><div draggable="false" class="tcard"><img src="assets/clients/voh.png" alt="Village of Hope Maui" loading="lazy"></div></div>
-        <div data-3d-tornado-item class="cards-tornado__item"><div draggable="false" class="tcard"><img src="assets/clients/doxa.png" alt="Doxa Coffee Roasters" loading="lazy"></div></div>
-        <div data-3d-tornado-item class="cards-tornado__item"><div draggable="false" class="tcard"><img src="assets/clients/mojo.svg" alt="Mojo Coffee" loading="lazy"></div></div>
-        <div data-3d-tornado-item class="cards-tornado__item"><div draggable="false" class="tcard"><img src="assets/clients/build-ai.svg" alt="Build AI" loading="lazy"></div></div>
-        <div data-3d-tornado-item class="cards-tornado__item"><div draggable="false" class="tcard"><img src="assets/clients/mosquera.svg" alt="Mosquera Counseling" loading="lazy"></div></div>
-        <div data-3d-tornado-item class="cards-tornado__item"><div draggable="false" class="tcard"><img src="assets/clients/sivils.svg" alt="Sivils Metals" loading="lazy"></div></div>
+        <div data-3d-tornado-item class="cards-tornado__item"><div draggable="false" class="tcard"><img decoding="async" src="assets/clients/harbour.png" alt="The Harbour Company"></div></div>
+        <div data-3d-tornado-item class="cards-tornado__item"><div draggable="false" class="tcard"><img decoding="async" src="assets/clients/heirloom.png" alt="Heirloom Church"></div></div>
+        <div data-3d-tornado-item class="cards-tornado__item"><div draggable="false" class="tcard"><img decoding="async" src="assets/clients/northpoint.png" alt="Northpoint Church"></div></div>
+        <div data-3d-tornado-item class="cards-tornado__item"><div draggable="false" class="tcard"><img decoding="async" src="assets/clients/epic-life.png" alt="Epic Life Church"></div></div>
+        <div data-3d-tornado-item class="cards-tornado__item"><div draggable="false" class="tcard"><img decoding="async" src="assets/clients/voh.png" alt="Village of Hope Maui"></div></div>
+        <div data-3d-tornado-item class="cards-tornado__item"><div draggable="false" class="tcard"><img decoding="async" src="assets/clients/doxa.png" alt="Doxa Coffee Roasters"></div></div>
+        <div data-3d-tornado-item class="cards-tornado__item"><div draggable="false" class="tcard"><img decoding="async" src="assets/clients/mojo.svg" alt="Mojo Coffee"></div></div>
+        <div data-3d-tornado-item class="cards-tornado__item"><div draggable="false" class="tcard"><img decoding="async" src="assets/clients/build-ai.svg" alt="Build AI"></div></div>
+        <div data-3d-tornado-item class="cards-tornado__item"><div draggable="false" class="tcard"><img decoding="async" src="assets/clients/mosquera.svg" alt="Mosquera Counseling"></div></div>
+        <div data-3d-tornado-item class="cards-tornado__item"><div draggable="false" class="tcard"><img decoding="async" src="assets/clients/sivils.svg" alt="Sivils Metals"></div></div>
       </div>
     </div>
   </div>
@@ -907,13 +891,13 @@ gsap.to(cnt, { v: 100, duration: 1.5, ease: 'power2.inOut',
   onComplete: function(){ setTimeout(launch, 150); }
 });
 setTimeout(launch, 4000);
+initCardsTornado(reduced);
 
 function buildMotion(){
   if(reduced){
     document.querySelectorAll('.rv').forEach(function(el){ el.style.opacity = 1; el.style.transform = 'none'; });
     initOdometers(true);
     initTextFitToWidth();
-    initCardsTornado(true);
     return;
   }
   gsap.set(h1words, { y: function(i, el){ return el.offsetHeight * 1.2; } });
@@ -956,7 +940,6 @@ function buildMotion(){
   initTeamParallax();
   initOdometers(false);
   initTextFitToWidth();
-  initCardsTornado(false);
   ScrollTrigger.refresh();
 }
 
@@ -964,13 +947,12 @@ function buildMotion(){
 function initCardsTornado(staticOnly){
   var containers = gsap.utils.toArray('[data-3d-tornado-init]');
   if(!containers.length) return;
-  var rotationAngle = 30, cardYSpacing = 0.3, edgeOffset = 2, orbitDepth = 35;
+  var rotationAngle = 36, cardYSpacing = 0.5, edgeOffset = 1.1, orbitDepth = 35;
   var autoSpeed = 0.00325, scrollSpeed = 0.015, dragMultiplier = 5;
   var scrollEase = 0.1, maxSpeed = 0.2, edgeScale = 0.5;
   var edgeEase = gsap.parseEase('power2.inOut');
-  var minScale = 1;
-  var isMobile = window.matchMedia('(max-width:880px)').matches;
-  var backDarkness = 0.32, backBlur = isMobile ? 0 : 0.4;
+  var minScale = 0.85;
+  var backDim = 0.82;
 
   containers.forEach(function(container){
     var list = container.querySelector('[data-3d-tornado-list]');
@@ -1026,14 +1008,12 @@ function initCardsTornado(staticOnly){
         var baseScale = minScale + center * (1 - minScale);
         var scale = baseScale * getEdgeScale(y);
         var back = gsap.utils.clamp(0, 1, (1 - Math.cos(rad)) * 0.5);
-        var brightness = 1 - back * backDarkness;
-        var blur = back * backBlur;
         gsap.set(card, {
           xPercent: -50, yPercent: -50,
           x: Math.sin(rad) * radius, y: y, z: (Math.cos(rad) - 1) * radius,
           rotateY: deg, scale: scale,
-          filter: 'brightness(' + brightness + ')' + (backBlur ? ' blur(' + blur + 'em)' : ''),
-          autoAlpha: 1, zIndex: Math.round(center * 1000)
+          opacity: 1 - back * backDim,
+          zIndex: Math.round(center * 1000)
         });
       });
     }
