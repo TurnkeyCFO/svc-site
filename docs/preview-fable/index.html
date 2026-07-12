@@ -33,12 +33,12 @@ em.sf{font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-style:italic;fon
 #pre.done{transform:translateY(-101%)}
 #pre .plogo{height:44px;width:auto;filter:invert(1)}
 #pre .pline{width:220px;height:1.5px;background:rgba(255,255,255,.14);position:relative;overflow:hidden}
-#pre .pline i{position:absolute;inset:0;background:linear-gradient(90deg,#0B6B43,#00E676);transform:scaleX(0);transform-origin:0 50%}
+#pre .pline i{position:absolute;inset:0;background:linear-gradient(90deg,var(--cfo),var(--ai),var(--web),var(--dsn),var(--seo),var(--rec));transform:scaleX(0);transform-origin:0 50%}
 #pre .pnum{font-weight:800;font-size:12px;letter-spacing:.34em;color:#fff;font-variant-numeric:tabular-nums}
 body.locked{overflow:hidden}
 
 /* chrome */
-#prog{position:fixed;top:0;left:0;height:3px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,#0B6B43,#00A86B);z-index:1200}
+#prog{position:fixed;top:0;left:0;height:3px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--cfo),var(--ai),var(--web),var(--dsn),var(--seo),var(--rec));z-index:1200}
 header{position:fixed;top:0;left:0;right:0;z-index:1100;padding:0 clamp(16px,4vw,48px);height:76px;display:flex;align-items:center;justify-content:space-between;transition:background .35s,box-shadow .35s,height .35s}
 header.solid{background:rgba(252,251,248,.94);backdrop-filter:blur(16px);box-shadow:0 1px 0 var(--line);height:64px}
 header .hl img{height:34px;width:auto;filter:none;transition:filter .35s}
@@ -83,11 +83,11 @@ body.navopen #mnav{transform:translateY(0)}
 #hero .scrim2{position:absolute;left:0;right:0;bottom:0;height:34%;z-index:1;pointer-events:none;background:linear-gradient(180deg,transparent,rgba(252,251,248,.72))}
 .hwrap{position:relative;z-index:2;max-width:var(--maxw);margin:0 auto;width:100%}
 .kick{display:inline-flex;align-items:center;gap:12px;font-size:12.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--tx2);margin-bottom:30px}
-.kick::before{content:"";width:38px;height:1.5px;background:var(--ink)}
+.kick::before{content:"";width:38px;height:1.5px;background:linear-gradient(90deg,var(--cfo),var(--ai),var(--web))}
 h1.disp{font-size:clamp(46px,7.6vw,112px);line-height:1.03;font-weight:800;letter-spacing:-.035em;max-width:13ch;color:var(--ink)}
 h1.disp .w{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.14em;margin-bottom:-.14em}
 h1.disp .w>span{display:inline-block;will-change:transform}
-h1.disp em.sf{background:linear-gradient(92deg,#0B6B43,#00A86B 55%,#0B6B43);-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:.08em}
+h1.disp em.sf{background:linear-gradient(92deg,var(--cfo),var(--ai) 30%,var(--web) 55%,var(--seo) 80%,var(--rec));-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:.08em}
 .hsub{margin-top:28px;font-size:clamp(16.5px,1.6vw,20.5px);color:var(--tx2);max-width:56ch;font-weight:500;text-shadow:0 1px 12px rgba(252,251,248,.65)}
 .hsub strong{color:var(--ink);font-weight:700}
 .hctas{margin-top:40px;display:flex;gap:16px;flex-wrap:wrap;align-items:center}
@@ -243,7 +243,7 @@ h2.big em.sf{color:var(--ink)}
 .band::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(8,8,10,.66),rgba(8,8,10,.34) 55%,rgba(8,8,10,.7))}
 .band .inner{position:relative;z-index:2;text-align:center;width:100%}
 .band h2{font-size:clamp(34px,5.4vw,76px);font-weight:800;letter-spacing:-.03em;line-height:1.12;color:#fff;max-width:22ch;margin:0 auto;padding-bottom:.1em}
-.band h2 em.sf{background:linear-gradient(92deg,#00E676,#7FFFC4 55%,#00E676);-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:.08em}
+.band h2 em.sf{background:linear-gradient(92deg,var(--cfo),var(--ai) 35%,var(--web) 60%,var(--rec));-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:.08em}
 .band p{margin:22px auto 0;color:#c9c9c4;max-width:52ch;font-size:clamp(15px,1.4vw,18px)}
 
 /* client logos — Osmo 3D cards tornado */
@@ -283,10 +283,10 @@ h2.big em.sf{color:var(--ink)}
 
 /* final */
 .fin{background:var(--onyx);color:#fff;overflow:hidden;position:relative}
-.fin .glow{content:"";position:absolute;width:900px;height:900px;border-radius:50%;background:conic-gradient(from 180deg,rgba(0,230,118,.16),rgba(0,168,107,.08),rgba(255,255,255,.05),rgba(0,230,118,.16));filter:blur(80px);top:-380px;right:-260px;pointer-events:none}
+.fin .glow{content:"";position:absolute;width:900px;height:900px;border-radius:50%;background:conic-gradient(from 180deg,rgba(0,230,118,.14),rgba(45,127,249,.14),rgba(124,58,237,.14),rgba(189,34,167,.12),rgba(255,138,60,.12),rgba(220,38,38,.12),rgba(0,230,118,.14));filter:blur(80px);top:-380px;right:-260px;pointer-events:none}
 .fin .inner{text-align:center;position:relative;z-index:2}
 .fin h2.big{color:#fff;margin:0 auto}
-.fin h2.big em.sf{background:linear-gradient(92deg,#00E676,#7FFFC4 55%,#00E676);-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:.08em}
+.fin h2.big em.sf{background:linear-gradient(92deg,var(--cfo),var(--ai) 40%,var(--web) 70%,var(--seo));-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:.08em}
 .fin .sub{color:#c9c9c4;margin-left:auto;margin-right:auto}
 .fin .hctas{margin-top:38px;justify-content:center}
 .fin .hnote{color:#9a9a94}
@@ -295,7 +295,7 @@ h2.big em.sf{color:var(--ink)}
 [data-fit-width]{display:inline-block;white-space:nowrap;margin:0}
 .fitband{background:var(--coal);padding:clamp(44px,5vw,84px) clamp(20px,4vw,56px) 0;overflow:hidden}
 .fitband .fitline{font-weight:800;line-height:.95;text-transform:uppercase;letter-spacing:-.02em;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.22);font-size:120px}
-.fitband .fitline b{background:linear-gradient(92deg,#0B6B43,#00E676 50%,#0B6B43);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-stroke:0}
+.fitband .fitline b{background:linear-gradient(92deg,var(--cfo),var(--ai) 30%,var(--web) 55%,var(--seo) 80%,var(--rec));-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-stroke:0}
 
 /* footer */
 footer{background:var(--coal);color:#9a9a94;padding:clamp(64px,7vw,96px) clamp(20px,5vw,64px) 120px;overflow:hidden;position:relative}
@@ -312,7 +312,7 @@ footer ul a:hover{color:#fff}
 .cursor{z-index:1350;pointer-events:none;padding-top:1.6em;padding-left:.6em;padding-right:1em;position:fixed;top:0;left:0}
 .cursor-scramble{gap:.5em;opacity:0;color:#fff;background-color:var(--ink);border-radius:.3em;justify-content:center;align-items:center;height:2.1em;padding-left:.8em;padding-right:.8em;display:flex;position:relative;box-shadow:0 10px 30px rgba(0,0,0,.4)}
 .cursor-scramble__text{letter-spacing:-.01em;white-space:nowrap;font-size:.85em;font-weight:600}
-.cursor-scramble__chevron{width:.38em;color:var(--cfo)}
+.cursor-scramble__chevron{width:.38em;background:linear-gradient(180deg,var(--cfo),var(--ai));-webkit-background-clip:text;color:var(--cfo)}
 @media (hover:hover) and (pointer:fine){
   [data-cursor] .cursor-scramble{transition:transform .4s cubic-bezier(.625,.05,0,1),opacity .2s ease .1s;transform:translateX(0%) scale(1) rotate(.001deg)}
   [data-cursor="active"] .cursor-scramble{transition:transform .4s cubic-bezier(.625,.05,0,1),opacity .2s ease 0s;opacity:1;transform:translateX(0%) scale(1) rotate(.001deg)}
@@ -645,7 +645,7 @@ h1.disp em.sf{background-size:220% 100%;animation:heroShimmer 7s ease-in-out inf
       </a>
       <a class="dw-card" style="--ac:var(--ai)" href="https://turnkeyai.org" target="_blank" rel="noopener" data-cursor-hover data-cursor-text="turnkeyai.org">
         <div class="wbar"><i></i><i></i><i></i><span class="url">turnkeyai.org</span></div>
-        <div class="shot"><img src="assets/sites/turnkeyai.jpg" alt="Turnkey AI website" loading="lazy"></div>
+        <div class="shot"><img src="assets/sites/turnkeyai-fable.jpg" alt="Turnkey AI website" loading="lazy"></div>
         <div class="wmeta"><div><h3>Turnkey AI</h3><p>Automation · Agents · Workflows</p></div><span class="go2">&rarr;</span></div>
       </a>
       <a class="dw-card" style="--ac:var(--rec)" href="https://turnkeyrecruiting.org" target="_blank" rel="noopener" data-cursor-hover data-cursor-text="turnkeyrecruiting.org">
