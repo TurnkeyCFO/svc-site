@@ -9,7 +9,7 @@
 <meta name="theme-color" content="#0B0B0D">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,700;1,800&display=swap" rel="stylesheet">
 <style>
 :root{
   --onyx:#0B0B0D; --char:#121215; --coal:#08080a;
@@ -17,7 +17,7 @@
   --ink:#101014; --tx:#26262e; --tx2:#63636e;
   --line:rgba(16,16,20,.12); --linedk:rgba(255,255,255,.14);
   --cfo:#00E676; --web:#7C3AED; --ai:#2D7FF9; --seo:#FF8A3C; --dsn:#BD22A7; --rec:#DC2626;
-  --serif:'Fraunces',Georgia,serif;
+  --serif:'Plus Jakarta Sans',system-ui,sans-serif;
   --maxw:1280px;
 }
 *{margin:0;padding:0;box-sizing:border-box}
@@ -26,19 +26,19 @@ body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--cream
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 ::selection{background:var(--ink);color:#fff}
-em.sf{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:0}
+em.sf{font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-style:italic;font-weight:800;letter-spacing:-.02em}
 
 /* preloader */
 #pre{position:fixed;inset:0;z-index:9999;background:var(--onyx);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:22px;transition:transform 1s cubic-bezier(.77,0,.18,1)}
 #pre.done{transform:translateY(-101%)}
 #pre .plogo{height:44px;width:auto;filter:invert(1)}
 #pre .pline{width:220px;height:1.5px;background:rgba(255,255,255,.14);position:relative;overflow:hidden}
-#pre .pline i{position:absolute;inset:0;background:linear-gradient(90deg,var(--cfo),var(--ai),var(--web),var(--dsn),var(--seo),var(--rec));transform:scaleX(0);transform-origin:0 50%}
+#pre .pline i{position:absolute;inset:0;background:linear-gradient(90deg,#0B6B43,#00E676);transform:scaleX(0);transform-origin:0 50%}
 #pre .pnum{font-weight:800;font-size:12px;letter-spacing:.34em;color:#fff;font-variant-numeric:tabular-nums}
 body.locked{overflow:hidden}
 
 /* chrome */
-#prog{position:fixed;top:0;left:0;height:3px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--cfo),var(--ai),var(--web),var(--dsn),var(--seo),var(--rec));z-index:1200}
+#prog{position:fixed;top:0;left:0;height:3px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,#0B6B43,#00A86B);z-index:1200}
 header{position:fixed;top:0;left:0;right:0;z-index:1100;padding:0 clamp(16px,4vw,48px);height:76px;display:flex;align-items:center;justify-content:space-between;transition:background .35s,box-shadow .35s,height .35s}
 header.solid{background:rgba(252,251,248,.94);backdrop-filter:blur(16px);box-shadow:0 1px 0 var(--line);height:64px}
 header .hl img{height:34px;width:auto;filter:none;transition:filter .35s}
@@ -243,16 +243,20 @@ h2.big em.sf{color:var(--ink)}
 .band::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(8,8,10,.66),rgba(8,8,10,.34) 55%,rgba(8,8,10,.7))}
 .band .inner{position:relative;z-index:2;text-align:center;width:100%}
 .band h2{font-size:clamp(34px,5.4vw,76px);font-weight:800;letter-spacing:-.03em;line-height:1.12;color:#fff;max-width:22ch;margin:0 auto;padding-bottom:.1em}
-.band h2 em.sf{background:linear-gradient(92deg,var(--cfo),var(--ai) 35%,var(--web) 60%,var(--rec));-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:.08em}
+.band h2 em.sf{background:linear-gradient(92deg,#00E676,#7FFFC4 55%,#00E676);-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:.08em}
 .band p{margin:22px auto 0;color:#c9c9c4;max-width:52ch;font-size:clamp(15px,1.4vw,18px)}
 
-/* client marquee */
-.cl-mq{background:var(--paper);overflow:hidden;padding:clamp(56px,7vw,90px) 0}
-.cl-mq .cl-label{text-align:center;font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--tx2);margin-bottom:38px}
-.cl-track{display:flex;align-items:center;white-space:nowrap;will-change:transform;width:max-content;gap:clamp(48px,6vw,90px)}
-.cl-track img{height:52px;width:auto;object-fit:contain;opacity:.85;filter:grayscale(35%);transition:filter .3s,opacity .3s}
-.cl-track img:hover{filter:none;opacity:1}
-.cl-track .cl-cell{display:inline-flex;align-items:center}
+/* client logos — Osmo 3D cards tornado */
+.cl-tor{background:var(--paper);overflow:hidden;position:relative}
+.cl-tor .cl-label{text-align:center;font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--tx2);padding:clamp(56px,7vw,90px) 24px 0;position:relative;z-index:5;max-width:720px;margin:0 auto}
+.cards-tornado{cursor:grab;touch-action:pan-y;width:100%;height:min(88dvh,820px);position:relative;overflow:clip}
+.cards-tornado__collection{width:100%;height:100%;position:relative}
+.cards-tornado__list{font-size:clamp(.5em,.75vw,1.5em);width:100%;height:100%;perspective:75em;transform-style:preserve-3d;position:relative}
+.cards-tornado__item{transform-style:preserve-3d;backface-visibility:visible;will-change:transform,filter;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}
+.tcard{aspect-ratio:4/5;pointer-events:none;-webkit-user-select:none;user-select:none;background:#fff;border:1px solid var(--line);border-radius:1.1em;width:17em;position:relative;box-shadow:0 20px 55px rgba(16,16,20,.14);display:flex;align-items:center;justify-content:center}
+.tcard img{max-width:68%;max-height:52%;object-fit:contain}
+.tcard::after{content:"";position:absolute;left:1.4em;right:1.4em;bottom:1.3em;height:1.5px;background:linear-gradient(90deg,var(--line),transparent)}
+.cl-tor .cl-hint{text-align:center;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:#9a9a94;padding:0 0 clamp(36px,4vw,56px);position:relative;z-index:5}
 
 /* stats odometer */
 .stats{background:var(--char);color:#fff}
@@ -279,10 +283,10 @@ h2.big em.sf{color:var(--ink)}
 
 /* final */
 .fin{background:var(--onyx);color:#fff;overflow:hidden;position:relative}
-.fin .glow{content:"";position:absolute;width:900px;height:900px;border-radius:50%;background:conic-gradient(from 180deg,rgba(0,230,118,.14),rgba(45,127,249,.14),rgba(124,58,237,.14),rgba(189,34,167,.12),rgba(255,138,60,.12),rgba(220,38,38,.12),rgba(0,230,118,.14));filter:blur(80px);top:-380px;right:-260px;pointer-events:none}
+.fin .glow{content:"";position:absolute;width:900px;height:900px;border-radius:50%;background:conic-gradient(from 180deg,rgba(0,230,118,.16),rgba(0,168,107,.08),rgba(255,255,255,.05),rgba(0,230,118,.16));filter:blur(80px);top:-380px;right:-260px;pointer-events:none}
 .fin .inner{text-align:center;position:relative;z-index:2}
 .fin h2.big{color:#fff;margin:0 auto}
-.fin h2.big em.sf{background:linear-gradient(92deg,var(--cfo),var(--ai) 40%,var(--web) 70%,var(--seo));-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:.08em}
+.fin h2.big em.sf{background:linear-gradient(92deg,#00E676,#7FFFC4 55%,#00E676);-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:.08em}
 .fin .sub{color:#c9c9c4;margin-left:auto;margin-right:auto}
 .fin .hctas{margin-top:38px;justify-content:center}
 .fin .hnote{color:#9a9a94}
@@ -291,7 +295,7 @@ h2.big em.sf{color:var(--ink)}
 [data-fit-width]{display:inline-block;white-space:nowrap;margin:0}
 .fitband{background:var(--coal);padding:clamp(44px,5vw,84px) clamp(20px,4vw,56px) 0;overflow:hidden}
 .fitband .fitline{font-weight:800;line-height:.95;text-transform:uppercase;letter-spacing:-.02em;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.22);font-size:120px}
-.fitband .fitline b{background:linear-gradient(92deg,var(--cfo),var(--ai) 30%,var(--web) 55%,var(--seo) 80%,var(--rec));-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-stroke:0}
+.fitband .fitline b{background:linear-gradient(92deg,#0B6B43,#00E676 50%,#0B6B43);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-stroke:0}
 
 /* footer */
 footer{background:var(--coal);color:#9a9a94;padding:clamp(64px,7vw,96px) clamp(20px,5vw,64px) 120px;overflow:hidden;position:relative}
@@ -308,7 +312,7 @@ footer ul a:hover{color:#fff}
 .cursor{z-index:1350;pointer-events:none;padding-top:1.6em;padding-left:.6em;padding-right:1em;position:fixed;top:0;left:0}
 .cursor-scramble{gap:.5em;opacity:0;color:#fff;background-color:var(--ink);border-radius:.3em;justify-content:center;align-items:center;height:2.1em;padding-left:.8em;padding-right:.8em;display:flex;position:relative;box-shadow:0 10px 30px rgba(0,0,0,.4)}
 .cursor-scramble__text{letter-spacing:-.01em;white-space:nowrap;font-size:.85em;font-weight:600}
-.cursor-scramble__chevron{width:.38em;background:linear-gradient(180deg,var(--cfo),var(--ai));-webkit-background-clip:text;color:var(--cfo)}
+.cursor-scramble__chevron{width:.38em;color:var(--cfo)}
 @media (hover:hover) and (pointer:fine){
   [data-cursor] .cursor-scramble{transition:transform .4s cubic-bezier(.625,.05,0,1),opacity .2s ease .1s;transform:translateX(0%) scale(1) rotate(.001deg)}
   [data-cursor="active"] .cursor-scramble{transition:transform .4s cubic-bezier(.625,.05,0,1),opacity .2s ease 0s;opacity:1;transform:translateX(0%) scale(1) rotate(.001deg)}
@@ -679,21 +683,26 @@ h1.disp em.sf{background-size:220% 100%;animation:heroShimmer 7s ease-in-out inf
   </div>
 </section>
 
-<!-- CLIENT MARQUEE -->
-<section class="cl-mq" id="clients" aria-hidden="false">
+<!-- CLIENT LOGOS — 3D CARDS TORNADO -->
+<section class="cl-tor" id="clients">
   <div class="cl-label">Trusted by businesses, nonprofits, and ministries growing from nothing to something</div>
-  <div class="cl-track" id="clt">
-    <span class="cl-cell"><img src="assets/clients/harbour.png" alt="The Harbour Company"></span>
-    <span class="cl-cell"><img src="assets/clients/heirloom.png" alt="Heirloom Church"></span>
-    <span class="cl-cell"><img src="assets/clients/northpoint.png" alt="Northpoint Church"></span>
-    <span class="cl-cell"><img src="assets/clients/epic-life.png" alt="Epic Life Church"></span>
-    <span class="cl-cell"><img src="assets/clients/voh.png" alt="Village of Hope Maui"></span>
-    <span class="cl-cell"><img src="assets/clients/doxa.png" alt="Doxa Coffee Roasters"></span>
-    <span class="cl-cell"><img src="assets/clients/mojo.svg" alt="Mojo Coffee"></span>
-    <span class="cl-cell"><img src="assets/clients/build-ai.svg" alt="Build AI"></span>
-    <span class="cl-cell"><img src="assets/clients/mosquera.svg" alt="Mosquera Counseling"></span>
-    <span class="cl-cell"><img src="assets/clients/sivils.svg" alt="Sivils"></span>
+  <div data-3d-tornado-init class="cards-tornado">
+    <div class="cards-tornado__collection">
+      <div data-3d-tornado-list class="cards-tornado__list">
+        <div data-3d-tornado-item class="cards-tornado__item"><div draggable="false" class="tcard"><img src="assets/clients/harbour.png" alt="The Harbour Company" loading="lazy"></div></div>
+        <div data-3d-tornado-item class="cards-tornado__item"><div draggable="false" class="tcard"><img src="assets/clients/heirloom.png" alt="Heirloom Church" loading="lazy"></div></div>
+        <div data-3d-tornado-item class="cards-tornado__item"><div draggable="false" class="tcard"><img src="assets/clients/northpoint.png" alt="Northpoint Church" loading="lazy"></div></div>
+        <div data-3d-tornado-item class="cards-tornado__item"><div draggable="false" class="tcard"><img src="assets/clients/epic-life.png" alt="Epic Life Church" loading="lazy"></div></div>
+        <div data-3d-tornado-item class="cards-tornado__item"><div draggable="false" class="tcard"><img src="assets/clients/voh.png" alt="Village of Hope Maui" loading="lazy"></div></div>
+        <div data-3d-tornado-item class="cards-tornado__item"><div draggable="false" class="tcard"><img src="assets/clients/doxa.png" alt="Doxa Coffee Roasters" loading="lazy"></div></div>
+        <div data-3d-tornado-item class="cards-tornado__item"><div draggable="false" class="tcard"><img src="assets/clients/mojo.svg" alt="Mojo Coffee" loading="lazy"></div></div>
+        <div data-3d-tornado-item class="cards-tornado__item"><div draggable="false" class="tcard"><img src="assets/clients/build-ai.svg" alt="Build AI" loading="lazy"></div></div>
+        <div data-3d-tornado-item class="cards-tornado__item"><div draggable="false" class="tcard"><img src="assets/clients/mosquera.svg" alt="Mosquera Counseling" loading="lazy"></div></div>
+        <div data-3d-tornado-item class="cards-tornado__item"><div draggable="false" class="tcard"><img src="assets/clients/sivils.svg" alt="Sivils Metals" loading="lazy"></div></div>
+      </div>
+    </div>
   </div>
+  <div class="cl-hint">Drag or scroll &middot; the client family</div>
 </section>
 
 <!-- STATS -->
@@ -803,6 +812,7 @@ h1.disp em.sf{background-size:220% 100%;animation:heroShimmer 7s ease-in-out inf
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/Observer.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrambleTextPlugin.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script>
@@ -811,6 +821,7 @@ h1.disp em.sf{background-size:220% 100%;animation:heroShimmer 7s ease-in-out inf
 var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 var fine = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
 gsap.registerPlugin(ScrollTrigger);
+if(window.Observer) gsap.registerPlugin(Observer);
 
 var lenis = null;
 if(!reduced){
@@ -902,6 +913,7 @@ function buildMotion(){
     document.querySelectorAll('.rv').forEach(function(el){ el.style.opacity = 1; el.style.transform = 'none'; });
     initOdometers(true);
     initTextFitToWidth();
+    initCardsTornado(true);
     return;
   }
   gsap.set(h1words, { y: function(i, el){ return el.offsetHeight * 1.2; } });
@@ -933,20 +945,6 @@ function buildMotion(){
     track.style.transform = 'translateX(' + mqx + 'px) skewX(' + Math.max(-8, Math.min(8, -(lenis ? lenis.velocity : 0) * 0.12)) + 'deg)';
   });
 
-  var clt = document.getElementById('clt');
-  if(clt){
-    clt.innerHTML += clt.innerHTML + clt.innerHTML;
-    var clx = 0, clv = 0;
-    gsap.ticker.add(function(){
-      var vel = lenis ? lenis.velocity : 0;
-      clv += (Math.abs(vel) * 0.04 - clv) * 0.08;
-      clx -= (0.4 + clv);
-      var w = clt.scrollWidth / 3;
-      if(-clx >= w) clx += w;
-      clt.style.transform = 'translateX(' + clx + 'px)';
-    });
-  }
-
   gsap.to('#bandm', { yPercent: 18, ease: 'none',
     scrollTrigger: { trigger: '.band', start: 'top bottom', end: 'bottom top', scrub: true } });
 
@@ -958,7 +956,137 @@ function buildMotion(){
   initTeamParallax();
   initOdometers(false);
   initTextFitToWidth();
+  initCardsTornado(false);
   ScrollTrigger.refresh();
+}
+
+/* OSMO: 3D cards tornado (client logos) */
+function initCardsTornado(staticOnly){
+  var containers = gsap.utils.toArray('[data-3d-tornado-init]');
+  if(!containers.length) return;
+  var rotationAngle = 30, cardYSpacing = 0.3, edgeOffset = 2, orbitDepth = 35;
+  var autoSpeed = 0.00325, scrollSpeed = 0.015, dragMultiplier = 5;
+  var scrollEase = 0.1, maxSpeed = 0.2, edgeScale = 0.5;
+  var edgeEase = gsap.parseEase('power2.inOut');
+  var minScale = 1;
+  var isMobile = window.matchMedia('(max-width:880px)').matches;
+  var backDarkness = 0.32, backBlur = isMobile ? 0 : 0.4;
+
+  containers.forEach(function(container){
+    var list = container.querySelector('[data-3d-tornado-list]');
+    var originalCards = gsap.utils.toArray('[data-3d-tornado-item]', list).map(function(c){ return c.cloneNode(true); });
+    if(!list || !originalCards.length) return;
+    var inputObserver = null, resizeTimer;
+    var state = { amount: 0, progress: 0, velocity: autoSpeed, direction: 1, cardHeight: 0, cardGap: 0, em: 16, isActive: false, cards: [] };
+
+    function getCardAmount(){
+      var half = container.offsetHeight * 0.5;
+      var edge = state.cardHeight * edgeOffset;
+      var fade = state.cardHeight * edgeScale;
+      var needed = half + edge + fade;
+      var perSide = Math.ceil(needed / state.cardGap) + 1;
+      var neededAmount = perSide * 2 + 1;
+      var batches = Math.ceil(neededAmount / originalCards.length);
+      return originalCards.length * batches;
+    }
+    function buildCards(){
+      list.innerHTML = '';
+      var m = originalCards[0].cloneNode(true);
+      list.appendChild(m);
+      state.cardHeight = m.offsetHeight;
+      state.cardGap = state.cardHeight * cardYSpacing;
+      state.em = parseFloat(getComputedStyle(m).fontSize);
+      state.amount = getCardAmount();
+      list.innerHTML = '';
+      for(var i = 0; i < state.amount; i++){
+        var card = originalCards[i % originalCards.length].cloneNode(true);
+        card.dataset.index = i;
+        list.appendChild(card);
+      }
+      state.cards = gsap.utils.toArray('[data-3d-tornado-item]', list);
+    }
+    function getEdgeScale(y){
+      var half = container.offsetHeight * 0.5;
+      var edge = state.cardHeight * edgeOffset;
+      var fade = state.cardHeight * edgeScale;
+      var start = half + edge;
+      var pr = gsap.utils.clamp(0, 1, (start - Math.abs(y)) / fade);
+      return edgeEase(pr);
+    }
+    function render(){
+      var radius = orbitDepth * state.em;
+      state.cards.forEach(function(card){
+        var si = parseFloat(card.dataset.index);
+        var loop = ((si + state.progress) % state.amount + state.amount) % state.amount;
+        var index = loop > state.amount * 0.5 ? loop - state.amount : loop;
+        var deg = index * rotationAngle;
+        var rad = deg * Math.PI / 180;
+        var center = 1 - Math.min(Math.abs(index) / (state.amount * 0.5), 1);
+        var y = index * state.cardGap;
+        var baseScale = minScale + center * (1 - minScale);
+        var scale = baseScale * getEdgeScale(y);
+        var back = gsap.utils.clamp(0, 1, (1 - Math.cos(rad)) * 0.5);
+        var brightness = 1 - back * backDarkness;
+        var blur = back * backBlur;
+        gsap.set(card, {
+          xPercent: -50, yPercent: -50,
+          x: Math.sin(rad) * radius, y: y, z: (Math.cos(rad) - 1) * radius,
+          rotateY: deg, scale: scale,
+          filter: 'brightness(' + brightness + ')' + (backBlur ? ' blur(' + blur + 'em)' : ''),
+          autoAlpha: 1, zIndex: Math.round(center * 1000)
+        });
+      });
+    }
+    function tick(){
+      if(!state.isActive) return;
+      var target = autoSpeed * state.direction;
+      state.velocity = gsap.utils.interpolate(state.velocity, target, scrollEase);
+      state.progress += state.velocity;
+      render();
+    }
+    function handleInput(self){
+      if(!state.isActive) return;
+      var delta = self.event.type === 'wheel' ? self.deltaY :
+        Math.abs(self.deltaX) > Math.abs(self.deltaY) ? self.deltaX * dragMultiplier : self.deltaY * dragMultiplier;
+      if(!delta) return;
+      state.direction = delta > 0 ? 1 : -1;
+      state.velocity += delta * scrollSpeed / 100;
+      state.velocity = gsap.utils.clamp(-maxSpeed, maxSpeed, state.velocity);
+    }
+    function setActive(on){
+      state.isActive = on;
+      if(!inputObserver) return;
+      if(on){ inputObserver.enable(); } else { inputObserver.disable(); }
+    }
+    function rebuild(){ buildCards(); render(); }
+
+    rebuild();
+    if(staticOnly || !window.Observer) return;
+
+    inputObserver = Observer.create({
+      target: window,
+      type: 'wheel,touch,pointer',
+      preventDefault: false,
+      lockAxis: true,
+      onChange: handleInput,
+      onPress: function(){ container.style.cursor = 'grabbing'; },
+      onRelease: function(){ container.style.cursor = 'grab'; }
+    });
+    ScrollTrigger.create({
+      trigger: container,
+      start: 'top bottom', end: 'bottom top',
+      onEnter: function(){ setActive(true); },
+      onEnterBack: function(){ setActive(true); },
+      onLeave: function(){ setActive(false); },
+      onLeaveBack: function(){ setActive(false); }
+    });
+    setActive(ScrollTrigger.isInViewport(container));
+    gsap.ticker.add(tick);
+    window.addEventListener('resize', function(){
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function(){ rebuild(); ScrollTrigger.refresh(); }, 150);
+    });
+  });
 }
 
 /* OSMO PACK: per-word masked heading reveals */
