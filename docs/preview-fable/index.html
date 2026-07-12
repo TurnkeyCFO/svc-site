@@ -41,10 +41,10 @@ body.locked{overflow:hidden}
 #prog{position:fixed;top:0;left:0;height:3px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--cfo),var(--ai),var(--web),var(--dsn),var(--seo),var(--rec));z-index:1200}
 header{position:fixed;top:0;left:0;right:0;z-index:1100;padding:0 clamp(16px,4vw,48px);height:76px;display:flex;align-items:center;justify-content:space-between;transition:background .35s,box-shadow .35s,height .35s}
 header.solid{background:rgba(252,251,248,.94);backdrop-filter:blur(16px);box-shadow:0 1px 0 var(--line);height:64px}
-header .hl img{height:34px;width:auto;filter:invert(1);transition:filter .35s}
+header .hl img{height:34px;width:auto;filter:none;transition:filter .35s}
 header.solid .hl img{filter:none}
 nav.dn{display:flex;gap:clamp(14px,2.4vw,32px);align-items:center;font-size:14.5px;font-weight:600}
-nav.dn a{color:#f2f2f0;opacity:.85;transition:opacity .2s,color .35s;position:relative}
+nav.dn a{color:var(--ink);opacity:.85;transition:opacity .2s,color .35s;position:relative}
 nav.dn a::after{content:"";position:absolute;left:0;bottom:-6px;width:100%;height:1.5px;background:currentColor;transform:scaleX(0);transform-origin:100% 50%;transition:transform .3s}
 nav.dn a:hover::after{transform:scaleX(1);transform-origin:0 50%}
 header.solid nav.dn a{color:var(--ink)}
@@ -63,7 +63,7 @@ nav.dn a:hover{opacity:1}
 .btn .ar{display:inline-block;transition:transform .25s}
 .btn:hover .ar{transform:translateX(4px)}
 .burger{display:none;background:none;border:0;cursor:pointer;width:40px;height:40px;position:relative;z-index:1102}
-.burger span{position:absolute;left:8px;right:8px;height:2px;background:#f2f2f0;transition:all .3s}
+.burger span{position:absolute;left:8px;right:8px;height:2px;background:var(--ink);transition:all .3s}
 header.solid .burger span,body.navopen .burger span{background:var(--ink)}
 .burger span:nth-child(1){top:14px}.burger span:nth-child(2){top:20px}.burger span:nth-child(3){top:26px}
 body.navopen .burger span:nth-child(1){top:20px;transform:rotate(45deg)}
@@ -75,31 +75,31 @@ body.navopen #mnav{transform:translateY(0)}
 #mnav .mfoot{margin-top:28px;display:flex;flex-direction:column;gap:12px;font-size:15px;font-weight:600;color:var(--tx2)}
 @media(max-width:960px){nav.dn{display:none}.burger{display:block}}
 
-/* hero */
-#hero{position:relative;min-height:100svh;background:var(--onyx);color:#f5f5f2;display:flex;flex-direction:column;justify-content:center;overflow:hidden;padding:130px clamp(20px,5vw,64px) 100px}
+/* hero — LIGHT theme */
+#hero{position:relative;min-height:100svh;background:var(--cream);color:var(--tx);display:flex;flex-direction:column;justify-content:center;overflow:hidden;padding:130px clamp(20px,5vw,64px) 100px}
 .hero-media{position:absolute;inset:-6% 0;z-index:0;overflow:hidden}
 .hero-media video{width:100%;height:100%;object-fit:cover;display:block}
-#hero .scrim{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(96deg,rgba(8,8,10,.9) 0%,rgba(8,8,10,.6) 42%,rgba(8,8,10,.12) 74%,rgba(8,8,10,.04) 100%)}
-#hero .scrim2{position:absolute;left:0;right:0;bottom:0;height:34%;z-index:1;pointer-events:none;background:linear-gradient(180deg,transparent,rgba(8,8,10,.66))}
+#hero .scrim{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(96deg,rgba(252,251,248,.92) 0%,rgba(252,251,248,.62) 42%,rgba(252,251,248,.16) 74%,rgba(252,251,248,.05) 100%)}
+#hero .scrim2{position:absolute;left:0;right:0;bottom:0;height:34%;z-index:1;pointer-events:none;background:linear-gradient(180deg,transparent,rgba(252,251,248,.72))}
 .hwrap{position:relative;z-index:2;max-width:var(--maxw);margin:0 auto;width:100%}
-.kick{display:inline-flex;align-items:center;gap:12px;font-size:12.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#c9c9c4;margin-bottom:30px}
-.kick::before{content:"";width:38px;height:1.5px;background:linear-gradient(90deg,var(--cfo),var(--ai),var(--web))}
-h1.disp{font-size:clamp(46px,7.6vw,112px);line-height:1.03;font-weight:800;letter-spacing:-.035em;max-width:13ch;color:#fff}
+.kick{display:inline-flex;align-items:center;gap:12px;font-size:12.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--tx2);margin-bottom:30px}
+.kick::before{content:"";width:38px;height:1.5px;background:var(--ink)}
+h1.disp{font-size:clamp(46px,7.6vw,112px);line-height:1.03;font-weight:800;letter-spacing:-.035em;max-width:13ch;color:var(--ink)}
 h1.disp .w{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.14em;margin-bottom:-.14em}
 h1.disp .w>span{display:inline-block;will-change:transform}
-h1.disp em.sf{background:linear-gradient(92deg,var(--cfo),var(--ai) 30%,var(--web) 55%,var(--seo) 80%,var(--rec));-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:.08em}
-.hsub{margin-top:28px;font-size:clamp(16.5px,1.6vw,20.5px);color:#cfcfc9;max-width:56ch;font-weight:500;text-shadow:0 1px 12px rgba(8,8,10,.5)}
-.hsub strong{color:#fff;font-weight:700}
+h1.disp em.sf{background:linear-gradient(92deg,#0B6B43,#00A86B 55%,#0B6B43);-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:.08em}
+.hsub{margin-top:28px;font-size:clamp(16.5px,1.6vw,20.5px);color:var(--tx2);max-width:56ch;font-weight:500;text-shadow:0 1px 12px rgba(252,251,248,.65)}
+.hsub strong{color:var(--ink);font-weight:700}
 .hctas{margin-top:40px;display:flex;gap:16px;flex-wrap:wrap;align-items:center}
-.hnote{margin-top:16px;font-size:13px;color:#9a9a94}
+.hnote{margin-top:16px;font-size:13px;color:#8a8a84}
 .hstats{margin-top:58px;display:flex;gap:clamp(24px,4.5vw,68px);flex-wrap:wrap}
 .hstat{position:relative;padding-left:18px}
-.hstat::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:1.5px;background:linear-gradient(180deg,#fff,transparent)}
-.hstat .n{font-size:clamp(22px,2.6vw,34px);font-weight:800;color:#fff;letter-spacing:-.02em}
-.hstat .l{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#9a9a94;margin-top:2px}
+.hstat::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:1.5px;background:linear-gradient(180deg,var(--ink),transparent)}
+.hstat .n{font-size:clamp(22px,2.6vw,34px);font-weight:800;color:var(--ink);letter-spacing:-.02em}
+.hstat .l{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#8a8a84;margin-top:2px}
 .rv{opacity:0;transform:translateY(28px)}
-.scue{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:#7c7c76}
-.scue .bar{width:1.5px;height:46px;background:linear-gradient(180deg,#fff,transparent);animation:cue 1.9s ease-in-out infinite}
+.scue{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:#8a8a84}
+.scue .bar{width:1.5px;height:46px;background:linear-gradient(180deg,var(--ink),transparent);animation:cue 1.9s ease-in-out infinite}
 @keyframes cue{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
 
 /* hero grid — copy left, brand-cards accordion right (from live site) */
@@ -109,7 +109,7 @@ h1.disp em.sf{background:linear-gradient(92deg,var(--cfo),var(--ai) 30%,var(--we
 @media(max-width:1060px){.hgrid{grid-template-columns:1fr;gap:44px}.hgrid h1.disp{font-size:clamp(42px,7.2vw,88px)}}
 
 /* service accordion (ported from live turnkey-services.org hero) */
-.svc-accordion{display:flex;flex-direction:row;align-items:stretch;gap:10px;width:100%;height:clamp(420px,54vh,520px);padding:6px;border-radius:22px;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,0));overflow:hidden}
+.svc-accordion{display:flex;flex-direction:row;align-items:stretch;gap:10px;width:100%;height:clamp(420px,54vh,520px);padding:6px;border-radius:22px;background:linear-gradient(180deg,rgba(16,16,20,.05),rgba(16,16,20,0));overflow:hidden}
 .svc-panel{position:relative;display:block;flex:0 0 52px;height:100%;border-radius:16px;overflow:hidden;text-decoration:none;cursor:pointer;transition:flex-basis .65s cubic-bezier(.22,.61,.36,1),box-shadow .45s ease,transform .45s ease;isolation:isolate;box-shadow:0 4px 18px rgba(10,10,12,.18)}
 .svc-panel.is-active{flex:1 1 0}
 .svc-panel:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
@@ -415,7 +415,7 @@ h1.disp em.sf{background-size:220% 100%;animation:heroShimmer 7s ease-in-out inf
     <a href="#how">How It Works</a>
   </nav>
   <div class="hcta">
-    <a class="btn em sm mag" href="https://calendly.com/ricky-turnkeycfo/15min-intro-call" target="_blank" rel="noopener">Book a Call</a>
+    <a class="btn dk sm mag" href="https://calendly.com/ricky-turnkeycfo/15min-intro-call" target="_blank" rel="noopener">Book a Call</a>
     <button class="burger" id="bg" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </header>
@@ -434,8 +434,8 @@ h1.disp em.sf{background-size:220% 100%;animation:heroShimmer 7s ease-in-out inf
 <!-- HERO -->
 <section id="hero">
   <div class="hero-media" id="hmedia">
-    <video autoplay muted loop playsinline poster="assets/hero-flow.jpg" id="hvid">
-      <source src="assets/hero-flow.mp4" type="video/mp4">
+    <video autoplay muted loop playsinline poster="assets/hero-cream.jpg" id="hvid">
+      <source src="assets/hero-cream.mp4" type="video/mp4">
     </video>
   </div>
   <div class="scrim"></div>
@@ -447,8 +447,8 @@ h1.disp em.sf{background-size:220% 100%;animation:heroShimmer 7s ease-in-out inf
         <h1 class="disp" id="h1">One team. <em class="sf">Every system.</em></h1>
         <p class="hsub rv">Turnkey Services is built for the in-between — businesses, nonprofits, and church plants growing from nothing to something. <strong>Six service lines, one team, one quality bar,</strong> so you spend your time on the parts only you can do.</p>
         <div class="hctas rv">
-          <a class="btn em mag" href="https://calendly.com/ricky-turnkeycfo/15min-intro-call" target="_blank" rel="noopener">Book a 15-Min Call <span class="ar">→</span></a>
-          <a class="btn gh mag" href="#services">Explore the Services</a>
+          <a class="btn dk mag" href="https://calendly.com/ricky-turnkeycfo/15min-intro-call" target="_blank" rel="noopener">Book a 15-Min Call <span class="ar">→</span></a>
+          <a class="btn lgh mag" href="#services">Explore the Services</a>
         </div>
         <p class="hnote rv">The bridge between starting and scaling.</p>
         <div class="hstats rv">
