@@ -15,7 +15,7 @@
   <meta name="description" content="Quick-access links to all Turnkey service sites, pricing tools, and one-pagers for Turnkey Partners." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #0B0B08;
@@ -37,7 +37,7 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
-      font-family: 'Exo 2', system-ui, -apple-system, sans-serif;
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
       color: var(--text); background: var(--bg);
       overflow-x: hidden; min-height: 100vh;
       -webkit-font-smoothing: antialiased;
@@ -47,8 +47,8 @@
     .bg-glow {
       position: fixed; inset: 0; pointer-events: none; z-index: 0;
       background:
-        radial-gradient(ellipse 70% 50% at 80% 0%, rgba(212,168,67,0.03), transparent),
-        radial-gradient(ellipse 50% 40% at 10% 30%, rgba(212,168,67,0.03), transparent);
+        radial-gradient(ellipse 70% 50% at 80% 0%, rgba(224,185,11,0.03), transparent),
+        radial-gradient(ellipse 50% 40% at 10% 30%, rgba(224,185,11,0.03), transparent);
     }
     .bg-watermark {
       position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -86,8 +86,8 @@
       cursor: pointer; transition: all 200ms ease; font-weight: 600; font-size: 13px;
       color: var(--text-soft); background: transparent; font-family: inherit;
     }
-    .chip:hover { border-color: #D4A843; color: #F0D78C; background: rgba(212,168,67,0.1); }
-    .chip.active { background: #D4A843; color: #0B0B08; border-color: #D4A843; }
+    .chip:hover { border-color: #E0B90B; color: #F3D34A; background: rgba(224,185,11,0.1); }
+    .chip.active { background: #E0B90B; color: #0B0B08; border-color: #E0B90B; }
 
     /* ── HERO ── */
     .hero {
@@ -96,7 +96,7 @@
     .hero-eyebrow {
       display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px;
       border-radius: 999px; border: 1px solid var(--border-accent);
-      background: rgba(212,168,67,0.12); color: #F0D78C;
+      background: rgba(224,185,11,0.12); color: #F3D34A;
       font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; font-weight: 700;
       margin-bottom: 20px;
     }
@@ -106,7 +106,7 @@
       margin-bottom: 14px;
     }
     .hero h1 .accent {
-      background: linear-gradient(90deg, #D4A843, #F0D78C, #C9972D, #F0D78C, #D4A843);
+      background: linear-gradient(90deg, #E0B90B, #F3D34A, #BB8A2E, #F3D34A, #E0B90B);
       background-size: 200% auto;
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -118,7 +118,7 @@
     /* ── SECTIONS ── */
     .service-section {
       padding: 28px 32px 36px; margin-bottom: 28px;
-      background: rgba(15,15,12,0.65); border: 1px solid rgba(212,168,67,0.1);
+      background: rgba(15,15,12,0.65); border: 1px solid rgba(224,185,11,0.1);
       border-radius: var(--radius-xl);
       backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
     }
@@ -127,7 +127,7 @@
     }
     .section-icon {
       width: 48px; height: 48px; border-radius: 14px;
-      background: linear-gradient(135deg, #D4A843 0%, #C9972D 50%, #B5944D 100%);
+      background: linear-gradient(135deg, #E0B90B 0%, #BB8A2E 50%, #C78C2B 100%);
       color: #fff; font-size: 20px; display: grid; place-items: center; flex-shrink: 0;
     }
     .section-label h2 {
@@ -141,7 +141,7 @@
       vertical-align: middle;
     }
     .section-divider {
-      height: 3px; background: linear-gradient(90deg, #D4A843 0%, #F0D78C 40%, transparent 80%);
+      height: 3px; background: linear-gradient(90deg, #E0B90B 0%, #F3D34A 40%, transparent 80%);
       border-radius: 3px; max-width: 160px; margin-bottom: 20px;
     }
     .section-desc {
@@ -171,7 +171,7 @@
     .link-card:hover::after { left: 100%; }
     .link-icon {
       width: 40px; height: 40px; border-radius: 10px; flex-shrink: 0;
-      background: rgba(212,168,67,0.12); border: 1px solid var(--border-accent);
+      background: rgba(224,185,11,0.12); border: 1px solid var(--border-accent);
       display: grid; place-items: center; font-size: 18px;
     }
     .link-info { flex: 1; min-width: 0; }
@@ -185,7 +185,7 @@
     .link-arrow {
       font-size: 18px; color: var(--text-muted); transition: transform 0.2s, color 0.2s; flex-shrink: 0;
     }
-    .link-card:hover .link-arrow { transform: translateX(3px); color: #F0D78C; }
+    .link-card:hover .link-arrow { transform: translateX(3px); color: #F3D34A; }
 
     /* ── COMING SOON CARDS ── */
     .link-card.disabled {
@@ -203,7 +203,7 @@
       color: var(--text-soft); font-size: 13px; font-weight: 600;
       text-decoration: none; transition: color 0.2s;
     }
-    .back-link:hover { color: #F0D78C; }
+    .back-link:hover { color: #F3D34A; }
 
     /* ── FOOTER ── */
     .footer { padding: 32px 0; }
@@ -256,7 +256,7 @@
       transition: all 0.2s ease; font-family: inherit;
     }
     .mobile-overlay a:hover, .mobile-overlay a:active {
-      background: #D4A843; color: #0B0B08; border-color: #D4A843;
+      background: #E0B90B; color: #0B0B08; border-color: #E0B90B;
     }
     @media (max-width: 760px) {
       .container { width: min(calc(100% - 20px), var(--max)); }
